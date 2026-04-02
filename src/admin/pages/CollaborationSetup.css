@@ -1,0 +1,340 @@
+.collaboration-setup-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+
+.collaboration-setup-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.collaboration-setup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.collaboration-setting-section {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--admin-gray-50);
+}
+
+.collaboration-setting-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--admin-gray-900);
+}
+
+.collaboration-slider-wrapper {
+  position: relative;
+  padding: 20px 0 8px;
+}
+
+.collaboration-slider {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--admin-gray-100);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  accent-color: #066daf;
+}
+
+.collaboration-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #066daf;
+  cursor: pointer;
+  border: 2px solid var(--admin-white-500);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.collaboration-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #066daf;
+  cursor: pointer;
+  border: 2px solid var(--admin-white-500);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.collaboration-slider-value {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  background: #066daf;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.collaboration-amount-input {
+  max-width: 100% !important;
+  margin-top: 12px;
+  width: 100% !important;
+}
+
+.collaboration-range-wrapper {
+  position: relative;
+  padding: 12px 0 24px;
+}
+
+.collaboration-range-input {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: transparent;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  accent-color: #066daf;
+  pointer-events: none;
+}
+
+.collaboration-range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #066daf;
+  cursor: pointer;
+  border: 2px solid var(--admin-white-500);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  pointer-events: all;
+}
+
+.collaboration-range-input::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #066daf;
+  cursor: pointer;
+  border: 2px solid var(--admin-white-500);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  pointer-events: all;
+}
+
+.collaboration-range-input::-webkit-slider-runnable-track {
+  height: 6px;
+  background: transparent;
+  border-radius: 3px;
+}
+
+.collaboration-range-input::-moz-range-track {
+  height: 6px;
+  background: transparent;
+  border-radius: 3px;
+}
+
+.collaboration-range-value {
+  position: absolute;
+  top: -16px;
+  transform: translateX(-50%);
+  background: #066daf;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.collaboration-radio-group {
+  display: flex;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.collaboration-radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--admin-gray-700);
+}
+
+.collaboration-radio-label input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--admin-primary-600);
+}
+
+.collaboration-field-label {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  color: var(--admin-gray-700);
+}
+
+.collaboration-field-label span {
+  font-weight: 500;
+  color: var(--admin-gray-900);
+}
+
+.collaboration-tags-input {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  align-items: center;
+  padding: 0px 6px !important;
+  border: 1px solid var(--admin-gray-50);
+  border-radius: 6px;
+  background: var(--admin-white-50);
+  min-height: 47px !important;
+}
+
+.collaboration-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 5px;
+  background: var(--admin-white-100);
+  border: 1px solid var(--admin-gray-50);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 300 !important;
+  color: var(--admin-gray-900);
+}
+
+.collaboration-tag-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: transparent;
+  color: var(--admin-gray-500);
+  cursor: pointer;
+  padding: 0;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.collaboration-tag-remove:hover {
+  background: var(--admin-gray-200);
+  color: var(--admin-gray-900);
+}
+
+.collaboration-tag-remove i {
+  font-size: 12px;
+}
+
+.collaboration-tags-input .consultancy-select {
+  flex: 1;
+}
+
+.collaboration-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--admin-gray-700);
+  margin-bottom: 12px;
+}
+
+.collaboration-checkbox-label:last-child {
+  margin-bottom: 0;
+}
+
+.collaboration-checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--admin-primary-600);
+}
+
+.collaboration-setup-actions {
+  display: flex;
+  gap: 12px;
+  padding-top: 12px;
+}
+
+.setting-card{
+  width: 100%;
+  display: flex;
+  align-self: start;
+  justify-content: start;
+  gap: 24px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--admin-gray-50);
+}
+
+@media (max-width: 768px) {
+  .collaboration-setting-section {
+    padding: 16px;
+  }
+
+  .collaboration-radio-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .collaboration-setup-actions {
+    flex-direction: column;
+  }
+
+  .collaboration-setup-actions .btn-dark,
+  .collaboration-setup-actions .btn-light {
+    width: 100%;
+  }
+}
+
+
+.step-card-title{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--admin-gray-900);
+}
+
+.step-card-description{
+  font-size: 12px;
+  color: var(--admin-gray-500);
+  font-weight: 300;
+}
+
+.form-input-group{
+  max-width: 100% !important;
+}
+
+.setting-card-left{
+  width: 50%;
+}
+
+.setting-card-right{
+  width: 30%;
+}
+
+.form-input-group input
+{
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.multi-select-dropdown{
+  border: none !important;
+  background-color: none !important;
+}

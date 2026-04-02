@@ -1,0 +1,114 @@
+/* Premium Modal Styles */
+.premium-modal .modal-dialog {
+  max-width: 500px;
+}
+
+.premium-modal .modal-content {
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.premium-modal .modal-content .modal-body {
+  padding: 18px;
+  margin: 0 !important;
+}
+
+.premium-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  font-size: 24px;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  z-index: 1;
+  padding: 0;
+}
+
+.premium-modal-close:hover {
+  background-color: #f3f4f6;
+  color: #1f2937;
+}
+
+.premium-modal-close i {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.premium-modal-body {
+  padding: 40px 32px;
+  text-align: center;
+}
+
+.premium-modal-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+  padding-bottom: 12px;
+  text-align: left;
+}
+
+.premium-modal-divider {
+  width: 60px;
+  height: 3px;
+  background-color: #f97316;
+  margin: 0 0 12px 0;
+  border-radius: 2px;
+}
+
+.premium-modal-text {
+  font-size: 16px;
+  color: #374151;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+  text-align: left;
+}
+
+.premium-modal-text strong {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.premium-modal-button {
+  width: 100%;
+  padding: 10px 24px !important;
+  background-color: var(--admin-primary-500) !important;
+  color: var(--admin-white-500) !important;
+  border: none !important;
+  border-radius: 4px;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  cursor: pointer;
+  transition: background-color 0.2s ease !important;
+  margin-top: 12px;
+}
+
+.premium-modal-button:hover {
+  background-color: var(--admin-primary-600) !important;
+}
+
+.premium-modal-button:active {
+  background-color: var(--admin-primary-700) !important;
+}
+
+/* Bootstrap modal backdrop customization */
+.modal-backdrop.show {
+  opacity: 0.5;
+}
+
+
+.modal-footer{
+  justify-content: flex-start !important;
+}

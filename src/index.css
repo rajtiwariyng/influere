@@ -1,0 +1,311 @@
+/* Import Design System - Colors and Typography Only */
+@import './styles/design-system/variables.css';
+
+/* Import Component Styles */
+@import './styles/components/navbar.css';
+@import './styles/components/footer.css';
+@import './styles/components/registration.css';
+@import './styles/components/login-modal.css';
+
+
+.hero-section{
+    background-image: url('../src/assets/hero-bg.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 14px;
+    padding: 3rem 4rem;
+    margin-top: auto;
+}
+
+.hero-section h4, .hero-section h1{
+    text-transform: capitalize;
+    color: var(--white-50);
+}
+
+.trust-tag{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #ffffff20;
+    padding: 0.5rem 1rem;
+    width: fit-content;
+    border-radius: 32px;
+    margin-top: 1rem;
+    border: 1px solid var(--violet-300);
+}
+
+.trust-tag .trust-tag-content h5 , .trust-tag .trust-tag-content p{
+    font-size: 12px;
+}
+
+.about-section{
+    background-color: var(--violet-500);
+    padding: 3rem 4rem;
+}
+
+.line{
+    height: 1px;
+    border-radius: 12px;
+    width: 28px;
+    background-color: var(--warning-500);
+    margin-bottom: 24px;
+}
+
+.professional-section .container{
+    border-radius: 14px;
+    overflow: hidden;
+    background-color: var(--warning-500);
+}
+
+.professional-section .professional-content{
+    background-color: var(--warning-500);
+    padding: 3rem 4rem;
+}   
+
+.services-section{
+    position: relative;
+    margin-top: 234px;
+    padding-bottom: 234px;
+}
+/* 
+.services-icon{
+    position: absolute;
+}
+
+.services-icon-1{
+    top: -204px;
+    right: 128px;
+}
+
+.services-icon-2{
+    top: 0;
+    right: 32px;
+}
+
+.services-icon-3{
+    top: 204px;
+    right: 32px;
+}
+
+.services-icon-4{
+    top: 404px;
+    right: 32px;
+}
+
+.services-icon-5{
+    top: 604px;
+    right: 128px;
+}
+
+.services-icon-6{
+    top: -204px;
+    right: 41.70%;
+}
+
+.services-icon-7{
+    top: 604px;
+    right: 41.70%;
+}
+
+.services-icon-8{
+    top: -204px;
+    left: 128px;
+}
+
+.services-icon-9{
+    top: 0;
+    left: 32px;
+}
+
+.services-icon-10{
+    top: 204px;
+    left: 32px;
+}
+
+.services-icon-11{
+    top: 404px;
+    left: 32px;
+}
+
+.services-icon-12{
+    top: 604px;
+    left: 128px;
+} */
+
+
+/* Hexagon wrapper using clip-path */
+.hex {
+    width: var(--size);
+    aspect-ratio: 1/1;
+    clip-path: polygon(25% 6.698%, 75% 6.698%, 100% 50%, 75% 93.302%, 25% 93.302%, 0% 50%);
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #292A2A;
+    transition: transform .18s ease, box-shadow .18s ease, opacity .3s ease;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    top: -142px;
+    right: 128px;
+}
+
+.hex:hover {
+    transform: translateY(-6px) scale(1.02);
+    clip-path: none;
+    /* becomes rectangle */
+    border-radius: 8px;
+    border: 2px solid #FF562F;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    width: 280px;
+    justify-content: flex-start;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 1;
+}
+
+.hex-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 0px 12px;
+    text-align: center;
+    transition: all .25s ease;
+}
+
+.subtitle {
+    font-size: 12px;
+    opacity: 0;
+    margin-top: 2px;
+    font-weight: 400;
+    overflow: hidden;
+    transition: opacity .25s ease, max-height .25s ease;
+}
+
+.hex:hover .hex-content {
+    align-items: flex-start;
+    text-align: left;
+}
+
+.hex svg {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    display: block;
+}
+
+.hex h3 {
+    margin: 0;
+    font-size: 14px;
+    color: var(--violet-500);
+    line-height: 1;
+    letter-spacing: 0.2px;
+    font-weight: 600;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+/* small utility classes */
+.sm {
+    --size: 120px;
+    --icon-size: 28px;
+}
+
+.md {
+    --size: 160px;
+    --icon-size: 36px;
+}
+
+.lg {
+    --size: 240px;
+    --icon-size: 64px;
+}
+
+/* optional inner badge or subtitle */
+.subtitle {
+    font-size: .78rem;
+    opacity: 0;
+    margin-top: 2px;
+    font-weight: 500;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity .25s ease, max-height .25s ease;
+}
+
+.hex:hover .subtitle {
+    opacity: 1;
+    max-height: 100%;
+    font-size: .78rem;
+    opacity: .95;
+    margin-top: 2px;
+    font-weight: 400;
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+}
+
+/* Accessible focus style if hex is interactive */
+.hex[tabindex] {
+    outline: none;
+}
+
+.hex:focus {
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.14);
+    transform: translateY(-4px);
+}
+.hexagon-section .hex:nth-child(1){
+    top: 0px;
+    right: -142px;
+}
+.hexagon-section .hex:nth-child(2){
+    top: 42px;
+    right: 38px;
+}
+.hexagon-section .hex:nth-child(3){
+    top: 248px;
+    right: 38px;
+}
+.hexagon-section .hex:nth-child(4){
+    top: 448px;
+    right: 38px;
+}
+.hexagon-section .hex:nth-child(5){
+    top: 618px;
+    right: 158px;
+}
+.hexagon-section .hex:nth-child(6){
+    top: -136px;
+    right: 42.74%;
+}
+.hexagon-section .hex:nth-child(7){
+    top: -142px;
+    left: 130px;
+}
+.hexagon-section .hex:nth-child(8){
+    top: 38px;
+    left: 38px;
+}
+.hexagon-section .hex:nth-child(9){
+    top: 250px;
+    left: 38px;
+}
+.hexagon-section .hex:nth-child(10){
+    top: 458px;
+    left: 38px;
+}
+.hexagon-section .hex:nth-child(11){
+    top: 618px;
+    left: 158px;
+}
+.hexagon-section .hex:nth-child(12){
+    top: 578px;
+    right: 42.75%;
+}

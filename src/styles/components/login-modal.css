@@ -1,0 +1,297 @@
+/* Login Modal Styles */
+.login-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 1rem;
+}
+
+.login-modal {
+  background: var(--white-50);
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  max-width: 540px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.login-modal-content {
+  padding: 2rem;
+}
+
+/* Login Header */
+.login-header {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.login-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 0.5rem 0;
+}
+
+.login-subtitle {
+  font-size: var(--font-size-base);
+  color: var(--gray-600);
+  margin: 0 0 0.5rem 0;
+}
+
+.login-divider {
+  height: 2px;
+  background: var(--warning-500);
+  width: 40px;
+  border-radius: 1px;
+}
+
+/* Login Form */
+.login-form {
+  margin-bottom: 0.5rem;
+}
+
+.login-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.login-form .form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 0.5rem;
+  font-size: var(--font-size-base);
+  transition: all 0.2s ease;
+  background: var(--white-50);
+}
+
+.login-form .form-control:focus {
+  outline: none;
+  border-color: var(--violet-500);
+  box-shadow: 0 0 0 3px rgba(84, 41, 128, 0.1);
+}
+
+.login-form .form-control::placeholder {
+  color: var(--gray-400);
+}
+
+/* Form Options */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  color: var(--gray-700);
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.checkbox-custom {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--warning-500);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.checkbox-input:checked + .checkbox-custom {
+  background: var(--warning-500);
+  border-color: var(--warning-500);
+}
+
+.checkbox-input:checked + .checkbox-custom::after {
+  content: '✓';
+  color: var(--white-50);
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.checkbox-text {
+  font-size: var(--font-size-sm);
+  color: var(--gray-700);
+}
+
+.forgot-password-link {
+  color: var(--blue-500);
+  text-decoration: underline;
+  font-size: var(--font-size-sm);
+  transition: color 0.2s ease;
+}
+
+.forgot-password-link:hover {
+  color: var(--blue-600);
+}
+
+/* Sign In Button */
+.btn-signin {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background: var(--violet-500);
+  color: var(--white-50);
+  border: none;
+  border-radius: 0.5rem;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 1rem;
+}
+
+.btn-signin:hover {
+  background: var(--violet-600);
+  color: var(--white-50);
+}
+
+.btn-signin:active {
+  transform: translateY(1px);
+}
+
+/* Sign Up Link */
+.signup-link {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: var(--font-size-sm);
+  color: var(--gray-700);
+}
+
+.signup-link-text {
+  color: var(--blue-500);
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.signup-link-text:hover {
+  color: var(--blue-600);
+}
+
+/* Divider Section */
+.divider-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--gray-300);
+}
+
+.divider-text {
+  padding: 0 1rem;
+  font-size: var(--font-size-sm);
+  color: var(--gray-500);
+  background: var(--white-50);
+}
+
+/* Google Button */
+.btn-google {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background: var(--white-50);
+  color: var(--gray-700);
+  border: 1px solid var(--gray-300);
+  border-radius: 0.5rem;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.btn-google:hover {
+  background: var(--gray-50);
+  border-color: var(--gray-400);
+}
+
+.btn-google:active {
+  transform: translateY(1px);
+}
+
+.google-icon {
+  flex-shrink: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .login-modal {
+    margin: 0.5rem;
+    max-width: none;
+  }
+  
+  .login-modal-content {
+    padding: 32px;
+  }
+  
+  .login-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .form-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .forgot-password-link {
+    align-self: flex-end;
+  }
+}
+
+/* Animation */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.login-modal {
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+/* Close button (if needed) */
+.login-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--gray-400);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.login-modal-close:hover {
+  color: var(--gray-600);
+}

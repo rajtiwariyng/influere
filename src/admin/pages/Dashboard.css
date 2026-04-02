@@ -1,0 +1,538 @@
+/* ===================================================================
+   DASHBOARD STYLES
+   ===================================================================
+   Main container and layout styles for the admin dashboard
+   =================================================================== */
+
+.dashboard {
+  padding: 16px;
+  background-color: var(--admin-white-50);
+  min-height: calc(100vh - var(--admin-header-height));
+}
+
+
+/* ===================================================================
+   METRICS CARDS SECTION
+   ===================================================================
+   Dashboard metrics cards displaying followers, unfollowers, etc.
+   =================================================================== */
+
+/* Metrics Container */
+.dashboard-metrics {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+/* Base Metric Card */
+.metric-card {
+  background: white;
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Followers Card Variant */
+.followers-card {
+  background: var(--admin-white-400);
+  color: var(--admin-gray-900) !important;
+}
+
+/* Unfollowers Card Variant */
+.unfollowers-card {
+  background: var(--admin-warning-50);
+  color: var(--admin-gray-900) !important;
+}
+
+/* Metric Icon Container */
+.metric-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.metric-icon img {
+  width: 100%;
+  height: auto;
+}
+
+/* Icon Backgrounds */
+.followers-card .metric-icon {
+  background: var(--admin-primary-100);
+}
+
+.unfollowers-card .metric-icon {
+  background: var(--admin-warning-200);
+}
+
+/* Metric Content */
+.metric-content {
+  flex: 1;
+}
+
+.metric-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 8px 0;
+  opacity: 0.9;
+}
+
+.metric-value {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Metric Change Indicator */
+.metric-change {
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.metric-change.positive {
+  color: #10B981;
+}
+
+.metric-change.negative {
+  color: #EF4444;
+}
+
+.change-icon {
+  font-size: 16px;
+}
+
+
+/* ===================================================================
+   CHART SECTION
+   ===================================================================
+   Analytics chart with timeframe selector
+   =================================================================== */
+
+/* Chart Container */
+.dashboard-chart-section {
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid var(--admin-gray-50);
+}
+
+/* Chart Header */
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.chart-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--admin-gray-900);
+  margin: 0;
+}
+
+/* Timeframe Selector */
+.timeframe-selector {
+  display: flex;
+  gap: 8px;
+}
+
+.timeframe-btn {
+  padding: 6px 12px;
+  border: 1px solid var(--admin-gray-300);
+  background: white;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--admin-gray-200);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.timeframe-btn:hover {
+  background: var(--admin-gray-50);
+}
+
+.timeframe-btn.active {
+  background: var(--admin-gray-900);
+  color: white;
+  border-color: var(--admin-gray-900);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* Chart Canvas */
+.chart-container {
+  height: 300px;
+}
+
+
+/* ===================================================================
+   TABLE SECTION
+   ===================================================================
+   Data table for displaying user activity, followers, etc.
+   =================================================================== */
+
+/* Table Container */
+.dashboard-table-section {
+  border-radius: 6px;
+  padding: 12px;
+  background-color: var(--admin-white-50);
+  border: 1px solid var(--admin-gray-50);
+}
+
+/* Table Header */
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.table-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--admin-gray-900);
+  margin: 0;
+}
+
+.view-all-btn {
+  background-color: #F9F9F9 !important;
+  border: 1px solid #D1D5DB !important;
+  color: var(--admin-gray-600) !important;
+  border-radius: 4px !important;
+  padding: 5px 10px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+
+.view-all-btn:hover {
+  text-decoration: none;
+}
+
+/* Table Controls (Search and Filters) */
+.table-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* Search Box */
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--admin-white-50);
+  border: 1px solid var(--admin-gray-50);
+  border-radius: 6px;
+  padding: 6px 12px;
+  min-width: 320px;
+}
+
+.search-box img {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  opacity: 0.5;
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  flex: 1;
+  font-size: 14px;
+}
+
+.search-box input::placeholder {
+  color: var(--admin-gray-400);
+}
+
+/* Filter Button */
+.filter-btn {
+  background-color: var(--admin-white-50) !important;
+  color: var(--admin-gray-600) !important;
+  border: 1px solid var(--admin-gray-50) !important;
+  border-radius: 6px;
+  padding: 6px 12px !important;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn:hover {
+  background-color: var(--admin-gray-50) !important;
+  color: var(--admin-gray-900) !important;
+}
+
+/* Data Table */
+
+.table-container-wrapper{
+  background-color: #F4F7FC75 !important;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--admin-gray-50);
+}
+.table-container {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Table Header */
+.data-table th {
+  /* background: var(--admin-gray-50); */
+  padding: 8px 12px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--admin-gray-600);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--admin-gray-50);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Table Body */
+.data-table td {
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: var(--admin-white-50);
+  color: var(--admin-gray-900);
+}
+
+/* Table Cell Content */
+.table-name {
+  font-weight: 500;
+  color: var(--admin-gray-900);
+}
+
+.table-username {
+  color: var(--admin-gray-600);
+}
+
+.table-platform {
+  color: var(--admin-gray-700);
+}
+
+.table-date {
+  color: var(--admin-gray-600);
+}
+
+/* Table Pagination */
+.table-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--admin-gray-50);
+}
+
+.pagination-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--admin-gray-600);
+}
+
+.pagination-info select {
+  border: 1px solid var(--admin-gray-300);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 14px;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagination-controls button {
+  background: var(--admin-gray-100);
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--admin-gray-600);
+}
+
+.pagination-controls button:hover {
+  background: var(--admin-gray-200);
+}
+
+.pagination-controls span {
+  font-size: 14px;
+  color: var(--admin-gray-600);
+  margin: 0 8px;
+}
+
+
+/* ===================================================================
+   USER CARD SECTION
+   ===================================================================
+   User profile card with photo, details, and links
+   =================================================================== */
+
+/* User Card Container */
+.user-card {
+  border: 1px solid var(--admin-gray-50);
+  border-radius: 6px;
+  position: relative;
+}
+
+/* Card Header Background */
+.user-card .card-header {
+  background-color: var(--admin-white-400);
+  padding: 42px;
+}
+
+/* User Profile Photo */
+.user-card .user-profile-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 64px;
+  overflow: hidden;
+  margin: 0px 12px;
+  position: absolute;
+  top: 35px;
+}
+
+.user-card .user-profile-photo img {
+  max-width: 124px;
+  object-fit: cover;
+}
+
+/* User Details Container */
+.user-card .user-details {
+  margin-top: 58px;
+  padding: 0px 12px;
+}
+
+.user-card .user-details .top-details .username {
+  color: var(--admin-gray-900);
+}
+
+/* Linktree Button */
+.user-card .user-details .d-flex .linktree-btn {
+  color: var(--admin-gray-900) !important;
+  text-decoration: none !important;
+  font-size: 14px;
+  background-color: var(--admin-warning-50);
+  border: 1px solid var(--admin-warning-500);
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+/* User Links and Contact Details */
+.user-card .user-details .user-linktree,
+.user-card .user-details .contact-details {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--admin-gray-50);
+}
+
+/* Text Span Utility */
+.tspan {
+  font-size: 12px;
+  color: var(--admin-gray-600) !important;
+}
+
+
+/* ===================================================================
+   RESPONSIVE DESIGN
+   ===================================================================
+   Mobile and tablet responsive styles
+   =================================================================== */
+
+/* Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 16px;
+  }
+
+  .dashboard-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .timeframe-selector {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .user-card .user-details .top-details .edit-profile-btn {
+    color: #0088FF !important;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .table-controls {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .search-box {
+    min-width: auto;
+  }
+
+  .table-pagination {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+}
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .metric-card {
+    padding: 16px;
+  }
+
+  .metric-value {
+    font-size: 24px;
+  }
+
+  .chart-container {
+    height: 250px;
+  }
+}

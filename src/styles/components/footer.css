@@ -1,0 +1,30 @@
+/* Footer Component Styles - Bootstrap Compatible */
+
+.footer{
+  background-color: var(--white-200);
+  padding-top: 42px;
+  padding-bottom: 24px;
+  border-top: 1px solid var(--violet-50);
+}
+.footer .social-media-icons{
+  display: flex;
+  gap:6px;
+  margin-top: 24px;
+}
+
+.footer .footer-col{
+  margin-bottom: 24px;
+}
+.footer .footer-link{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-sm);
+  color: var(--gray-600);
+}
+
+.footer .footer-bottom{
+  font-size: 14px;
+  padding-top: 24px;
+  border-top: 1px solid var(--violet-50);
+}

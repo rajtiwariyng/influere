@@ -1,0 +1,450 @@
+/* ===================================================================
+   WITHDRAW CONFIRMATION PAGE
+   ===================================================================
+   Dedicated page for confirming withdrawal details
+   =================================================================== */
+
+.withdraw-confirm-page {
+  padding: 12px;
+  background-color: var(--admin-white-50);
+  min-height: calc(100vh - var(--admin-header-height));
+}
+
+.withdraw-confirm-container {
+  width: 100%;
+  margin: 0 auto;
+  background: var(--admin-white-50);
+  border-radius: 6px;
+  border: 1px solid var(--admin-gray-50);
+  padding: 16px;
+}
+
+.withdraw-confirm-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--admin-gray-900);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--admin-gray-50);
+}
+
+/* Recipient Information Section */
+.withdraw-recipient-section {
+  background: #F8F4FF;
+  border: 1px solid #E9D7FE;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.recipient-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #666;
+  min-width: 40px;
+}
+
+.recipient-info-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+.recipient-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--admin-primary-500);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.recipient-icon i {
+  font-size: 24px;
+  color: white;
+}
+
+.recipient-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.recipient-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+
+.recipient-account {
+  font-size: 16px;
+  font-weight: 600;
+  color: #666;
+  margin: 0;
+}
+
+/* Amount Display Section */
+.withdraw-amount-display {
+  margin-bottom: 16px;
+}
+
+.amount-label-text {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.amount-with-balance {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.amount-value-display {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--admin-primary-500);
+  margin: 0;
+}
+
+.balance-indicator {
+  background: #FFF7ED;
+  color: #C2410C;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Action Buttons - Uses global .btn-dark and .btn-light classes */
+.withdraw-confirm-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+
+/* ===================================================================
+   OTP VERIFICATION MODAL
+   ===================================================================
+   Uses global classes: .modal-overlay, .modal-container, .modal-close,
+   .modal-title, .modal-footer, .form-input, .btn-dark, .btn-light
+   =================================================================== */
+
+.otp-modal {
+  max-width: 450px;
+}
+
+.otp-section {
+  margin: 20px 0;
+}
+/* 
+.otp-input {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 8px;
+  padding: 16px;
+} */
+
+.otp-footer-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.otp-timer {
+  font-size: 14px;
+  color: var(--admin-gray-600);
+}
+
+.otp-resend {
+  background: transparent;
+  border: none;
+  color: var(--admin-primary-500);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: all 0.2s;
+}
+
+.otp-resend:hover {
+  color: var(--admin-primary-600);
+}
+
+
+/* ===================================================================
+   PAYMENT RESULT MODALS (Success/Failed)
+   ===================================================================
+   Uses global classes: .modal-overlay, .modal-container, .btn-dark, .btn-light
+   =================================================================== */
+
+.payment-result-modal {
+  max-width: 500px;
+  text-align: center;
+  padding: 0;
+  overflow: visible;
+}
+
+.payment-result-bg {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  border-radius: 12px 12px 0 0;
+  margin-bottom: -30px;
+}
+
+.payment-bg-image {
+  width: 100%;
+  height: 172px;
+  display: block;
+  max-width: 100%;
+}
+
+.payment-result-content {
+  padding-top: 16px;
+  padding-bottom: 0px;
+  position: relative;
+  margin-top: 94px;
+  width: 100%;
+}
+
+/* Result Icon */
+.payment-result-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.payment-result-icon.success {
+  background: #14804A;
+}
+
+.payment-result-icon.failed {
+  background: #DC2626;
+}
+
+.payment-result-icon i {
+  font-size: 40px;
+  color: white;
+  font-weight: bold;
+}
+
+/* Result Title */
+.payment-result-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+}
+
+.payment-result-title.success {
+  color: #14804A;
+}
+
+.payment-result-title.failed {
+  color: #DC2626;
+}
+
+/* Amount Section */
+.payment-amount-section {
+  margin-bottom: 20px;
+}
+
+.payment-amount-label {
+  font-size: 14px;
+  color: #999;
+  margin: 0 0 8px 0;
+}
+
+.payment-amount-value {
+  font-size: 48px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+  line-height: 1;
+}
+
+/* Result Message */
+.payment-result-message {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 20px 0;
+  line-height: 1.6;
+}
+
+/* Transaction ID */
+.payment-transaction-id {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.transaction-id-label {
+  font-size: 14px;
+  color: #333;
+}
+
+.transaction-id-value {
+  font-size: 14px;
+  color: #3B82F6;
+  font-weight: 600;
+}
+
+.copy-btn {
+  background: transparent;
+  border: 1px solid var(--admin-gray-300);
+  border-radius: 4px;
+  padding: 4px 6px;
+  cursor: pointer;
+  color: var(--admin-gray-600);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copy-btn:hover {
+  background: var(--admin-gray-50);
+  border-color: var(--admin-gray-400);
+}
+
+.copy-btn i {
+  font-size: 14px;
+}
+
+/* Timestamp */
+.payment-timestamp {
+  font-size: 14px;
+  color: #999;
+  margin: 0 0 24px 0;
+}
+
+/* Result Actions */
+.payment-result-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.payment-result-actions .btn-dark,
+.payment-result-actions .btn-light {
+  flex: 1;
+  max-width: 100%;
+}
+
+
+/* ===================================================================
+   RESPONSIVE DESIGN
+   =================================================================== */
+
+/* Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+  .withdraw-confirm-page {
+    padding: 16px;
+  }
+
+  .withdraw-confirm-container {
+    padding: 24px;
+  }
+
+  .withdraw-confirm-title {
+    font-size: 20px;
+  }
+
+  .withdraw-recipient-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .amount-value-display {
+    font-size: 40px;
+  }
+
+  .withdraw-confirm-buttons {
+    flex-direction: column;
+  }
+
+  .otp-modal {
+    max-width: 100%;
+  }
+
+  .otp-input {
+    font-size: 20px;
+    letter-spacing: 6px;
+  }
+
+  .payment-result-modal {
+    max-width: 95%;
+  }
+
+  /* .payment-result-content {
+    padding: 24px;
+  } */
+
+  .payment-amount-value {
+    font-size: 40px;
+  }
+
+  .payment-result-actions {
+    flex-direction: column;
+  }
+
+  .payment-result-actions .btn-dark,
+  .payment-result-actions .btn-light {
+    max-width: 100%;
+  }
+}
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .withdraw-confirm-container {
+    padding: 20px;
+  }
+
+  .payment-amount-value {
+    font-size: 36px;
+  }
+
+  .payment-result-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .payment-result-icon i {
+    font-size: 32px;
+  }
+
+  .payment-result-title {
+    font-size: 20px;
+  }
+
+  .amount-value-display {
+    font-size: 36px;
+  }
+
+  .amount-with-balance {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+

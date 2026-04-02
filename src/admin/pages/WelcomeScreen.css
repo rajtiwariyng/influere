@@ -1,0 +1,277 @@
+/* Welcome Screen Styles */
+.welcome-screen {
+  min-height: calc(100vh - var(--admin-header-height));
+  background-color: var(--admin-white-50);
+  padding: var(--admin-space-8) var(--admin-space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--admin-space-8);
+}
+
+/* Header Section */
+.welcome-header {
+  text-align: left;
+  max-width: 800px;
+}
+
+.welcome-title {
+  font-size: var(--admin-font-size-4xl);
+  font-weight: var(--admin-font-weight-bold);
+  color: var(--admin-primary-500) !important;
+  margin: 0 0 var(--admin-space-4) 0;
+  line-height: var(--admin-line-height-tight);
+}
+
+.welcome-subtitle {
+  font-size: var(--admin-font-size-lg);
+  color: var(--admin-gray-400);
+  margin: 0;
+  line-height: var(--admin-line-height-normal);
+}
+
+/* Setup Card */
+.welcome-setup-card {
+  background-image: url('../../assets/welcome-banner.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: var(--admin-radius-2xl);
+  padding: var(--admin-space-12);
+  position: relative;
+  overflow: hidden;
+}
+
+.setup-card-content {
+  display: flex;
+  align-items: center;
+  gap: var(--admin-space-12);
+  position: relative;
+  z-index: 1;
+}
+
+.setup-card-text {
+  flex: 1;
+}
+
+.setup-card-title {
+  font-size: var(--admin-font-size-3xl);
+  font-weight: var(--admin-font-weight-bold);
+  color: var(--admin-gray-900);
+  margin: 0 0 var(--admin-space-4) 0;
+  line-height: var(--admin-line-height-tight);
+}
+
+.setup-card-description {
+  font-size: var(--admin-font-size-lg);
+  color: var(--admin-gray-400) !important;
+  margin: 0 0 var(--admin-space-6) 0;
+  line-height: var(--admin-line-height-relaxed);
+}
+
+.setup-card-button {
+  background-color: #FF562F !important;
+  color: #fff !important;
+  border: none;
+  padding: 10px 16px !important;
+  border-radius: 4px !important;
+  font-size: 16px !important;
+  cursor: pointer;
+  transition: all var(--admin-transition-base);
+  box-shadow: var(--admin-shadow-md);
+  margin-top: 16px !important;
+}
+
+.setup-card-button:hover {
+  background-color: var(--admin-warning-600);
+  transform: translateY(-2px);
+  box-shadow: var(--admin-shadow-lg);
+}
+
+.setup-card-illustration {
+  flex: 0 0 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.setup-illustration-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--admin-radius-lg);
+}
+
+/* Features Section */
+.welcome-features-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.features-section-title {
+  font-size:20px;
+  font-weight: normal !important;
+  color: var(--admin-gray-900);
+  margin-bottom: 12px !important;
+}
+
+.features-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--admin-space-6);
+}
+
+.feature-card {
+  background-color: var(--admin-white-200);
+  border-radius: var(--admin-radius-xl);
+  padding: var(--admin-space-8);
+  box-shadow: var(--admin-shadow-sm);
+  transition: all var(--admin-transition-base);
+  position: relative;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--admin-shadow-lg);
+  border-color: var(--admin-primary-200);
+}
+
+.feature-card-icon {
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: var(--admin-space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;;
+  border-radius: var(--admin-radius-lg);
+}
+
+.feature-icon-img {
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain;
+}
+
+.feature-card-title {
+  font-size: var(--admin-font-size-xl);
+  font-weight: var(--admin-font-weight-semibold);
+  color: var(--admin-gray-900);
+  margin: 0 0 var(--admin-space-3) 0;
+}
+
+.feature-card-description {
+  font-size: var(--admin-font-size-base);
+  color: var(--admin-gray-600);
+  margin: 0 0 var(--admin-space-6) 0;
+  line-height: var(--admin-line-height-normal);
+}
+
+.feature-card-link {
+  background: none;
+  border: none;
+  color: var(--admin-warning-500);
+  font-size: var(--admin-font-size-base);
+  font-weight: var(--admin-font-weight-medium);
+  cursor: pointer;
+  transition: color var(--admin-transition-base);
+  padding: 0;
+}
+
+.feature-card-link:hover {
+  color: var(--admin-warning-600);
+  text-decoration: underline;
+}
+
+.dashboard-nav-button {
+  background-color: var(--admin-primary);
+  color: var(--admin-text-inverse);
+  border: none;
+  padding: var(--admin-space-4) var(--admin-space-8);
+  border-radius: var(--admin-radius-lg);
+  font-size: var(--admin-font-size-lg);
+  font-weight: var(--admin-font-weight-semibold);
+  cursor: pointer;
+  transition: all var(--admin-transition-base);
+  box-shadow: var(--admin-shadow-md);
+}
+
+.dashboard-nav-button:hover {
+  background-color: var(--admin-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--admin-shadow-lg);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .welcome-screen {
+    padding: var(--admin-space-6) var(--admin-space-4);
+    gap: var(--admin-space-6);
+    min-height: calc(100vh - var(--admin-header-height) - 2rem);
+  }
+  
+  .welcome-title {
+    font-size: var(--admin-font-size-3xl);
+  }
+  
+  .welcome-subtitle {
+    font-size: var(--admin-font-size-base);
+  }
+  
+  .welcome-setup-card {
+    padding: var(--admin-space-8);
+  }
+  
+  .setup-card-content {
+    flex-direction: column;
+    gap: var(--admin-space-6);
+    text-align: center;
+  }
+  
+  .setup-card-illustration {
+    flex: none;
+    width: 100%;
+  }
+  
+  .setup-card-title {
+    font-size: var(--admin-font-size-2xl);
+  }
+  
+  .setup-card-description {
+    font-size: var(--admin-font-size-base);
+  }
+  
+  .features-cards {
+    grid-template-columns: 1fr;
+    gap: var(--admin-space-4);
+  }
+  
+  .feature-card {
+    padding: var(--admin-space-6);
+  }
+  
+  .features-section-title {
+    font-size: var(--admin-font-size-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-screen {
+    padding: var(--admin-space-4) var(--admin-space-3);
+    min-height: calc(100vh - var(--admin-header-height) - 1rem);
+  }
+  
+  .welcome-title {
+    font-size: var(--admin-font-size-2xl);
+  }
+  
+  .welcome-setup-card {
+    padding: var(--admin-space-6);
+  }
+  
+  .setup-card-title {
+    font-size: var(--admin-font-size-xl);
+  }
+  
+  .feature-card {
+    padding: var(--admin-space-4);
+  }
+}

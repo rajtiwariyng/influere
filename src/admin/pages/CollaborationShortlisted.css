@@ -1,0 +1,554 @@
+.shortlisted-page {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Tabs - Styles are inherited from Wallet.css, matching Profile Sell Page */
+
+/* Shortlisted Content */
+.shortlisted-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Work Order Group */
+.shortlisted-work-order-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.work-order-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--admin-gray-900);
+  margin: 0;
+}
+
+/* Cards List - One per row */
+.shortlisted-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.shortlisted-card-full {
+  width: 100%;
+  background-color: var(--admin-white-50);
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid var(--admin-gray-100);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.shortlisted-card-full.accordion-expanded {
+  border: 2px solid var(--admin-primary-500);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.shortlisted-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.shortlisted-card-checkbox {
+  flex-shrink: 0;
+}
+
+.shortlisted-card-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--admin-primary-600);
+}
+
+/* More Actions Button */
+.shortlisted-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--admin-gray-100);
+}
+
+.more-actions-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: transparent;
+  border: 1px solid var(--admin-gray-300);
+  border-radius: 6px;
+  color: var(--admin-gray-700);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.more-actions-btn:hover {
+  background-color: var(--admin-gray-50);
+  border-color: var(--admin-gray-400);
+  color: var(--admin-gray-900);
+}
+
+.more-actions-btn i {
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+
+/* Accordion */
+.more-actions-accordion {
+  padding-top: 12px;
+  border-top: 1px dashed var(--admin-gray-100);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.accordion-content {
+  padding: 0;
+  background-color: transparent;
+}
+
+/* Accordion Two Sections Layout */
+.accordion-two-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* Chat Section */
+.accordion-chat-section {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--admin-white-200);
+  border: 1px solid var(--admin-primary-100);
+  border-radius: 8px;
+  padding: 16px;
+  min-height: 400px;
+  max-height: 500px;
+}
+
+.chat-messages-container {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-right: 8px;
+}
+
+.chat-messages-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-messages-container::-webkit-scrollbar-thumb {
+  background: var(--admin-gray-300);
+  border-radius: 3px;
+}
+
+.chat-messages-container::-webkit-scrollbar-thumb:hover {
+  background: var(--admin-gray-400);
+}
+
+.chat-message {
+  display: flex;
+  width: 100%;
+}
+
+.chat-message-outgoing {
+  justify-content: flex-end;
+}
+
+.chat-message-incoming {
+  justify-content: flex-start;
+}
+
+.chat-message-bubble {
+  max-width: 75%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  position: relative;
+}
+
+.chat-message-outgoing .chat-message-bubble {
+  background-color: var(--admin-primary-500);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.chat-message-incoming .chat-message-bubble {
+  background-color: white;
+  color: var(--admin-gray-900);
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.chat-message-text {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.chat-message-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  opacity: 0.8;
+  gap: 8px;
+}
+
+.chat-message-time {
+  font-size: 11px;
+}
+
+.chat-message-sender {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.chat-input-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--admin-gray-100);
+}
+
+.chat-input-icon-btn {
+  background: transparent;
+  border: none;
+  color: var(--admin-gray-600);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: color 0.2s ease;
+}
+
+.chat-input-icon-btn:hover {
+  color: var(--admin-primary-500);
+}
+
+.chat-input-field {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 4px 8px;
+  font-size: 14px;
+  background: var(--admin-white-200);
+  border-radius: 24px;
+  color: var(--admin-gray-900);
+}
+
+.chat-input-field::placeholder {
+  color: var(--admin-gray-400);
+}
+
+.chat-send-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--admin-gray-900) !important;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.chat-send-btn:hover {
+  background-color: var(--admin-primary-600);
+}
+
+/* Price Form Section */
+.accordion-price-form-section {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid var(--admin-gray-200);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.price-form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.price-form-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--admin-gray-900);
+  margin: 0;
+}
+
+.price-form-description {
+  font-size: 13px;
+  color: var(--admin-gray-600);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.offer-price-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.offer-price-input {
+  padding-right: 40px !important;
+  cursor: pointer !important;
+  background-color: white;
+  user-select: none;
+}
+
+.offer-price-input:hover {
+  border-color: var(--admin-gray-400);
+}
+
+.offer-price-input:focus {
+  outline: none;
+  border-color: var(--admin-primary-500);
+}
+
+.offer-price-arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--admin-gray-500);
+  pointer-events: none;
+  font-size: 14px;
+  z-index: 2;
+}
+
+/* Disabled slider styles */
+.collaboration-range-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.collaboration-range-input:disabled::-webkit-slider-thumb {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.collaboration-range-input:disabled::-moz-range-thumb {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.price-form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.price-form-btn {
+  flex: 1;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary {
+  background-color: var(--admin-gray-600);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: var(--admin-gray-700);
+}
+
+.btn-success {
+  background-color: #28a745 !important;
+  color: white !important;
+  border-radius: 4px !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+/* Outgoing Tab Styles */
+.outgoing-work-order-selector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.work-order-select-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--admin-gray-900);
+  margin: 0;
+}
+
+.work-order-select {
+  padding: 8px 12px;
+  border: 1px solid var(--admin-gray-300);
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--admin-gray-900);
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.work-order-select:hover {
+  border-color: var(--admin-gray-400);
+}
+
+.work-order-select:focus {
+  border-color: var(--admin-primary-500);
+}
+
+.outgoing-actions-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--admin-gray-100);
+  padding-top: 0px;
+}
+
+.setup-bid-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--admin-gray-700);
+  margin: 0;
+}
+
+.setup-bid-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--admin-primary-600);
+}
+
+.setup-bid-checkbox span {
+  user-select: none;
+}
+
+.sort-by-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sort-by-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--admin-gray-700);
+  margin: 0;
+}
+
+.sort-by-select {
+  padding: 8px 32px 8px 12px;
+  border: 1px solid var(--admin-gray-300);
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--admin-gray-900);
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+}
+
+.sort-by-select:hover {
+  border-color: var(--admin-gray-400);
+}
+
+.sort-by-select:focus {
+  border-color: var(--admin-primary-500);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .accordion-two-sections {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .accordion-chat-section {
+    min-height: 300px;
+    max-height: 400px;
+  }
+
+  .outgoing-actions-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .sort-by-filter {
+    width: 100%;
+  }
+
+  .sort-by-select {
+    flex: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .work-order-title {
+    font-size: 14px;
+  }
+
+  .shortlisted-card-full {
+    padding: 12px;
+  }
+}
+

@@ -1,0 +1,508 @@
+/* ===================================================================
+   ADMIN DESIGN SYSTEM - COMPONENTS
+   ===================================================================
+   Reusable component classes for the admin panel
+   =================================================================== */
+
+/* ===================================================================
+   BUTTONS
+   =================================================================== */
+
+/* Primary Dark Button */
+.btn-dark,
+.dark-btn {
+  background-color: var(--admin-gray-900) !important;
+  color: var(--admin-white-50) !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 8px 12px !important;
+  font-size: 14px !important;
+  font-weight: 500;
+  cursor: pointer;
+  width: fit-content;
+  transition: all 0.2s;
+}
+
+.btn-dark:hover:not(:disabled),
+.dark-btn:hover:not(:disabled) {
+  background-color: #000 !important;
+}
+
+.btn-dark:disabled,
+.dark-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Secondary Light Button */
+.btn-light,
+.light-btn {
+  background-color: var(--admin-gray-50) !important;
+  color: var(--admin-gray-900) !important;
+  border: 1px solid var(--admin-gray-200) !important;
+  border-radius: 4px !important;
+  padding: 8px 12px !important;
+  font-size: 14px !important;
+  font-weight: 500;
+  cursor: pointer;
+  width: fit-content;
+  transition: all 0.2s;
+}
+
+.btn-light:hover,
+.light-btn:hover {
+  background-color: var(--admin-gray-100) !important;
+}
+
+/* Primary Button (Brand Color) */
+.btn-primary {
+  background-color: var(--admin-primary-500) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 8px 12px !important;
+  font-size: 14px !important;
+  font-weight: 500;
+  cursor: pointer;
+  width: fit-content;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--admin-primary-600) !important;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Button Sizes */
+.btn-sm {
+  padding: 6px 10px !important;
+  font-size: 12px !important;
+}
+
+.btn-md {
+  padding: 8px 12px !important;
+  font-size: 14px !important;
+}
+
+.btn-lg {
+  padding: 12px 20px !important;
+  font-size: 16px !important;
+}
+
+/* Full Width Button */
+.btn-block {
+  width: 100% !important;
+}
+
+
+/* ===================================================================
+   MODALS
+   =================================================================== */
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--admin-z-modal);
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal Container */
+.modal-container {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  position: relative;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Modal Close Button */
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #000;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.modal-close:hover {
+  opacity: 0.7;
+}
+
+/* Modal Title */
+.modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 16px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--admin-gray-50);
+}
+
+/* Modal Body */
+.modal-body {
+  margin-bottom: 16px;
+}
+
+/* Modal Footer */
+.modal-footer {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+
+/* ===================================================================
+   FORM ELEMENTS
+   =================================================================== */
+
+/* Form Label */
+.form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* Form Input */
+.form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--admin-gray-200);
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  background: var(--admin-white-50);
+  transition: all 0.2s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--admin-primary-500);
+  background: white;
+}
+
+.form-input::placeholder {
+  color: var(--admin-gray-400);
+}
+
+/* Form Input with Icon */
+.form-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid var(--admin-gray-50);
+  border-radius: 4px;
+  padding: 10px 12px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.form-input-group input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Hide number input arrows */
+.form-input-group input::-webkit-outer-spin-button,
+.form-input-group input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-input-group input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Input Prefix/Suffix */
+.input-prefix {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-right: 8px;
+}
+
+.input-suffix {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-left: 8px;
+}
+
+
+/* ===================================================================
+   CARDS
+   =================================================================== */
+
+/* Selection Card */
+.selection-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: white;
+  border: 1px solid var(--admin-gray-200);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.selection-card:hover {
+  border-color: var(--admin-primary-500);
+  background: var(--admin-white-100);
+}
+
+.selection-card.selected {
+  border-color: var(--admin-primary-500);
+  background: var(--admin-primary-50);
+}
+
+.selection-card-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.selection-card-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--admin-primary-500);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.selection-card-icon i {
+  font-size: 20px;
+  color: white;
+}
+
+.selection-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.selection-card-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+
+.selection-card-subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  margin: 0;
+}
+
+.selection-card-radio {
+  flex-shrink: 0;
+}
+
+.selection-card-radio input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--admin-primary-500);
+}
+
+
+/* ===================================================================
+   STATUS BADGES
+   =================================================================== */
+
+.badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.badge-success {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+.badge-warning {
+  background: #FFF7ED;
+  color: #C2410C;
+}
+
+.badge-error {
+  background: #FEE2E2;
+  color: #991B1B;
+}
+
+.badge-info {
+  background: #DBEAFE;
+  color: #1E40AF;
+}
+
+.badge-primary {
+  background: var(--admin-primary-100);
+  color: var(--admin-primary-900);
+}
+
+
+/* ===================================================================
+   UTILITY CLASSES
+   =================================================================== */
+
+/* Text Colors */
+.text-primary {
+  color: var(--admin-primary-500) !important;
+}
+
+.text-muted {
+  color: var(--admin-gray-600) !important;
+}
+
+.text-dark {
+  color: var(--admin-gray-900) !important;
+}
+
+.text-success {
+  color: var(--admin-success-600) !important;
+}
+
+.text-warning {
+  color: var(--admin-warning-600) !important;
+}
+
+.text-error {
+  color: var(--admin-error) !important;
+}
+
+/* Spacing */
+.mb-0 { margin-bottom: 0 !important; }
+.mb-1 { margin-bottom: 4px !important; }
+.mb-2 { margin-bottom: 8px !important; }
+.mb-3 { margin-bottom: 12px !important; }
+.mb-4 { margin-bottom: 16px !important; }
+.mb-5 { margin-bottom: 20px !important; }
+.mb-6 { margin-bottom: 24px !important; }
+
+.mt-0 { margin-top: 0 !important; }
+.mt-1 { margin-top: 4px !important; }
+.mt-2 { margin-top: 8px !important; }
+.mt-3 { margin-top: 12px !important; }
+.mt-4 { margin-top: 16px !important; }
+.mt-5 { margin-top: 20px !important; }
+.mt-6 { margin-top: 24px !important; }
+
+/* Display */
+.d-flex {
+  display: flex !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.d-none {
+  display: none !important;
+}
+
+/* Flex Utilities */
+.flex-column {
+  flex-direction: column !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.gap-1 { gap: 4px !important; }
+.gap-2 { gap: 8px !important; }
+.gap-3 { gap: 12px !important; }
+.gap-4 { gap: 16px !important; }
+.gap-5 { gap: 20px !important; }
+.gap-6 { gap: 24px !important; }
+
+
+/* ===================================================================
+   RESPONSIVE UTILITIES
+   =================================================================== */
+
+@media (max-width: 768px) {
+  .modal-container {
+    padding: 16px;
+    width: 95%;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+  }
+
+  .btn-block-mobile {
+    width: 100% !important;
+  }
+}
+

@@ -1,0 +1,147 @@
+/* Admin Base Styles */
+@import './variables.css';
+
+/* Import Bootstrap */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+/* Admin App Base */
+.admin-app {
+  font-family: var(--admin-font-family);
+  color: var(--admin-text-primary);
+  background-color: var(--admin-bg-secondary);
+  min-height: 100vh;
+  display: flex;
+}
+
+/* Reset and base styles */
+.admin-app *,
+.admin-app *::before,
+.admin-app *::after {
+  box-sizing: border-box;
+}
+
+.admin-app h1,
+.admin-app h2,
+.admin-app h3,
+.admin-app h4,
+.admin-app h5,
+.admin-app h6 {
+  margin: 0;
+  font-weight: var(--admin-font-weight-semibold);
+  line-height: var(--admin-line-height-tight);
+}
+
+.admin-app p {
+  margin: 0;
+  line-height: var(--admin-line-height-normal);
+}
+
+.admin-app button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  transition: var(--admin-transition-base);
+}
+
+.admin-app input,
+.admin-app textarea,
+.admin-app select {
+  font-family: inherit;
+}
+
+/* Utility Classes */
+.admin-text-primary { color: var(--admin-text-primary) !important; }
+.admin-text-secondary { color: var(--admin-text-secondary) !important; }
+.admin-text-tertiary { color: var(--admin-text-tertiary) !important; }
+.admin-text-inverse { color: var(--admin-text-inverse) !important; }
+
+.admin-bg-primary { background-color: var(--admin-bg-primary) !important; }
+.admin-bg-secondary { background-color: var(--admin-bg-secondary) !important; }
+.admin-bg-tertiary { background-color: var(--admin-bg-tertiary) !important; }
+
+.admin-shadow-sm { box-shadow: var(--admin-shadow-sm) !important; }
+.admin-shadow-base { box-shadow: var(--admin-shadow-base) !important; }
+.admin-shadow-md { box-shadow: var(--admin-shadow-md) !important; }
+.admin-shadow-lg { box-shadow: var(--admin-shadow-lg) !important; }
+.admin-shadow-xl { box-shadow: var(--admin-shadow-xl) !important; }
+
+/* Spacing utilities */
+.admin-p-1 { padding: var(--admin-space-1) !important; }
+.admin-p-2 { padding: var(--admin-space-2) !important; }
+.admin-p-3 { padding: var(--admin-space-3) !important; }
+.admin-p-4 { padding: var(--admin-space-4) !important; }
+.admin-p-5 { padding: var(--admin-space-5) !important; }
+.admin-p-6 { padding: var(--admin-space-6) !important; }
+
+.admin-m-1 { margin: var(--admin-space-1) !important; }
+.admin-m-2 { margin: var(--admin-space-2) !important; }
+.admin-m-3 { margin: var(--admin-space-3) !important; }
+.admin-m-4 { margin: var(--admin-space-4) !important; }
+.admin-m-5 { margin: var(--admin-space-5) !important; }
+.admin-m-6 { margin: var(--admin-space-6) !important; }
+
+/* Border radius utilities */
+.admin-rounded-sm { border-radius: var(--admin-radius-sm) !important; }
+.admin-rounded { border-radius: var(--admin-radius-base) !important; }
+.admin-rounded-md { border-radius: var(--admin-radius-md) !important; }
+.admin-rounded-lg { border-radius: var(--admin-radius-lg) !important; }
+.admin-rounded-xl { border-radius: var(--admin-radius-xl) !important; }
+.admin-rounded-2xl { border-radius: var(--admin-radius-2xl) !important; }
+.admin-rounded-full { border-radius: var(--admin-radius-full) !important; }
+
+/* Typography utilities */
+.admin-text-xs { font-size: var(--admin-font-size-xs) !important; }
+.admin-text-sm { font-size: var(--admin-font-size-sm) !important; }
+.admin-text-base { font-size: var(--admin-font-size-base) !important; }
+.admin-text-lg { font-size: var(--admin-font-size-lg) !important; }
+.admin-text-xl { font-size: var(--admin-font-size-xl) !important; }
+.admin-text-2xl { font-size: var(--admin-font-size-2xl) !important; }
+.admin-text-3xl { font-size: var(--admin-font-size-3xl) !important; }
+.admin-text-4xl { font-size: var(--admin-font-size-4xl) !important; }
+
+.admin-font-light { font-weight: var(--admin-font-weight-light) !important; }
+.admin-font-normal { font-weight: var(--admin-font-weight-normal) !important; }
+.admin-font-medium { font-weight: var(--admin-font-weight-medium) !important; }
+.admin-font-semibold { font-weight: var(--admin-font-weight-semibold) !important; }
+.admin-font-bold { font-weight: var(--admin-font-weight-bold) !important; }
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .admin-mobile-hidden {
+    display: none !important;
+  }
+  
+  .admin-mobile-block {
+    display: block !important;
+  }
+}
+
+/* Focus states */
+.admin-focus:focus {
+  outline: 2px solid var(--admin-primary);
+  outline-offset: 2px;
+}
+
+/* Animation utilities */
+.admin-transition {
+  transition: var(--admin-transition-base);
+}
+
+.admin-transition-fast {
+  transition: var(--admin-transition-fast);
+}
+
+.admin-transition-slow {
+  transition: var(--admin-transition-slow);
+}
+
+
+.dropdown-item{
+  font-size: 12px;
+}
+.dropdown-item:hover{
+  text-decoration: none;
+}

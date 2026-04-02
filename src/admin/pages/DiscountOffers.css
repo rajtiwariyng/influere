@@ -1,0 +1,209 @@
+.discount-offers-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.discount-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.discount-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.discount-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--admin-gray-900);
+}
+
+.discount-subtitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--admin-gray-900);
+}
+
+/* .discount-offers-panel .table-controls {
+  border: 1px solid var(--admin-gray-100);
+  border-radius: 14px;
+  padding: 8px;
+  background: var(--admin-white-200);
+} */
+
+.discount-offers-panel .transaction-tabs {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.discount-app-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.discount-app-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap:6px;
+  border: 1px solid var(--admin-gray-50);
+  border-radius: 6px;
+  padding: 12px;
+  background: #ffffff;
+}
+
+.discount-app-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.discount-app-main img {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.discount-app-main h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--admin-gray-900);
+}
+
+.discount-app-main p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--admin-gray-500);
+}
+
+.discount-app-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f6cf8;
+  text-decoration: none;
+}
+
+.discount-insurance-panel .consultancy-filters {
+  margin-bottom: 20px;
+}
+
+.insurance-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.insurance-card {
+  border: 1px solid var(--admin-gray-50);
+  border-radius: 6px;
+  background: #ffffff;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.insurance-card.expanded {
+  background: #ffffff;
+  border-color: var(--admin-gray-50);
+}
+
+.insurance-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.insurance-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--admin-gray-900);
+}
+
+.insurance-brand img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.insurance-details {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.insurance-details div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.insurance-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--admin-gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.insurance-details p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--admin-gray-900);
+}
+
+.insurance-features{
+  padding: 12px;
+  background-color: var(--admin-white-200);
+  border-radius: 6px;
+}
+
+.insurance-features ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--admin-gray-600);
+}
+
+.insurance-feature-title {
+  font-weight: 600;
+  color: var(--admin-gray-900);
+}
+
+.insurance-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .discount-app-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .insurance-details {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,792 @@
+/* ===================================================================
+   WALLET PAGE STYLES
+   ===================================================================
+   Wallet page specific styles including balance card and transactions
+   =================================================================== */
+
+.wallet-page {
+  padding: 16px;
+  background-color: var(--admin-white-50);
+  min-height: calc(100vh - var(--admin-header-height));
+}
+
+/* Wallet Chart Container - Custom Height */
+.wallet-chart-container {
+  height: 168px !important;
+}
+
+
+/* ===================================================================
+   BALANCE CARD
+   ===================================================================
+   Purple gradient card displaying current balance and action buttons
+   =================================================================== */
+
+.balance-card {
+  background: var(--admin-white-200);
+  border-radius: 6px;
+  padding: 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.balance-header {
+  margin-bottom: 16px;
+}
+
+.balance-label {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.95;
+  display: flex;
+  align-items: center;
+}
+
+.balance-amount {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+
+.balance-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-add-funds {
+  background-color: var(--admin-primary-500) !important;
+  border: 1px solid var(--admin-primary-500) !important;
+  color: var(--admin-white-50) !important;
+  border-radius: 4px;
+  padding: 6px 12px !important;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: fit-content;
+}
+
+.btn-withdraw-funds {
+  background-color:transparent;
+  border: 1px solid var(--admin-primary-500) !important;
+  color: var(--admin-primary-500) !important;
+  border-radius: 4px;
+  padding: 6px 12px !important;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: fit-content;
+}
+
+
+/* ===================================================================
+   TRANSACTION TABS
+   ===================================================================
+   Filter tabs for transaction types (All, Withdraw, Deposits, Refund)
+   =================================================================== */
+
+.transaction-tabs {
+  background-color: #ECF0F3 !important;
+  padding: 4px !important;
+  border-radius: 4px;
+  display: flex;
+  gap: 4px;
+}
+
+.tab-btn {
+  background: transparent;
+  border: 1px solid transparent !important;
+  color: var(--admin-gray-400);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 8px !important;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  border: 1px solid transparent;
+}
+
+.tab-btn:hover {
+  background: var(--admin-gray-50);
+  color: var(--admin-gray-900);
+}
+
+.tab-btn.active {
+  background: var(--admin-white-50) !important;
+  color: var(--admin-gray-900) !important;
+  border: 1px solid #00000025 !important;
+}
+
+
+/* ===================================================================
+   EXPORT BUTTON
+   ===================================================================
+   Export button in table header
+   =================================================================== */
+
+.export-btn {
+  background: var(--admin-primary-600);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.export-btn:hover {
+  background: var(--admin-primary-700);
+}
+
+
+/* ===================================================================
+   TRANSACTION TABLE CELLS
+   ===================================================================
+   Styling for different transaction cell types
+   =================================================================== */
+
+.transaction-type {
+  font-weight: 500;
+  color: var(--admin-gray-900);
+}
+
+.transaction-date {
+  color: var(--admin-gray-600);
+  font-size: 14px;
+}
+
+.transaction-id {
+  color: var(--admin-gray-700);
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+}
+
+.transaction-amount {
+  font-weight: 600;
+  color: var(--admin-gray-900);
+  font-size: 14px;
+}
+
+/* Transaction Status Badges */
+.transaction-status {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.transaction-status.status-successful {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+.transaction-status.status-process {
+  background: #FED7AA;
+  color: #9A3412;
+}
+
+.transaction-status.status-failed {
+  background: #FEE2E2;
+  color: #991B1B;
+}
+
+.transaction-menu-btn {
+  background: transparent;
+  border: none;
+  color: var(--admin-gray-600);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.transaction-menu-btn:hover {
+  background: var(--admin-gray-100);
+  color: var(--admin-gray-900);
+}
+
+
+/* ===================================================================
+   SEARCH BOX OVERRIDE
+   ===================================================================
+   Wallet-specific search box styling
+   =================================================================== */
+
+.wallet-page .search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wallet-page .search-box i {
+  color: var(--admin-gray-400);
+  font-size: 14px;
+}
+
+
+/* ===================================================================
+   EXPORT SUCCESS MODAL
+   ===================================================================
+   Modal displayed when export is successful
+   =================================================================== */
+
+/* Uses global .modal-overlay and .modal-container classes */
+.export-modal {
+  background: #F5F5F5;
+  text-align: center;
+  min-width: 400px;
+  max-width: 450px;
+}
+
+.export-modal-icon {
+  width: 64px;
+  height: 64px;
+  background: #166534;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.export-modal-icon i {
+  font-size: 32px;
+  color: white;
+}
+
+.export-modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 12px 0;
+}
+
+.export-modal-time {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+
+/* ===================================================================
+   TRANSACTION DETAILS MODAL
+   ===================================================================
+   Modal for viewing transaction details
+   =================================================================== */
+
+/* Use global modal classes: .modal-overlay, .modal-container, .modal-close, .modal-title */
+
+/* Transaction Details Modal - Specific overrides */
+.transaction-details-modal {
+  max-width: 600px;
+  padding: 16px;
+}
+
+.transaction-details-close {
+  top: 10px;
+}
+
+.transaction-details-title {
+  margin-bottom: 12px !important;
+}
+
+/* Transaction Summary Section */
+.transaction-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 20px;
+}
+
+.transaction-summary-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.transaction-icon {
+  width: 48px;
+  height: 48px;
+  background:  var(--admin-primary-500);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.transaction-icon i {
+  font-size: 24px;
+  color: white;
+}
+
+.transaction-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.transaction-user-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.transaction-account {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.transaction-summary-right {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: right;
+}
+
+.transaction-datetime,
+.transaction-id-text {
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+}
+
+.transaction-datetime .text-muted,
+.transaction-id-text .text-muted {
+  color: #999;
+}
+
+/* Amount and Status Section */
+.transaction-amount-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0;
+}
+
+.amount-label {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 8px 0;
+}
+
+.amount-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.amount-value.successful {
+  color: #333;
+  font-weight: 700;
+}
+
+.amount-value.failed {
+  color: var(--admin-primary-500);
+  font-weight: 700;
+}
+
+/* .amount-value.process {
+  color: #F97316;
+  font-weight: 700;
+} */
+
+.transaction-status-badge {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.transaction-status-badge.status-successful {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+.transaction-status-badge.status-process {
+  background: #FFF7F0;
+  color: #FF8D28;
+}
+
+.transaction-status-badge.status-failed {
+  background: #FAF0F3;
+  color: #D12953;
+}
+
+/* Account Details Section */
+.account-details-section {
+  background: var(--admin-white-200);
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.account-details-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 16px 0;
+}
+
+.account-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.account-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detail-label {
+  font-size: 12px;
+  color: #999;
+  font-weight: 500;
+}
+
+.detail-value {
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Process Status Note */
+.process-note {
+  background: #FFF7ED;
+  border-left: 3px solid #F97316;
+  padding: 12px 16px;
+  margin: 12px 0;
+  border-radius: 4px;
+  color: #9A3412;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.process-note i {
+  color: #F97316;
+  font-size: 16px;
+}
+
+/* Action Buttons */
+.transaction-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+
+/* ===================================================================
+   WITHDRAW AMOUNT MODAL
+   ===================================================================
+   Modal for withdrawing funds with amount input and account selection
+   =================================================================== */
+
+.withdraw-modal {
+  max-width: 500px;
+}
+
+.withdraw-section {
+  margin-bottom: 20px;
+}
+
+.withdraw-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* Amount Input - Uses global .form-input-group and .input-prefix classes */
+
+/* Account Options - Uses global .selection-card classes */
+.account-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Withdraw Actions */
+.withdraw-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+
+/* ===================================================================
+   ADD FUNDS MODAL
+   ===================================================================
+   Modal for adding funds to wallet
+   Uses global classes: .modal-overlay, .modal-container, .modal-close, 
+   .modal-title, .modal-footer, .form-label, .form-input-group, .input-prefix,
+   .btn-dark, .btn-light
+   =================================================================== */
+
+.add-funds-modal {
+  max-width: 450px;
+}
+
+.add-funds-section {
+  margin: 12px 0;
+}
+
+/* Payment Result Modal - Uses same styles from WithdrawConfirm.css */
+.payment-result-modal {
+  max-width: 500px;
+  text-align: center;
+  padding: 0;
+  overflow: visible;
+}
+
+.payment-result-bg {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  border-radius: 12px 12px 0 0;
+  margin-bottom: -30px;
+}
+
+.payment-bg-image {
+  width: 100%;
+  height: 172px;
+  display: block;
+  max-width: 100%;
+}
+
+.payment-result-content {
+  padding-top: 16px;
+  padding-bottom: 0px;
+  position: relative;
+  margin-top: 94px;
+  width: 100%;
+}
+
+.payment-result-title.success {
+  color: #14804A;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+}
+
+.payment-amount-section {
+  margin-bottom: 20px;
+}
+
+.payment-amount-label {
+  font-size: 14px;
+  color: #999;
+  margin: 0 0 8px 0;
+}
+
+.payment-amount-value {
+  font-size: 48px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+  line-height: 1;
+}
+
+.payment-result-message {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 20px 0;
+  line-height: 1.6;
+}
+
+.payment-transaction-id {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.transaction-id-label {
+  font-size: 14px;
+  color: #333;
+}
+
+.transaction-id-value {
+  font-size: 14px;
+  color: #3B82F6;
+  font-weight: 600;
+}
+
+.copy-btn {
+  background: transparent;
+  border: 1px solid var(--admin-gray-300);
+  border-radius: 4px;
+  padding: 4px 6px;
+  cursor: pointer;
+  color: var(--admin-gray-600);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copy-btn:hover {
+  background: var(--admin-gray-50);
+  border-color: var(--admin-gray-400);
+}
+
+.copy-btn i {
+  font-size: 14px;
+}
+
+.payment-timestamp {
+  font-size: 14px;
+  color: #999;
+  margin: 0 0 24px 0;
+}
+
+.payment-result-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.payment-result-actions .btn-dark,
+.payment-result-actions .btn-light {
+  flex: 1;
+  max-width: 100%;
+}
+
+
+/* ===================================================================
+   RESPONSIVE DESIGN
+   ===================================================================
+   Mobile and tablet responsive styles for wallet page
+   =================================================================== */
+
+/* Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+  .wallet-page {
+    padding: 12px;
+  }
+
+  .balance-card {
+    margin-bottom: 16px;
+  }
+
+  .balance-amount {
+    font-size: 36px;
+  }
+
+  .balance-actions {
+    flex-direction: column;
+  }
+
+  .transaction-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+  }
+
+  .tab-btn {
+    white-space: nowrap;
+  }
+
+  .transaction-details-modal {
+    padding: 16px;
+  }
+
+  .transaction-summary {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .transaction-summary-right {
+    text-align: left;
+  }
+
+  .account-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .transaction-actions {
+    flex-direction: column;
+  }
+
+  .withdraw-modal {
+    max-width: 100%;
+  }
+
+  .withdraw-actions {
+    flex-direction: column;
+  }
+
+  .add-funds-modal {
+    max-width: 100%;
+  }
+
+  .payment-result-modal {
+    max-width: 95%;
+  }
+
+  .payment-result-content {
+    padding: 24px;
+  }
+
+  .payment-amount-value {
+    font-size: 40px;
+  }
+
+  .payment-result-actions {
+    flex-direction: column;
+  }
+}
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .balance-amount {
+    font-size: 32px;
+  }
+
+  .balance-actions button {
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+
+  .transaction-id {
+    font-size: 11px;
+  }
+
+  .payment-amount-value {
+    font-size: 36px;
+  }
+
+  .payment-result-title {
+    font-size: 20px;
+  }
+}
+
