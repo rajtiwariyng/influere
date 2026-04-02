@@ -70,21 +70,101 @@ const defaultNavigationItems = [
         id: 'consultancy-legal',
         label: 'Legal',
         path: '/dashboard/professional-consultancy/legal',
+        navigateWithChildren: true,
+        children: [
+          {
+            id: 'collaboration-shortlisted',
+            label: 'Shortlisted',
+            path: '/dashboard/collaboration/shortlisted',
+            children: [
+              {
+                id: 'shortlisted-incoming',
+                label: 'Incoming',
+                path: '/dashboard/collaboration/shortlisted?tab=incoming',
+              },
+              {
+                id: 'shortlisted-outgoing',
+                label: 'Outgoing',
+                path: '/dashboard/collaboration/shortlisted?tab=outgoing',
+          },
+        ],
+      },
+    ],
       },
       {
         id: 'consultancy-accounting',
         label: 'Accounting',
         path: '/dashboard/professional-consultancy/accounting',
+        navigateWithChildren: true,
+        children: [
+          {
+            id: 'collaboration-shortlisted',
+            label: 'Shortlisted',
+            path: '/dashboard/collaboration/shortlisted',
+            children: [
+              {
+                id: 'shortlisted-incoming',
+                label: 'Incoming',
+                path: '/dashboard/collaboration/shortlisted?tab=incoming',
+              },
+              {
+                id: 'shortlisted-outgoing',
+                label: 'Outgoing',
+                path: '/dashboard/collaboration/shortlisted?tab=outgoing',
+          },
+        ],
+      },
+    ],
       },
       {
         id: 'consultancy-tax',
         label: 'Tax',
         path: '/dashboard/professional-consultancy/tax',
+        navigateWithChildren: true,
+        children: [
+          {
+            id: 'collaboration-shortlisted',
+            label: 'Shortlisted',
+            path: '/dashboard/collaboration/shortlisted',
+            children: [
+              {
+                id: 'shortlisted-incoming',
+                label: 'Incoming',
+                path: '/dashboard/collaboration/shortlisted?tab=incoming',
+              },
+              {
+                id: 'shortlisted-outgoing',
+                label: 'Outgoing',
+                path: '/dashboard/collaboration/shortlisted?tab=outgoing',
+          },
+        ],
+      },
+    ],
       },
       {
         id: 'consultancy-multimedia',
         label: 'Multimedia',
         path: '/dashboard/professional-consultancy/multimedia',
+        navigateWithChildren: true,
+        children: [
+          {
+            id: 'collaboration-shortlisted',
+            label: 'Shortlisted',
+            path: '/dashboard/collaboration/shortlisted',
+            children: [
+              {
+                id: 'shortlisted-incoming',
+                label: 'Incoming',
+                path: '/dashboard/collaboration/shortlisted?tab=incoming',
+              },
+              {
+                id: 'shortlisted-outgoing',
+                label: 'Outgoing',
+                path: '/dashboard/collaboration/shortlisted?tab=outgoing',
+          },
+        ],
+      },
+    ],
       },
       {
         id: 'consultancy-insurance',
@@ -135,6 +215,131 @@ const defaultNavigationItems = [
           },
         ],
       },
+      {
+            id: 'collaboration-list',
+            label: 'Twitter',
+            path: '/dashboard/collaboration/list',
+        navigateWithChildren: true,
+            children: [
+              {
+                id: 'collaboration-shortlisted',
+                label: 'Shortlisted',
+                path: '/dashboard/collaboration/shortlisted',
+                children: [
+                  {
+                    id: 'shortlisted-incoming',
+                    label: 'Incoming',
+                    path: '/dashboard/collaboration/shortlisted?tab=incoming',
+                  },
+                  {
+                    id: 'shortlisted-outgoing',
+                    label: 'Outgoing',
+                    path: '/dashboard/collaboration/shortlisted?tab=outgoing',
+              },
+            ],
+          },
+        ],
+      },
+      {
+            id: 'collaboration-list',
+            label: 'LinkedIn',
+            path: '/dashboard/collaboration/list',
+        navigateWithChildren: true,
+            children: [
+              {
+                id: 'collaboration-shortlisted',
+                label: 'Shortlisted',
+                path: '/dashboard/collaboration/shortlisted',
+                children: [
+                  {
+                    id: 'shortlisted-incoming',
+                    label: 'Incoming',
+                    path: '/dashboard/collaboration/shortlisted?tab=incoming',
+                  },
+                  {
+                    id: 'shortlisted-outgoing',
+                    label: 'Outgoing',
+                    path: '/dashboard/collaboration/shortlisted?tab=outgoing',
+              },
+            ],
+          },
+        ],
+      },
+      {
+            id: 'collaboration-list',
+            label: 'Instagram',
+            path: '/dashboard/collaboration/list',
+        navigateWithChildren: true,
+            children: [
+              {
+                id: 'collaboration-shortlisted',
+                label: 'Shortlisted',
+                path: '/dashboard/collaboration/shortlisted',
+                children: [
+                  {
+                    id: 'shortlisted-incoming',
+                    label: 'Incoming',
+                    path: '/dashboard/collaboration/shortlisted?tab=incoming',
+                  },
+                  {
+                    id: 'shortlisted-outgoing',
+                    label: 'Outgoing',
+                    path: '/dashboard/collaboration/shortlisted?tab=outgoing',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'collaboration-list',
+        label: 'Youtube',
+        path: '/dashboard/collaboration/list',
+    navigateWithChildren: true,
+        children: [
+          {
+            id: 'collaboration-shortlisted',
+            label: 'Shortlisted',
+            path: '/dashboard/collaboration/shortlisted',
+            children: [
+              {
+                id: 'shortlisted-incoming',
+                label: 'Incoming',
+                path: '/dashboard/collaboration/shortlisted?tab=incoming',
+              },
+              {
+                id: 'shortlisted-outgoing',
+                label: 'Outgoing',
+                path: '/dashboard/collaboration/shortlisted?tab=outgoing',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'collaboration-list',
+    label: 'Tiktok',
+    path: '/dashboard/collaboration/list',
+navigateWithChildren: true,
+    children: [
+      {
+        id: 'collaboration-shortlisted',
+        label: 'Shortlisted',
+        path: '/dashboard/collaboration/shortlisted',
+        children: [
+          {
+            id: 'shortlisted-incoming',
+            label: 'Incoming',
+            path: '/dashboard/collaboration/shortlisted?tab=incoming',
+          },
+          {
+            id: 'shortlisted-outgoing',
+            label: 'Outgoing',
+            path: '/dashboard/collaboration/shortlisted?tab=outgoing',
+      },
+    ],
+  },
+],
+},
     ],
   },
   {

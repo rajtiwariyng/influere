@@ -851,9 +851,9 @@ const CollaborationShortlisted = () => {
                                 </div>
 
                                 {/* Section 2: Price/Offer Form */}
-                                <div className="accordion-price-form-section">
+                                <div className="accordion-price-form-section justify-content-center">
                                   {/* Quoted Price Range */}
-                                  <div className="price-form-item">
+                                  {/* <div className="price-form-item">
                                     <h3 className="price-form-title">
                                       Quoted Price Range
                                     </h3>
@@ -943,7 +943,7 @@ const CollaborationShortlisted = () => {
                                       value="$300 - $700"
                                       disabled
                                     />
-                                  </div>
+                                  </div> */}
 
                                   {/* Offer Price */}
                                   <div className="price-form-item">
