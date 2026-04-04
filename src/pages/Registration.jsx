@@ -28,7 +28,7 @@ const Registration = () => {
     contactNumber: '+1234567890',
     
     // Step 2: Verify Identityed
-    nationality: 'indian',
+    nationality: 'usa-north-america',
     countryId: 'aadhaar',
     idType1: 'aadhaar',
     idFile1: null, // File cannot be prefilled

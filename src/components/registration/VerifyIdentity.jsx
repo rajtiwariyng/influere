@@ -96,13 +96,13 @@ const VerifyIdentity = ({ formData, onFormDataChange, onNext, onBack, isFirstSte
               required
             >
               <option value="">Select Nationality</option>
-              <option value="indian">Indian</option>
-              <option value="european">European Countries</option>
+              {/* <option value="indian">Indian</option> */}
+              {/* <option value="european">European Countries</option> */}
               <option value="usa-north-america">USA (North American countries)</option>
-              <option value="british">British</option>
+              {/* <option value="british">British</option> */}
               <option value="canadian">Canadian</option>
-              <option value="australian">Australian</option>
-              <option value="other">Other</option>
+              {/* <option value="australian">Australian</option> */}
+              {/* <option value="other">Other</option> */}
             </select>
           </div>
           <div className="form-group">
