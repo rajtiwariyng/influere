@@ -5,9 +5,13 @@ import "./DiscountOffers.css";
 import "./CollaborationSetup.css";
 
 const platformTabs = [
-  { id: "facebook-instagram-tiktok", label: "Facebook, Instagram & TikTok", count: 12 },
-  { id: "youtube", label: "YouTube", count: 3 },
+  // { id: "facebook-instagram-tiktok", label: "Facebook, Instagram & TikTok", count: 12 },
+  { id: "facebook", label: "Facebook", count: 12 },
   { id: "twitter", label: "Twitter", count: 8 },
+  { id: "instagram", label: "Instagram", count: 5 },
+  { id: "youtube", label: "YouTube", count: 9 },
+  { id: "tiktok", label: "Tiktok", count: 8 },
+  { id: "linkedIn", label: "LinkedIn", count: 11 },
 ];
 
 const collaborationSettings = [

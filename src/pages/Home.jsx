@@ -29,7 +29,7 @@ const Home = () => {
           Let's build your <br />
           success story together
         </h1>
-        <Link to="/contact" className="orange-btn d-inline-block mt-2">
+        <Link to="/#contact-details" className="orange-btn d-inline-block mt-2">
           Connect With Us
         </Link>
         <div className="trust-tag">
@@ -41,7 +41,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="container wrapper">
+      <div id="services" className="container wrapper">
         <div className="services-section text-center hexagon-section">
           <img src={hexagonCenter} className="hexagon-center" alt="" />
 
@@ -195,7 +195,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="about-section wrapper pb-0">
+      <div id="why-join" className="about-section wrapper pb-0">
         <div className="container">
           <div className="row">
             <div className="col-md-6">
@@ -254,7 +254,7 @@ const Home = () => {
       <div className="container-fluid p-0 wrapper">
         <img src={background} className="img-fluid" alt="background" />
       </div>
-      <div className="info-section wrapper">
+      <div id="about-us" className="info-section wrapper">
         <div className="container">
           <div className="row">
             <div className="col-md-4">

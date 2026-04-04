@@ -3,12 +3,14 @@ import Home from "../pages/Home";
 import Registration from "../pages/Registration";
 import MainLayout from "../layouts/MainLayout";
 import AdminRoutes from "../AdminRoutes";
+import ScrollToHash from "../admin/components/ScrollToHash";
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={
         <MainLayout>
+          <ScrollToHash/>
           <Home />
         </MainLayout>
       } />

@@ -8,9 +8,9 @@ import "./ConsultancyCategoryPage.css";
 import "./CollaborationPage.css";
 import "./Wallet.css";
 import consultancyData from "../data/consultancyData";
+import SelectDropdown from "../components/SelectDropdown";
 
 const ConsultancyCategoryPage = () => {
-
   const { categoryId } = useParams();
   const categoryKey = useMemo(() => {
     if (categoryId && consultancyData[categoryId]) {
@@ -20,10 +20,9 @@ const ConsultancyCategoryPage = () => {
   }, [categoryId]);
 
   const category = consultancyData[categoryKey];
+  const selectFilterOptions = consultancyData[categoryKey]?.filters[5]?.options;
 
-  console.log("CATEGORY : ", category)
-
-  usePageTitle("Collaboration");
+  usePageTitle(category?.title);
   const navigate = useNavigate();
   const [selectedProfiles, setSelectedProfiles] = useState([]);
   const [workOrderName, setWorkOrderName] = useState("");
@@ -61,7 +60,7 @@ const ConsultancyCategoryPage = () => {
   const handleShowShortlisted = () => {
     if (selectedProfiles.length > 0) {
       const idsParam = selectedProfiles.join(",");
-      navigate(`/dashboard/collaboration/shortlisted?ids=${idsParam}`);
+      navigate(`/dashboard/professional-consultancy/shortlisted?ids=${idsParam}`);
     }
   };
 
@@ -92,7 +91,7 @@ const ConsultancyCategoryPage = () => {
       {/* Work Order Form */}
       <div className="work-order-section">
         <p className="work-order-description">
-          Create a work order that can be sent to collaborator's. Write a brief
+          Create a work order that can be sent to consultant. Write a brief
           description of the work to get started.
         </p>
         <form onSubmit={handleWorkOrderSubmit} className="work-order-form">
@@ -160,14 +159,11 @@ const ConsultancyCategoryPage = () => {
 
       {/* Filter Bar */}
       <div className="consultancy-filters">
-        <SliderDropdown
+        <SelectDropdown
           label="Type Of Services"
-          placeholder="Select Value"
-          min={0}
-          max={1000000}
-          step={1000}
-          value={filters.mentionInPost}
-          onChange={(value) => handleFilterChange("mentionInPost", value)}
+          placeholder="Select an option"
+          options={selectFilterOptions}
+          onChange={(val) => console.log(val)}
         />
 
         <SliderDropdown
@@ -177,7 +173,9 @@ const ConsultancyCategoryPage = () => {
           max={1000000}
           step={1000}
           value={filters.mentionInDescription}
-          onChange={(value) => handleFilterChange("mentionInDescription", value)}
+          onChange={(value) =>
+            handleFilterChange("mentionInDescription", value)
+          }
         />
 
         <SliderDropdown
@@ -333,8 +331,6 @@ const ConsultancyCategoryPage = () => {
 
 export default ConsultancyCategoryPage;
 
-
-
 // OLD CODE
 
 // import React, { useEffect, useMemo, useState } from 'react';
@@ -464,8 +460,8 @@ export default ConsultancyCategoryPage;
 //       <div key={filter.id} className="consultancy-filter">
 //         <span className="consultancy-filter-label">{filter.label}</span>
 //         <div className="consultancy-select">
-//           <select 
-//             value={getFilterValue(filter)} 
+//           <select
+//             value={getFilterValue(filter)}
 //             onChange={(e) => handleFilterChange(filter.id, e.target.value)}
 //           >
 //             <option value="" disabled>

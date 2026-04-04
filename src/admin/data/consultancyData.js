@@ -172,6 +172,19 @@ const consultancyData = {
           'Within a month',
         ],
       },
+      {
+        id: 'types-of-services',
+        label: 'Types of Services',
+        placeholder: 'Select',
+        type: 'dropdown',
+        options: [
+          'Legal Notice',
+          'Contractual',
+          'Representation',
+          'Hourly Advice',
+          'Others',
+        ],
+      },
     ],
     professionals: sharedProfessionals,
   },
@@ -231,6 +244,15 @@ const consultancyData = {
           'Immediate',
           'Within a week',
           'Within a month',
+        ],
+      },
+      {
+        id: 'types-of-services',
+        label: 'Types of Services',
+        placeholder: 'Select',
+        type: 'dropdown',
+        options: [
+          'Book', 'Invest', 'Audit', 'Hourly Advice', 'Others'
         ],
       },
     ],
@@ -296,6 +318,15 @@ const consultancyData = {
           'Within a month',
         ],
       },
+      {
+        id: 'types-of-services',
+        label: 'Types of Services',
+        placeholder: 'Select',
+        type: 'dropdown',
+        options: [
+          'Global Income', 'File', 'Audit', 'Notice', 'Others'
+        ],
+      },
     ],
     professionals: sharedProfessionals,
   },
@@ -357,6 +388,87 @@ const consultancyData = {
           'Immediate',
           'Within a week',
           'Within a month',
+        ],
+      },
+      {
+        id: 'types-of-services',
+        label: 'Types of Services',
+        placeholder: 'Select',
+        type: 'dropdown',
+        options: [
+          'Images', 'Video', 'Editing', 'Audio', 'Others'
+        ],
+      },
+    ],
+    professionals: sharedProfessionals,
+  },
+  insurance: {
+    title: 'Insurance',
+    filters: [
+      {
+        id: 'service-type',
+        label: 'Service type',
+        placeholder: 'Select',
+        type: 'dropdown',
+        options: [
+          'Images',
+          'Video',
+          'Editing',
+          'Audio',
+          'Other',
+        ],
+      },
+      {
+        id: 'rate-per-hour',
+        label: 'Rate/hr',
+        placeholder: 'Select rate',
+        type: 'slider',
+        min: 0,
+        max: 10000,
+        step: 100,
+        prefix: '$',
+        suffix: '/hr',
+      },
+      {
+        id: 'distance',
+        label: 'Distance',
+        placeholder: 'Select',
+        type: 'dropdown',
+        options: [
+          'Within 50kms of your location',
+          'Within your state / province',
+          'Nationwide',
+          'International',
+        ],
+      },
+      {
+        id: 'experience',
+        label: 'Experience',
+        placeholder: 'Select experience',
+        type: 'slider',
+        min: 0,
+        max: 50,
+        step: 1,
+        suffix: ' years',
+      },
+      {
+        id: 'availability',
+        label: 'Availability',
+        placeholder: 'Select',
+        type: 'dropdown',
+        options: [
+          'Immediate',
+          'Within a week',
+          'Within a month',
+        ],
+      },
+      {
+        id: 'types-of-services',
+        label: 'Types of Services',
+        placeholder: 'Select',
+        type: 'dropdown',
+        options: [
+          'Deductible', 'Cover', 'Period', 'Type', 'Hourly Advice', 'MISC'
         ],
       },
     ],

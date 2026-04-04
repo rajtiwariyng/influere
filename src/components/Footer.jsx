@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-      <footer className="footer">
+      <footer id="contact-details" className="footer">
           <div className="container">
             <div className="row">
               <div className="col-md-4">

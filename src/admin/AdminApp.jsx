@@ -22,6 +22,7 @@ import './design-system/base.css';
 import './design-system/components.css';
 import './styles/pages.css';
 import logo from '../assets/logo.svg';
+import ConsultancyCategoryShortlisted from './pages/ConsultancyCategoryShortlisted';
 
 // Default navigation configuration
 const defaultNavigationItems = [
@@ -75,17 +76,17 @@ const defaultNavigationItems = [
           {
             id: 'collaboration-shortlisted',
             label: 'Shortlisted',
-            path: '/dashboard/collaboration/shortlisted',
+            path: '/dashboard/professional-consultancy/legal/shortlisted',
             children: [
               {
                 id: 'shortlisted-incoming',
                 label: 'Incoming',
-                path: '/dashboard/collaboration/shortlisted?tab=incoming',
+                path: '/dashboard/professional-consultancy/legal/shortlisted?tab=incoming',
               },
               {
                 id: 'shortlisted-outgoing',
                 label: 'Outgoing',
-                path: '/dashboard/collaboration/shortlisted?tab=outgoing',
+                path: '/dashboard/professional-consultancy/legal/shortlisted?tab=outgoing',
           },
         ],
       },
@@ -100,17 +101,17 @@ const defaultNavigationItems = [
           {
             id: 'collaboration-shortlisted',
             label: 'Shortlisted',
-            path: '/dashboard/collaboration/shortlisted',
+            path: '/dashboard/professional-consultancy/accounting/shortlisted',
             children: [
               {
                 id: 'shortlisted-incoming',
                 label: 'Incoming',
-                path: '/dashboard/collaboration/shortlisted?tab=incoming',
+                path: '/dashboard/professional-consultancy/accounting/shortlisted?tab=incoming',
               },
               {
                 id: 'shortlisted-outgoing',
                 label: 'Outgoing',
-                path: '/dashboard/collaboration/shortlisted?tab=outgoing',
+                path: '/dashboard/professional-consultancy/accounting/shortlisted?tab=outgoing',
           },
         ],
       },
@@ -125,17 +126,17 @@ const defaultNavigationItems = [
           {
             id: 'collaboration-shortlisted',
             label: 'Shortlisted',
-            path: '/dashboard/collaboration/shortlisted',
+            path: '/dashboard/professional-consultancy/tax/shortlisted',
             children: [
               {
                 id: 'shortlisted-incoming',
                 label: 'Incoming',
-                path: '/dashboard/collaboration/shortlisted?tab=incoming',
+                path: '/dashboard/professional-consultancy/tax/shortlisted?tab=incoming',
               },
               {
                 id: 'shortlisted-outgoing',
                 label: 'Outgoing',
-                path: '/dashboard/collaboration/shortlisted?tab=outgoing',
+                path: '/dashboard/professional-consultancy/tax/shortlisted?tab=outgoing',
           },
         ],
       },
@@ -150,17 +151,17 @@ const defaultNavigationItems = [
           {
             id: 'collaboration-shortlisted',
             label: 'Shortlisted',
-            path: '/dashboard/collaboration/shortlisted',
+            path: '/dashboard/professional-consultancy/multimedia/shortlisted',
             children: [
               {
                 id: 'shortlisted-incoming',
                 label: 'Incoming',
-                path: '/dashboard/collaboration/shortlisted?tab=incoming',
+                path: '/dashboard/professional-consultancy/multimedia/shortlisted?tab=incoming',
               },
               {
                 id: 'shortlisted-outgoing',
                 label: 'Outgoing',
-                path: '/dashboard/collaboration/shortlisted?tab=outgoing',
+                path: '/dashboard/professional-consultancy/multimedia/shortlisted?tab=outgoing',
           },
         ],
       },
@@ -170,6 +171,26 @@ const defaultNavigationItems = [
         id: 'consultancy-insurance',
         label: 'Insurance',
         path: '/dashboard/professional-consultancy/insurance',
+        navigateWithChildren: true,
+        children: [
+          {
+            id: 'collaboration-shortlisted',
+            label: 'Shortlisted',
+            path: '/dashboard/professional-consultancy/insurance/shortlisted',
+            children: [
+              {
+                id: 'shortlisted-incoming',
+                label: 'Incoming',
+                path: '/dashboard/professional-consultancy/insurance/shortlisted?tab=incoming',
+              },
+              {
+                id: 'shortlisted-outgoing',
+                label: 'Outgoing',
+                path: '/dashboard/professional-consultancy/insurance/shortlisted?tab=outgoing',
+          },
+        ],
+      },
+    ],
       },
     ],
   },
@@ -191,134 +212,134 @@ const defaultNavigationItems = [
         path: '/dashboard/collaboration/setup',
       },
       {
-            id: 'collaboration-list',
+            id: 'collaboration-list-facebook',
             label: 'Facebook',
-            path: '/dashboard/collaboration/list',
+            path: '/dashboard/collaboration/facebook/list',
         navigateWithChildren: true,
             children: [
               {
                 id: 'collaboration-shortlisted',
                 label: 'Shortlisted',
-                path: '/dashboard/collaboration/shortlisted',
+                path: '/dashboard/collaboration/facebook/shortlisted',
                 children: [
                   {
                     id: 'shortlisted-incoming',
                     label: 'Incoming',
-                    path: '/dashboard/collaboration/shortlisted?tab=incoming',
+                    path: '/dashboard/collaboration/facebook/shortlisted?tab=incoming',
                   },
                   {
                     id: 'shortlisted-outgoing',
                     label: 'Outgoing',
-                    path: '/dashboard/collaboration/shortlisted?tab=outgoing',
+                    path: '/dashboard/collaboration/facebook/shortlisted?tab=outgoing',
               },
             ],
           },
         ],
       },
       {
-            id: 'collaboration-list',
+            id: 'collaboration-list-twitter',
             label: 'Twitter',
-            path: '/dashboard/collaboration/list',
+            path: '/dashboard/collaboration/twitter/list',
         navigateWithChildren: true,
             children: [
               {
                 id: 'collaboration-shortlisted',
                 label: 'Shortlisted',
-                path: '/dashboard/collaboration/shortlisted',
+                path: '/dashboard/collaboration/twitter/shortlisted',
                 children: [
                   {
                     id: 'shortlisted-incoming',
                     label: 'Incoming',
-                    path: '/dashboard/collaboration/shortlisted?tab=incoming',
+                    path: '/dashboard/collaboration/twitter/shortlisted?tab=incoming',
                   },
                   {
-                    id: 'shortlisted-outgoing',
+                    id: 'shortlisted-outgoing-twitter',
                     label: 'Outgoing',
-                    path: '/dashboard/collaboration/shortlisted?tab=outgoing',
+                    path: '/dashboard/collaboration/twitter/shortlisted?tab=outgoing',
               },
             ],
           },
         ],
       },
       {
-            id: 'collaboration-list',
+            id: 'collaboration-list-linkedin',
             label: 'LinkedIn',
-            path: '/dashboard/collaboration/list',
+            path: '/dashboard/collaboration/linkedIn/list',
         navigateWithChildren: true,
             children: [
               {
                 id: 'collaboration-shortlisted',
                 label: 'Shortlisted',
-                path: '/dashboard/collaboration/shortlisted',
+                path: '/dashboard/collaboration/linkedIn/shortlisted',
                 children: [
                   {
                     id: 'shortlisted-incoming',
                     label: 'Incoming',
-                    path: '/dashboard/collaboration/shortlisted?tab=incoming',
+                    path: '/dashboard/collaboration/linkedIn/shortlisted?tab=incoming',
                   },
                   {
                     id: 'shortlisted-outgoing',
                     label: 'Outgoing',
-                    path: '/dashboard/collaboration/shortlisted?tab=outgoing',
+                    path: '/dashboard/collaboration/linkedIn/shortlisted?tab=outgoing',
               },
             ],
           },
         ],
       },
       {
-            id: 'collaboration-list',
+            id: 'collaboration-list-instagram',
             label: 'Instagram',
-            path: '/dashboard/collaboration/list',
+            path: '/dashboard/collaboration/instagram/list',
         navigateWithChildren: true,
             children: [
               {
                 id: 'collaboration-shortlisted',
                 label: 'Shortlisted',
-                path: '/dashboard/collaboration/shortlisted',
+                path: '/dashboard/collaboration/instagram/shortlisted',
                 children: [
                   {
                     id: 'shortlisted-incoming',
                     label: 'Incoming',
-                    path: '/dashboard/collaboration/shortlisted?tab=incoming',
+                    path: '/dashboard/collaboration/instagram/shortlisted?tab=incoming',
                   },
                   {
                     id: 'shortlisted-outgoing',
                     label: 'Outgoing',
-                    path: '/dashboard/collaboration/shortlisted?tab=outgoing',
+                    path: '/dashboard/collaboration/instagram/shortlisted?tab=outgoing',
               },
             ],
           },
         ],
       },
       {
-        id: 'collaboration-list',
+        id: 'collaboration-list-youtube',
         label: 'Youtube',
-        path: '/dashboard/collaboration/list',
+        path: '/dashboard/collaboration/youtube/list',
     navigateWithChildren: true,
         children: [
           {
             id: 'collaboration-shortlisted',
             label: 'Shortlisted',
-            path: '/dashboard/collaboration/shortlisted',
+            path: '/dashboard/collaboration/youtube/shortlisted',
             children: [
               {
                 id: 'shortlisted-incoming',
                 label: 'Incoming',
-                path: '/dashboard/collaboration/shortlisted?tab=incoming',
+                path: '/dashboard/collaboration/youtube/shortlisted?tab=incoming',
               },
               {
                 id: 'shortlisted-outgoing',
                 label: 'Outgoing',
-                path: '/dashboard/collaboration/shortlisted?tab=outgoing',
+                path: '/dashboard/collaboration/youtube/shortlisted?tab=outgoing',
           },
         ],
       },
     ],
   },
   {
-    id: 'collaboration-list',
+    id: 'collaboration-list-tiktok',
     label: 'Tiktok',
-    path: '/dashboard/collaboration/list',
+    path: '/dashboard/collaboration/tiktok/list',
 navigateWithChildren: true,
     children: [
       {
@@ -382,12 +403,34 @@ const AdminApp = ({
           <Route path="settings" element={<SettingsPage />} />
           <Route path="professional-consultancy" element={<ConsultancyCategoryPage />} />
           <Route path="professional-consultancy/:categoryId" element={<ConsultancyCategoryPage />} />
-          <Route path="professional-consultancy/insurance" element={<Insurance />} />
+          {/* <Route path="professional-consultancy/insurance" element={<Insurance />} /> */}
           <Route path="consultancy" element={<ProfileServices />} />
           <Route path="collaboration" element={<Navigate to="/dashboard/collaboration/setup" replace />} />
           <Route path="collaboration/setup" element={<CollaborationSetup />} />
+
           <Route path="collaboration/list" element={<CollaborationPage />} />
+          <Route path="collaboration/facebook/list" element={<CollaborationPage />} />
+          <Route path="collaboration/twitter/list" element={<CollaborationPage />} />
+          <Route path="collaboration/youtube/list" element={<CollaborationPage />} />
+          <Route path="collaboration/linkedIn/list" element={<CollaborationPage />} />
+          <Route path="collaboration/tiktok/list" element={<CollaborationPage />} />
+          <Route path="collaboration/instagram/list" element={<CollaborationPage />} />
+
           <Route path="collaboration/shortlisted" element={<CollaborationShortlisted />} />
+          <Route path="collaboration/facebook/shortlisted" element={<CollaborationShortlisted category="facebook"/>} />
+          <Route path="collaboration/twitter/shortlisted" element={<CollaborationShortlisted category="twitter"/>} />
+          <Route path="collaboration/linkedIn/shortlisted" element={<CollaborationShortlisted category="linkedIn"/>} />
+          <Route path="collaboration/instagram/shortlisted" element={<CollaborationShortlisted category="instagram"/>} />
+          <Route path="collaboration/youtube/shortlisted" element={<CollaborationShortlisted category="youtube"/>} />
+          <Route path="collaboration/tiktok/shortlisted" element={<CollaborationShortlisted category="tiktok"/>} />
+
+          <Route path="professional-consultancy/shortlisted" element={<ConsultancyCategoryShortlisted />} />
+          <Route path="professional-consultancy/legal/shortlisted" element={<ConsultancyCategoryShortlisted category={"legal"} />} />
+          <Route path="professional-consultancy/accounting/shortlisted" element={<ConsultancyCategoryShortlisted category={"accounting"}/>} />
+          <Route path="professional-consultancy/tax/shortlisted" element={<ConsultancyCategoryShortlisted category={"tax"}/>} />
+          <Route path="professional-consultancy/multimedia/shortlisted" element={<ConsultancyCategoryShortlisted category={"multimedia"}/>} />
+          <Route path="professional-consultancy/insurance/shortlisted" element={<ConsultancyCategoryShortlisted category={"insurance"}/>} />
+
           <Route path="collaboration-premium" element={<ProfileServices />} />
         </Route>
         

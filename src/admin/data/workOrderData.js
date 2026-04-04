@@ -6,12 +6,23 @@ export const incomingWorkOrders = [
   {
     id: 'wo-1233',
     orderNumber: '1233',
-    profile: collaborationProfiles[0], // Suryoday Bank profile
+    // profile: collaborationProfiles[0], // Suryoday Bank profile
+    profiles: [
+      collaborationProfiles[5], // Suryoday Bank profile
+      collaborationProfiles[6], // Second profile
+      collaborationProfiles[4], // Third profile
+      collaborationProfiles[1], // Fourth profile
+    ],
   },
   {
     id: 'wo-1234',
     orderNumber: '1234',
-    profile: collaborationProfiles[1], // Another Suryoday Bank profile
+    // profile: collaborationProfiles[1], // Another Suryoday Bank profile
+    profiles: [
+      collaborationProfiles[7], // Fifth profile
+      collaborationProfiles[8], // Sixth profile
+      collaborationProfiles[9], // Seventh profile
+    ],
   },
 ];
 

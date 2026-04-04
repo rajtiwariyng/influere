@@ -78,8 +78,7 @@ const CollaborationPage = () => {
       {/* Work Order Form */}
       <div className="work-order-section">
         <p className="work-order-description">
-          Create a work order that can be sent to collaborator's. Write a brief
-          description of the work to get started.
+          Create a work order that can be sent to consultant. Write a brief description of the work to get started.
         </p>
         <form onSubmit={handleWorkOrderSubmit} className="work-order-form">
           <div className="add-funds-section mb-0">
