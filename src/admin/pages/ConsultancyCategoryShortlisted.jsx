@@ -1048,10 +1048,10 @@ const ConsultancyCategoryShortlisted = ({ category }) => {
 
                                       {/* Offer Price */}
                                       <div className="price-form-item">
-                                        <h3 className="price-form-title">
-                                          Offer Price
+                                        <h3 className="price-form-title text-center">
+                                          Fixed Price : <span className="fw-normal">$500</span>
                                         </h3>
-                                        <div className="offer-price-input-wrapper">
+                                        {/* <div className="offer-price-input-wrapper">
                                           <select
                                             name=""
                                             id=""
@@ -1076,7 +1076,7 @@ const ConsultancyCategoryShortlisted = ({ category }) => {
                                               $3000 (24-10-2025 | 03:45 PM)
                                             </option>
                                           </select>
-                                        </div>
+                                        </div> */}
                                       </div>
 
                                       {/* Action Buttons */}
@@ -1088,7 +1088,7 @@ const ConsultancyCategoryShortlisted = ({ category }) => {
                                           marginTop: "8px",
                                         }}
                                       >
-                                        <button
+                                        {/* <button
                                           type="button"
                                           className="dark-btn price-form-btn"
                                           onClick={() =>
@@ -1096,10 +1096,10 @@ const ConsultancyCategoryShortlisted = ({ category }) => {
                                           }
                                         >
                                           Offer
-                                        </button>
+                                        </button> */}
                                         <button
                                           type="button"
-                                          className="btn-success price-form-btn"
+                                          className="btn-success price-form-btn py-2 w-1/2"
                                           onClick={() =>
                                             setShowAuctionCollaboratorModal(
                                               true

@@ -23,6 +23,7 @@ import './design-system/components.css';
 import './styles/pages.css';
 import logo from '../assets/logo.svg';
 import ConsultancyCategoryShortlisted from './pages/ConsultancyCategoryShortlisted';
+import ConsultancyProfessionalPage from './pages/ConsultancyProfessionalPage';
 
 // Default navigation configuration
 const defaultNavigationItems = [
@@ -403,6 +404,7 @@ const AdminApp = ({
           <Route path="settings" element={<SettingsPage />} />
           <Route path="professional-consultancy" element={<ConsultancyCategoryPage />} />
           <Route path="professional-consultancy/:categoryId" element={<ConsultancyCategoryPage />} />
+          <Route path="professional-consultancy/:categoryId/:professionalId" element={<ConsultancyProfessionalPage />} />
           {/* <Route path="professional-consultancy/insurance" element={<Insurance />} /> */}
           <Route path="consultancy" element={<ProfileServices />} />
           <Route path="collaboration" element={<Navigate to="/dashboard/collaboration/setup" replace />} />

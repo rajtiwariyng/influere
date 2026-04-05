@@ -74,6 +74,12 @@ const ConsultancyCategoryPage = () => {
     });
   };
 
+  const ViewMoreHandler = (professionalId) => {
+
+    navigate(`/dashboard/professional-consultancy/${categoryId}/${professionalId}`)
+
+  }
+
   return (
     <div className="admin-page consultancy-page collaboration-page">
       {/* Header with AI Badge */}
@@ -210,7 +216,7 @@ const ConsultancyCategoryPage = () => {
 
       {/* Collaborator Cards */}
       <div className="consultancy-grid">
-        {collaborationProfiles.map((profile) => {
+        {category?.professionals?.map((profile) => {
           const isSelected = selectedProfiles.includes(profile.id);
           return (
             <div
@@ -277,7 +283,7 @@ const ConsultancyCategoryPage = () => {
               <p className="consultancy-card-summary">{profile.summary}</p>
 
               {/* Asking Rates */}
-              {profile.askingRates && (
+              {/* {profile.askingRates && (
                 <div className="collaboration-asking-rates d-flex align-items-center gap-2">
                   <span className="asking-rates-title">Asking Rate:</span>
                   <div className="asking-rates-list d-flex align-items-center gap-2 flex-wrap">
@@ -307,7 +313,18 @@ const ConsultancyCategoryPage = () => {
                     )}
                   </div>
                 </div>
-              )}
+              )} */}
+
+                  <button
+                  type="button"
+                  className="consultancy-card-button dark-btn"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    ViewMoreHandler(profile?.id);
+                  }}
+                >
+                  View More
+                </button>
             </div>
           );
         })}
