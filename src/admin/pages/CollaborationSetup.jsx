@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import usePageTitle from "../../hooks/usePageTitle";
 import "../components/ConsultancyModals.css";
 import "./DiscountOffers.css";
@@ -169,6 +169,73 @@ const CollaborationSetup = () => {
       onThumbnail,
     });
   };
+
+
+  useEffect(() => {
+  
+  const newSettings =   collaborationSettings.reduce((acc, setting) => {
+    switch (activePlatform) {
+      case "facebook":
+        
+        acc[setting.id] = { 
+          minValue: 300, 
+          maxValue: 700, 
+          minAmount: "$300",
+          maxAmount: "$700"
+        };
+        break;
+      case 'twitter':
+        
+        acc[setting.id] = { 
+          minValue: 400, 
+          maxValue: 800, 
+          minAmount: "$400",
+          maxAmount: "$800"
+        };
+        break;
+      case 'instagram':
+        
+        acc[setting.id] = { 
+          minValue: 100, 
+          maxValue: 500, 
+          minAmount: "$100",
+          maxAmount: "$500"
+        };
+        break;
+      case 'youtube':
+        
+        acc[setting.id] = { 
+          minValue: 310, 
+          maxValue: 710, 
+          minAmount: "$310",
+          maxAmount: "$710"
+        };
+        break;
+      case 'tiktok':
+        
+        acc[setting.id] = { 
+          minValue: 500, 
+          maxValue: 900, 
+          minAmount: "$500",
+          maxAmount: "$900"
+        };
+        break;
+
+    
+      default:
+        acc[setting.id] = { 
+          minValue: 100, 
+          maxValue: 200, 
+          minAmount: "$100",
+          maxAmount: "$200"
+        };
+        break;
+    }
+    return acc;
+  }, {})
+    setSettings(newSettings)
+  }, [activePlatform])
+  
 
   return (
     <div className="admin-page collaboration-setup-page">
