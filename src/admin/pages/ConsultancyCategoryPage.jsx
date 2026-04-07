@@ -29,10 +29,11 @@ const ConsultancyCategoryPage = () => {
   const [workOrderDescription, setWorkOrderDescription] = useState("");
   const [workOrderFile, setWorkOrderFile] = useState(null);
   const [filters, setFilters] = useState({
-    mentionInPost: 0,
-    mentionInDescription: 0,
-    repost: 0,
-    mentionInContent: 0,
+    services:null,
+    rate: 0,
+    distance: 0,
+    experience: 0,
+    availibility: 0,
   });
 
   const handleProfileSelect = (profileId) => {
@@ -169,7 +170,8 @@ const ConsultancyCategoryPage = () => {
           label="Type Of Services"
           placeholder="Select an option"
           options={selectFilterOptions}
-          onChange={(val) => console.log(val)}
+          onChange={(val) => setFilters({...filters, services:val})}
+          value={filters?.services}
         />
 
         <SliderDropdown
@@ -178,9 +180,9 @@ const ConsultancyCategoryPage = () => {
           min={0}
           max={1000000}
           step={1000}
-          value={filters.mentionInDescription}
+          value={filters?.rate}
           onChange={(value) =>
-            handleFilterChange("mentionInDescription", value)
+            handleFilterChange("rate", value)
           }
         />
 
@@ -190,8 +192,8 @@ const ConsultancyCategoryPage = () => {
           min={0}
           max={1000000}
           step={1000}
-          value={filters.repost}
-          onChange={(value) => handleFilterChange("repost", value)}
+          value={filters?.distance}
+          onChange={(value) => handleFilterChange("distance", value)}
         />
 
         <SliderDropdown
@@ -200,8 +202,8 @@ const ConsultancyCategoryPage = () => {
           min={0}
           max={1000000}
           step={1000}
-          value={filters.mentionInContent}
-          onChange={(value) => handleFilterChange("mentionInContent", value)}
+          value={filters?.experience}
+          onChange={(value) => handleFilterChange("experience", value)}
         />
         <SliderDropdown
           label="Availibility"
@@ -209,8 +211,8 @@ const ConsultancyCategoryPage = () => {
           min={0}
           max={1000000}
           step={1000}
-          value={filters.mentionInContent}
-          onChange={(value) => handleFilterChange("mentionInContent", value)}
+          value={filters?.availibility}
+          onChange={(value) => handleFilterChange("availibility", value)}
         />
       </div>
 

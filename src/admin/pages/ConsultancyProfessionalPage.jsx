@@ -3,11 +3,13 @@ import consultationIcon from "../../assets/consultation.svg";
 import taxFilingIcon from "../../assets/tax-filing.svg";
 import supportIcon from "../../assets/support.svg";
 import "../components/ConsultancyModals.css";
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import consultancyData from "../data/consultancyData";
 import ConsultancyBookingModal from '../components/ConsultancyBookingModal';
 
 const ConsultancyProfessionalPage = () => {
+
+    const navigate = useNavigate()
 
     const {categoryId , professionalId} = useParams();
     const category = consultancyData[categoryId]
@@ -32,9 +34,17 @@ const ConsultancyProfessionalPage = () => {
     const handleCloseModal = () => {
     setShowBooking(false);
   };
+
+  const GoBackHandler = () => {
+    navigate(`/dashboard/professional-consultancy/${categoryId}`);
+  }
+
   return (
        <>
                <div className="consultancy-modal-body">
+                    <div className="mb-3">
+                   <button onClick={GoBackHandler}><i className="bi bi-chevron-left admin-header-dropdown-arrow "></i> <small>Go Back</small></button>
+                    </div>
                  <div className="consultancy-modal-header">
                    <div className="consultancy-modal-avatar">
                      <img src={professional?.avatar} alt={professional?.name} />

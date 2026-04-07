@@ -290,7 +290,7 @@ const CollaborationShortlisted = ({category}) => {
                               <button
                                 type="button"
                                 className="more-actions-btn btn-light"
-                                onClick={() => toggleAccordion(workOrder.id)}
+                                onClick={() => toggleAccordion(cardId)}
                               >
                                 More Actions
                                 <i
