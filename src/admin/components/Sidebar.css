@@ -71,8 +71,11 @@
 }
 
 .admin-logo-collapsed .admin-logo-img {
-  width: 2rem;
-  height: 2rem;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 2rem;
+  object-fit: contain;
 }
 
 /* Sidebar Navigation */
