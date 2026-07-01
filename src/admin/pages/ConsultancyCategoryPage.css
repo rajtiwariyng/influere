@@ -4,11 +4,20 @@
   gap: 16px;
 }
 
+.consultancy-category-description {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #555555;
+  max-width: 900px;
+  margin: -4px 0 0 0;
+}
+
 .consultancy-filters {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 8px;
-  background-color: #F4F7FC;
+  background-color: #E6EBF3;
+  border: 1px solid #D5DCE8;
   border-radius: 6px;
   padding: 12px;
 }
@@ -20,15 +29,15 @@
 }
 
 .consultancy-filter-label {
-  font-size: 12px;
-  font-weight: 400;
-  color: #666666;
+  font-size: 15px;
+  font-weight: 500;
+  color: #444444;
 }
 
 .consultancy-select {
   position: relative;
   background-color: #FFFFFF;
-  border: 1px solid #EDEDED;
+  border: 1px solid #C7CFDD;
   border-radius: 6px;
   /* padding: 0 12px; */
 }

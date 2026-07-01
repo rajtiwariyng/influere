@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import consultationIcon from "../../assets/consultation.svg";
-import taxFilingIcon from "../../assets/tax-filing.svg";
-import supportIcon from "../../assets/support.svg";
 import "../components/ConsultancyModals.css";
 import { useNavigate, useParams } from 'react-router-dom'
 import consultancyData from "../data/consultancyData";
 import ConsultancyBookingModal from '../components/ConsultancyBookingModal';
+import SupportContactModal from '../components/SupportContactModal';
+
+const CA_DESCRIPTION =
+  "Qualified Chartered Accountant with expertise in accounting, taxation, auditing, financial reporting, and compliance. Experienced in providing strategic financial guidance, regulatory compliance, and business advisory services.";
 
 const ConsultancyProfessionalPage = () => {
 
@@ -14,18 +15,9 @@ const ConsultancyProfessionalPage = () => {
     const {categoryId , professionalId} = useParams();
     const category = consultancyData[categoryId]
     const professional = category?.professionals?.filter((item)=>{return(item?.id==professionalId)})[0];
-    console.log("PROFESSIONAL : ", professional?.avatar)
-
-    const serviceIcons = {
-      consultation: consultationIcon,
-      "tax filing": taxFilingIcon,
-      "tax-filing": taxFilingIcon,
-      advisory: taxFilingIcon,
-      support: supportIcon,
-      planning: consultationIcon,
-    };
 
     const [showBooking, setShowBooking] = useState(false);
+    const [showSupport, setShowSupport] = useState(false);
 
       const onBook = () => {
     setShowBooking(true);
@@ -59,6 +51,15 @@ const ConsultancyProfessionalPage = () => {
                            className="consultancy-modal-flag-icon"
                          />
                        )}
+                       <button
+                         type="button"
+                         className="consultancy-support-icon"
+                         title="Contact support about this professional"
+                         aria-label="Contact support about this professional"
+                         onClick={() => setShowSupport(true)}
+                       >
+                         <i className="bi bi-headset"></i>
+                       </button>
                      </div>
                      <div className="consultancy-modal-tags">
                        <span className="consultancy-tag">
@@ -82,37 +83,16 @@ const ConsultancyProfessionalPage = () => {
                  </div>
    
                  <p className="consultancy-modal-summary">
-                   {professional?.summary}
+                   {CA_DESCRIPTION}
                  </p>
-   
-                 <div className="consultancy-services">
-                   {professional?.services?.map((service) => {
-                     const iconKey = service?.icon || service.title.toLowerCase();
-                     const iconSrc = serviceIcons[iconKey] || consultationIcon;
-   
-                     return (
-                       <div
-                         key={service.title}
-                         className="consultancy-service-card"
-                       >
-                         <div className="consultancy-service-icon">
-                           <img src={iconSrc} alt={service.title} />
-                         </div>
-                         <div className="consultancy-service-details">
-                           <h3>{service.title}</h3>
-                           <p>{service.description}</p>
-                         </div>
-                         <button
-                           type="button"
-                           className="consultancy-service-book "
-                           onClick={onBook}
-                         >
-                           Book
-                         </button>
-                       </div>
-                     );
-                   })}
-                 </div>
+
+                 <button
+                   type="button"
+                   className="consultancy-card-button dark-btn consultancy-book-appointment-btn"
+                   onClick={onBook}
+                 >
+                   Book an Appointment
+                 </button>
                </div>
 
                <ConsultancyBookingModal
@@ -121,7 +101,11 @@ const ConsultancyProfessionalPage = () => {
         onClose={handleCloseModal}
       />
 
-        
+      <SupportContactModal
+        show={showSupport}
+        professional={professional}
+        onClose={() => setShowSupport(false)}
+      />
        </>
   )
 }

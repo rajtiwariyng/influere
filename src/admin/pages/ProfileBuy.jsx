@@ -3,7 +3,17 @@ import usePageTitle from "../../hooks/usePageTitle";
 import buyProfileRows from "../data/profileBuyData";
 import ProfileSellModal from "../components/ProfileSellModal";
 import SliderDropdown from "../components/SliderDropdown";
+import RangeSliderDropdown from "../components/RangeSliderDropdown";
+import BuyProfileModal from "../components/BuyProfileModal";
 import { collaborationProfiles } from "../data/collaborationProfilesData";
+
+const CA_DESCRIPTION =
+  "Qualified Chartered Accountant with expertise in accounting, taxation, auditing, financial reporting, and compliance. Experienced in providing strategic financial guidance, regulatory compliance, and business advisory services.";
+
+const ASKING_PRICES = [
+  "$500k", "$220k", "$180k", "$1.2M", "$650k",
+  "$300k", "$780k", "$1.5M", "$900k", "$250k",
+];
 import "../components/ConsultancyModals.css";
 import "./ConsultancyCategoryPage.css";
 import "./CollaborationPage.css";
@@ -39,12 +49,13 @@ const ProfileBuy = () => {
   const [searchValue, setSearchValue] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [selectedActionRow, setSelectedActionRow] = useState(null);
+  const [buyProfile, setBuyProfile] = useState(null);
   const [filterValues, setFilterValues] = useState({
     socialMediaPlatform: '',
     areaOfInterest: '',
     followers: '',
     posts: '',
-    revenueRange: 100,
+    askingPriceRange: { min: 10, max: 100000 },
   });
   const [sortBy, setSortBy] = useState("price-low-to-high");
 
@@ -138,18 +149,37 @@ const ProfileBuy = () => {
       options: ['10-100', '100-1000', '1k-10k', '10k-1M'],
     },
     {
-      id: 'revenueRange',
-      label: 'Revenue Range',
-      placeholder: 'Select revenue',
-      type: 'slider',
-      min: 100,
-      max: 1000000,
-      step: 1000,
+      id: 'askingPriceRange',
+      label: 'Asking Price Range',
+      placeholder: 'Select range',
+      type: 'range',
+      min: 10,
+      max: 100000,
+      step: 10,
       prefix: '$',
     },
   ];
 
   const renderFilter = (filter) => {
+    if (filter.type === 'range') {
+      const range = filterValues[filter.id] || { min: filter.min, max: filter.max };
+      return (
+        <RangeSliderDropdown
+          key={filter.id}
+          label={filter.label}
+          placeholder={filter.placeholder}
+          min={filter.min}
+          max={filter.max}
+          step={filter.step || 1}
+          prefix={filter.prefix || ''}
+          suffix={filter.suffix || ''}
+          minValue={range.min}
+          maxValue={range.max}
+          onChange={(value) => handleFilterChange(filter.id, value)}
+        />
+      );
+    }
+
     if (filter.type === 'slider') {
       return (
         <SliderDropdown
@@ -221,7 +251,7 @@ const ProfileBuy = () => {
       </div>
 
       <div className="consultancy-grid">
-        {collaborationProfiles.map((profile) => (
+        {collaborationProfiles.map((profile, index) => (
           <div
             key={profile.id}
             className="consultancy-card collaboration-card"
@@ -238,7 +268,12 @@ const ProfileBuy = () => {
                 <img src={profile.avatar} alt={profile.name} />
               </div>
               <div className="consultancy-card-meta">
-                <h3 className="consultancy-card-name">{profile.name}</h3>
+                <div className="d-flex align-items-center justify-content-between gap-2">
+                  <h3 className="consultancy-card-name mb-0">{profile.name}</h3>
+                  <span className="profile-buy-asking-price">
+                    {ASKING_PRICES[index % ASKING_PRICES.length]}
+                  </span>
+                </div>
                 <div className="consultancy-card-stats">
                   <span className="consultancy-reach">{profile.reach} Reach</span>
                   <span className="consultancy-rating">
@@ -249,41 +284,17 @@ const ProfileBuy = () => {
               </div>
             </div>
 
-            <div className="consultancy-card-tags">
-              {profile.partner && (
-                <span className="consultancy-tag">
-                  <i className="bi bi-briefcase"></i>
-                  {profile.partner}
-                </span>
-              )}
-              {profile.designation && (
-                <span className="consultancy-tag">
-                  <i className="bi bi-award"></i>
-                  {profile.designation}
-                </span>
-              )}
-              {profile.experience && (
-                <span className="consultancy-tag">
-                  <i className="bi bi-buildings"></i>
-                  {profile.experience}
-                </span>
-              )}
-              {profile.location && (
-                <span className="consultancy-tag">
-                  <i className="bi bi-geo-alt"></i>
-                  {profile.location}
-                </span>
-              )}
-            </div>
-
-            <p className="consultancy-card-summary">{profile.summary}</p>
+            <p className="consultancy-card-summary">{CA_DESCRIPTION}</p>
 
             <button
               type="button"
               className="consultancy-card-button dark-btn"
               onClick={(event) => {
                 event.stopPropagation();
-                // Handle buy profile action
+                setBuyProfile({
+                  ...profile,
+                  askingPrice: ASKING_PRICES[index % ASKING_PRICES.length],
+                });
               }}
             >
               Buy Profile
@@ -450,6 +461,12 @@ const ProfileBuy = () => {
       </div>
 
       <ProfileSellModal show={showModal} onClose={() => setShowModal(false)} />
+
+      <BuyProfileModal
+        show={Boolean(buyProfile)}
+        profile={buyProfile}
+        onClose={() => setBuyProfile(null)}
+      />
     </div>
   );
 };

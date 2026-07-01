@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { notifications } from '../data/notificationsData';
 import './Header.css';
 
-const Header = ({ 
-  userName = "Sonam",
+const Header = ({
+  userName = "John",
   userAvatar = null
 }) => {
   const [showUserDropdown, setShowUserDropdown] = useState(false);

@@ -325,7 +325,52 @@
 
 .asking-rate-value {
   color: var(--admin-gray-900);
-  font-weight: 500;
+  font-weight: 600;
+}
+
+/* Activity analytics block (#18) */
+.collaboration-activity {
+  margin: 4px 0 10px 0;
+  padding: 10px 12px;
+  background-color: #F4F7FC;
+  border: 1px solid #E2E8F2;
+  border-radius: 8px;
+}
+.collaboration-activity-title {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--admin-gray-900);
+  margin-bottom: 8px;
+}
+.collaboration-activity-title small {
+  font-weight: 400;
+  color: var(--admin-gray-500);
+}
+.collaboration-activity-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.collaboration-activity-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+}
+.collaboration-activity-item i {
+  font-size: 15px;
+  color: var(--admin-primary-500);
+}
+.collaboration-activity-item span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--admin-gray-900);
+}
+.collaboration-activity-item small {
+  font-size: 11px;
+  color: var(--admin-gray-500);
 }
 
 /* Send to Shortlisted Button */

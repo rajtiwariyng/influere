@@ -124,7 +124,6 @@
 .dashboard-chart-section {
   border-radius: 6px;
   padding: 12px;
-  margin-bottom: 16px;
   border: 1px solid var(--admin-gray-50);
 }
 
@@ -193,6 +192,7 @@
 .dashboard-table-section {
   border-radius: 6px;
   padding: 12px;
+  margin-top: 24px;
   background-color: var(--admin-white-50);
   border: 1px solid var(--admin-gray-50);
 }
@@ -404,6 +404,10 @@
   border: 1px solid var(--admin-gray-50);
   border-radius: 6px;
   position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Card Header Background */
@@ -431,7 +435,12 @@
 /* User Details Container */
 .user-card .user-details {
   margin-top: 58px;
-  padding: 0px 12px;
+  padding: 0px 12px 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .user-card .user-details .top-details .username {
@@ -497,7 +506,7 @@
   }
 
   .user-card .user-details .top-details .edit-profile-btn {
-    color: #0088FF !important;
+    color: #2e6fb0 !important;
     border-radius: 4px;
     padding: 8px 16px;
     font-size: 14px;
@@ -535,4 +544,165 @@
   .chart-container {
     height: 250px;
   }
+}
+
+/* ===== #17 Dashboard additions ===== */
+.dashboard-social-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+.dashboard-social-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid var(--admin-gray-200);
+  border-radius: 10px;
+}
+.dashboard-social-card-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+.dashboard-social-card-meta {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+.dashboard-social-card-platform {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--admin-gray-900);
+}
+.dashboard-social-card-handle {
+  font-size: 12px;
+  color: var(--admin-gray-500);
+}
+.dashboard-social-card-followers {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--admin-primary-600);
+}
+
+.dashboard .dashboard-stats-row {
+  margin-top: 24px;
+}
+.dashboard .dashboard-activity-row {
+  margin-top: 32px;
+}
+.dashboard-stat-card,
+.dashboard-panel {
+  background: #fff;
+  border: 1px solid var(--admin-gray-200);
+  border-radius: 12px;
+  padding: 16px;
+  height: 100%;
+}
+.dashboard-stat-card .chart-container {
+  height: 260px;
+}
+.dashboard-panel-header {
+  margin-bottom: 12px;
+}
+
+.collab-notifications {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.collab-notification {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--admin-gray-200);
+  border-radius: 10px;
+  background: var(--admin-gray-50);
+}
+.collab-notification-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.collab-notification-badge.incoming {
+  background: #DCFCE7;
+  color: #166534;
+}
+.collab-notification-badge.outgoing {
+  background: #FEF3C7;
+  color: #92400E;
+}
+.collab-notification-body {
+  flex: 1;
+  min-width: 0;
+}
+.collab-notification-text {
+  margin: 0;
+  font-size: 13px;
+  color: var(--admin-gray-800);
+}
+.collab-notification-time {
+  font-size: 11px;
+  color: var(--admin-gray-500);
+}
+.collab-notification-amount {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--admin-gray-900);
+  white-space: nowrap;
+}
+
+.activity-filter-select {
+  font-size: 12px;
+  padding: 6px 8px;
+  border: 1px solid var(--admin-gray-200);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--admin-gray-700);
+}
+.recent-activity-list {
+  display: flex;
+  flex-direction: column;
+}
+.recent-activity-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--admin-gray-100);
+}
+.recent-activity-item:last-child {
+  border-bottom: none;
+}
+.recent-activity-main {
+  display: flex;
+  flex-direction: column;
+}
+.recent-activity-label {
+  font-size: 13px;
+  color: var(--admin-gray-800);
+}
+.recent-activity-date {
+  font-size: 11px;
+  color: var(--admin-gray-500);
+}
+.recent-activity-amount {
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.recent-activity-amount.positive {
+  color: #16A34A;
+}
+.recent-activity-amount.negative {
+  color: #DC2626;
 }

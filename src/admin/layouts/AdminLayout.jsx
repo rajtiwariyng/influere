@@ -3,14 +3,14 @@ import { Outlet } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import './AdminLayout.css';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/icollaborate-logo.png';
 
 const AdminLayout = ({ 
   navigationItems = [],
   logo: logoProp = logo,
-  companyName = "INFLUERE",
+  companyName = "iCollaborate",
   tagline = "Collaborate With Professionals",
-  userName = "Sonam",
+  userName = "John",
   userAvatar = null
 }) => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);

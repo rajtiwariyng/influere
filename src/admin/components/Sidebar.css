@@ -21,7 +21,7 @@
 
 /* Sidebar Header */
 .admin-sidebar-header {
-  padding: 12px;
+  padding: 14px 12px;
   border-bottom: 1px solid var(--admin-gray-50);
   min-height: var(--admin-header-height);
   display: flex;
@@ -31,16 +31,18 @@
 .admin-logo {
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
   gap: var(--admin-space-3);
   color: var(--admin-text-primary);
   text-decoration: none;
 }
 
 .admin-logo-img {
-  width: 100%;
-  height: 2.5rem;
+  width: auto;
+  max-width: 100%;
+  height: 64px;
   object-fit: contain;
-  border-radius: var(--admin-radius-md);
 }
 
 .admin-logo-text {

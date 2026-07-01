@@ -10,6 +10,7 @@ import {
 import ProfileSellModal from "../components/ProfileSellModal";
 import AuctionInfluencerModal from "../components/AuctionInfluencerModal";
 import AuctionCollaboratorModal from "../components/AuctionCollaboratorModal";
+import consultancyData from "../data/consultancyData";
 import "../components/ConsultancyModals.css";
 import "./ConsultancyCategoryPage.css";
 import "./CollaborationPage.css";
@@ -18,8 +19,10 @@ import "./ConsultancyCategoryShortlisted.css";
 import "./CollaborationSetup.css";
 
 const ConsultancyCategoryShortlisted = ({ category }) => {
-  usePageTitle("Shortlisted");
+  usePageTitle("Inbox");
   const navigate = useNavigate();
+  // Service examples shown as tags on incoming cards (#19), per category.
+  const serviceExamples = consultancyData[category]?.serviceTypes?.slice(0, 3) || [];
   const [searchParams] = useSearchParams();
   const tabParam = searchParams.get("tab");
   const [activeTab, setActiveTab] = useState(tabParam || "incoming");
@@ -39,7 +42,7 @@ const ConsultancyCategoryShortlisted = ({ category }) => {
     {
       id: 1,
       sender: "you",
-      text: "Work Order Name/Number: #1233\nBrief description of work: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      text: "Request #1233\nBrief description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
       time: "12:44 PM",
     },
     {
@@ -144,7 +147,7 @@ const ConsultancyCategoryShortlisted = ({ category }) => {
   return (
     <div className="admin-page consultancy-page collaboration-page shortlisted-page">
       <div className="profile-edit-header">
-        <h1 className="admin-page-title">Shortlisted</h1>
+        <h1 className="admin-page-title">Inbox</h1>
       </div>
 
       {/* Tabs - Using same structure as Profile Sell Page */}
@@ -204,9 +207,9 @@ const ConsultancyCategoryShortlisted = ({ category }) => {
                     key={workOrder.id}
                     className="shortlisted-work-order-group"
                   >
-                    {/* Work Order Title */}
+                    {/* Request Title */}
                     <h2 className="work-order-title">
-                      Shortlisted for Work Order #{workOrder.orderNumber}
+                      Incoming Request #{workOrder.orderNumber}
                     </h2>
 
                     {/* Card */}
@@ -246,38 +249,32 @@ const ConsultancyCategoryShortlisted = ({ category }) => {
                                 </div>
                               </div>
                             </div>
-                            {/* Tags */}
+                            {/* Service example tags (#19) */}
                             <div className="consultancy-card-tags">
-                              {profile.partner && (
-                                <span className="consultancy-tag">
-                                  <i className="bi bi-briefcase"></i>
-                                  {profile.partner}
+                              {serviceExamples.map((service) => (
+                                <span
+                                  key={service}
+                                  className="consultancy-tag consultancy-service-tag"
+                                >
+                                  <i className="bi bi-check2-circle"></i>
+                                  {service}
                                 </span>
-                              )}
-                              {profile.designation && (
-                                <span className="consultancy-tag">
-                                  <i className="bi bi-award"></i>
-                                  {profile.designation}
-                                </span>
-                              )}
-                              {profile.experience && (
-                                <span className="consultancy-tag">
-                                  <i className="bi bi-buildings"></i>
-                                  {profile.experience}
-                                </span>
-                              )}
-                              {profile.location && (
-                                <span className="consultancy-tag">
-                                  <i className="bi bi-geo-alt"></i>
-                                  {profile.location}
-                                </span>
-                              )}
+                              ))}
                             </div>
                           </div>
 
-                          <p className="consultancy-card-summary">
-                            {profile.summary}
-                          </p>
+                          {/* Response time & hourly rate (#19) */}
+                          <div className="consultancy-inbox-meta d-flex align-items-center gap-4">
+                            <span className="consultancy-inbox-meta-item">
+                              <i className="bi bi-clock-history"></i>
+                              Avg Response Time: <strong>24 Hours</strong>
+                            </span>
+                            <span className="consultancy-inbox-meta-item">
+                              <i className="bi bi-cash-coin"></i>
+                              Hourly rate: <strong>$500 / hour</strong>
+                            </span>
+                          </div>
+
                           <div className="w-100 border-0 d-flex align-items-center justify-content-between">
                             {" "}
                             {/* Asking Rates */}
@@ -455,7 +452,7 @@ const ConsultancyCategoryShortlisted = ({ category }) => {
                                             left: "30%",
                                             width: "40%",
                                             height: "6px",
-                                            background: "#066daf",
+                                            background: "#2e6fb0",
                                             borderRadius: "3px",
                                             zIndex: 1,
                                           }}
@@ -618,7 +615,7 @@ const ConsultancyCategoryShortlisted = ({ category }) => {
               {/* Work Order Selector */}
               <div className="outgoing-work-order-selector">
                 <label className="work-order-select-label">
-                  Shortlisted for Work Order:
+                  Shortlisted for Request:
                 </label>
                 <select
                   className="work-order-select"
@@ -984,7 +981,7 @@ const ConsultancyCategoryShortlisted = ({ category }) => {
                                           left: "30%",
                                           width: "40%",
                                           height: "6px",
-                                          background: "#066daf",
+                                          background: "#2e6fb0",
                                           borderRadius: "3px",
                                           zIndex: 1,
                                         }}

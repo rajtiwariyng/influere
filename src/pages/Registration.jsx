@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import usePageTitle from '../hooks/usePageTitle';
+import useScrollReveal from '../hooks/useScrollReveal';
 import StepProgress from '../components/registration/StepProgress';
 import CreateProfile from '../components/registration/CreateProfile';
 import VerifyIdentity from '../components/registration/VerifyIdentity';
@@ -13,6 +14,7 @@ import RegistrationLayout from '../layouts/RegistrationLayout';
 const Registration = () => {
   usePageTitle("Registration");
   const [currentStep, setCurrentStep] = useState(1);
+  useScrollReveal([currentStep]);
   // Calculate default date (tomorrow)
   const getDefaultDate = () => {
     const tomorrow = new Date();
@@ -90,7 +92,7 @@ const Registration = () => {
           />
         </div>
         
-        <div className="registration-content">
+        <div className="registration-content" data-animate>
           <CurrentStepComponent
             formData={formData}
             onFormDataChange={handleFormDataChange}

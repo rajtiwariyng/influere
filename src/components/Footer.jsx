@@ -1,4 +1,4 @@
-import logo from "../assets/logo.svg";
+import logo from "../assets/icollaborate-logo.png";
 import facebook from "../assets/facebook.svg";
 import instagram from "../assets/insta.svg";
 import twitter from "../assets/linkedin.svg";
@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="container">
             <div className="row">
               <div className="col-md-4">
-                <img src={logo} alt="Influere" />
+                <img src={logo} alt="iCollaborate" />
                 <div className="social-media-icons">
                   <Link to="/">
                     <img src={facebook} alt="Facebook" />
@@ -46,13 +46,13 @@ const Footer = () => {
                 </div>
                 <div className="footer-col">
                   <h5 className="fw-semibold mb-2 text-orange">Contact</h5>
-                    <Link className="footer-link d-flex align-items-center gap-1 mb-1" to="/"><img src={mail} alt="mail" /> info@influere.net</Link>
+                    <Link className="footer-link d-flex align-items-center gap-1 mb-1" to="/"><img src={mail} alt="mail" /> info@icollaborate.ai</Link>
                     <Link className="footer-link d-flex align-items-center gap-1" to="/"><img src={location} alt="location" /> #7 - 5707 Sidley St. Burnaby , BC</Link>
                 </div>
               </div>
             </div>
             <div className="footer-bottom">
-              <p className="text-center">© 2025 Influere. All rights reserved.</p>
+              <p className="text-center">© 2026 iCollaborate. All rights reserved.</p>
             </div>
           </div>
       </footer>

@@ -40,6 +40,13 @@
   align-items: center;
 }
 
+.profile-buy-asking-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--admin-primary-600);
+  white-space: nowrap;
+}
+
 .profile-buy-handle:hover {
   text-decoration: underline;
 }
@@ -51,7 +58,7 @@
 
 .sell-range-input {
   width: 100%;
-  accent-color: #066DAF;
+  accent-color: #2e6fb0;
   pointer-events: none;
 }
 
@@ -69,7 +76,7 @@
   position: absolute;
   top: -16px;
   transform: translateX(-50%);
-  background: #066DAF;
+  background: #2e6fb0;
   color: #fff;
   font-size: 12px;
   padding: 2px 10px;

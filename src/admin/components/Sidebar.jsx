@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import './Sidebar.css';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/icollaborate-logo.png';
 import PremiumModal from './PremiumModal';
 
 const Sidebar = ({ 
@@ -9,7 +9,7 @@ const Sidebar = ({
   onToggle, 
   navigationItems = [],
   logo: logoProp = logo,
-  companyName = "INFLUERE",
+  companyName = "iCollaborate",
   tagline = "Collaborate With Professionals"
 }) => {
   const [expandedItems, setExpandedItems] = useState(new Set());

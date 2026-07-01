@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import usePageTitle from "../../hooks/usePageTitle";
 import ProfileSellModal from "../components/ProfileSellModal";
+import OfferActionModal from "../components/OfferActionModal";
 import "./Wallet.css";
 import "./ProfileSell.css";
 
@@ -8,7 +9,7 @@ const activityRows = [
   {
     id: 1,
     profileType: "YouTube",
-    date: "23-10-2025",
+    profileName: "Tech Daily",
     userName: "Sam Altman",
     userEmail: "sam@gmail.com",
     amount: "$500k",
@@ -17,7 +18,7 @@ const activityRows = [
   {
     id: 2,
     profileType: "Instagram",
-    date: "22-10-2025",
+    profileName: "Style Diaries",
     userName: "Sonam Kapoor",
     userEmail: "sonam@gmail.com",
     amount: "$220k",
@@ -28,7 +29,7 @@ const activityRows = [
   {
     id: 3,
     profileType: "YouTube",
-    date: "21-10-2025",
+    profileName: "Gadget Reviews",
     userName: "Sam Altman",
     userEmail: "sam@gmail.com",
     amount: "$500k",
@@ -37,7 +38,7 @@ const activityRows = [
   {
     id: 4,
     profileType: "Twitch",
-    date: "20-10-2025",
+    profileName: "Live Arena",
     userName: "Leo Martin",
     userEmail: "leo@gmail.com",
     amount: "$250k",
@@ -47,7 +48,7 @@ const activityRows = [
 
 const tabConfig = [
   { id: "all", label: "All" },
-  { id: "pending", label: "Pending" },
+  { id: "pending", label: "Incoming Offer" },
   { id: "completed", label: "Completed" },
   { id: "cancelled", label: "Cancelled" },
 ];
@@ -57,7 +58,14 @@ const ProfileSell = () => {
   const [activeTab, setActiveTab] = useState("all");
   const [searchValue, setSearchValue] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [modalMode, setModalMode] = useState("sell");
   const [, setSelectedAction] = useState(null);
+  const [offerAction, setOfferAction] = useState(null); // { row, action }
+
+  const openModal = (mode) => {
+    setModalMode(mode);
+    setShowModal(true);
+  };
 
   const counts = useMemo(() => ({
     all: activityRows.length,
@@ -84,7 +92,7 @@ const ProfileSell = () => {
           <h1 className="profile-sell-heading">Profile Sell</h1>
           
         </div>
-        <button type="button" className="dark-btn" onClick={() => setShowModal(true)}>
+        <button type="button" className="dark-btn" onClick={() => openModal("sell")}>
           Sell Profile
         </button>
       </div>
@@ -138,9 +146,9 @@ const ProfileSell = () => {
                 <tr>
                   <th>#</th>
                   <th>Profile Type</th>
-                  <th>Date</th>
+                  <th>Profile Name</th>
                   <th>User Details</th>
-                  <th>Amount</th>
+                  <th>Asking Price</th>
                   <th></th>
                 </tr>
               </thead>
@@ -149,11 +157,10 @@ const ProfileSell = () => {
                   <tr key={row.id}>
                     <td>{index + 1}</td>
                     <td>{row.profileType}</td>
-                    <td>{row.date}</td>
+                    <td>{row.profileName}</td>
                     <td>
                       <div className="profile-sell-user">
                         <span className="table-name">{row.userName}</span>
-                        <span className="table-username">{row.userEmail}</span>
                       </div>
                     </td>
                     <td className="table-amount">
@@ -171,45 +178,99 @@ const ProfileSell = () => {
                         >
                           <i className="bi bi-three-dots-vertical"></i>
                         </button>
-                        <ul className="dropdown-menu dropdown-menu-end">
-                          <li>
-                            <a
-                              className="dropdown-item"
-                              href="#"
-                              onClick={(event) => {
-                                event.preventDefault();
-                                setSelectedAction({ row, action: "view" });
-                              }}
-                            >
-                              View
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              className="dropdown-item"
-                              href="#"
-                              onClick={(event) => {
-                                event.preventDefault();
-                                setSelectedAction({ row, action: "edit" });
-                                setShowModal(true);
-                              }}
-                            >
-                              Edit
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              className="dropdown-item text-danger"
-                              href="#"
-                              onClick={(event) => {
-                                event.preventDefault();
-                                setSelectedAction({ row, action: "delete" });
-                              }}
-                            >
-                              Delete
-                            </a>
-                          </li>
-                        </ul>
+                        {activeTab === "pending" && row.status === "pending" ? (
+                          <ul className="dropdown-menu dropdown-menu-end">
+                            <li>
+                              <a
+                                className="dropdown-item text-success"
+                                href="#"
+                                onClick={(event) => {
+                                  event.preventDefault();
+                                  setOfferAction({ row, action: "accept" });
+                                }}
+                              >
+                                Accept
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                className="dropdown-item text-danger"
+                                href="#"
+                                onClick={(event) => {
+                                  event.preventDefault();
+                                  setOfferAction({ row, action: "decline" });
+                                }}
+                              >
+                                Decline
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                className="dropdown-item"
+                                href="#"
+                                onClick={(event) => {
+                                  event.preventDefault();
+                                  setOfferAction({ row, action: "counter" });
+                                }}
+                              >
+                                Counter Offer
+                              </a>
+                            </li>
+                          </ul>
+                        ) : (
+                          <ul className="dropdown-menu dropdown-menu-end">
+                            <li>
+                              <a
+                                className="dropdown-item"
+                                href="#"
+                                onClick={(event) => {
+                                  event.preventDefault();
+                                  setSelectedAction({ row, action: "view" });
+                                }}
+                              >
+                                View
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                className="dropdown-item"
+                                href="#"
+                                onClick={(event) => {
+                                  event.preventDefault();
+                                  setSelectedAction({ row, action: "edit" });
+                                  openModal("edit");
+                                }}
+                              >
+                                Edit
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                className="dropdown-item"
+                                href="#"
+                                onClick={(event) => {
+                                  event.preventDefault();
+                                  setSelectedAction({ row, action: "verify" });
+                                  openModal("verify");
+                                }}
+                              >
+                                Verify Profile
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                className="dropdown-item text-danger"
+                                href="#"
+                                onClick={(event) => {
+                                  event.preventDefault();
+                                  setSelectedAction({ row, action: "delete" });
+                                }}
+                              >
+                                Delete
+                              </a>
+                            </li>
+                          </ul>
+                        )}
                       </div>
                     </td>
                   </tr>
@@ -242,7 +303,19 @@ const ProfileSell = () => {
         </div>
       </div>
 
-      <ProfileSellModal show={showModal} onClose={() => setShowModal(false)} />
+      <ProfileSellModal
+        show={showModal}
+        mode={modalMode}
+        onClose={() => setShowModal(false)}
+      />
+
+      <OfferActionModal
+        show={Boolean(offerAction)}
+        action={offerAction?.action}
+        row={offerAction?.row}
+        onClose={() => setOfferAction(null)}
+        onConfirm={() => setOfferAction(null)}
+      />
     </div>
   );
 };

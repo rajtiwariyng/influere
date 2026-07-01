@@ -36,7 +36,6 @@ import facebookIcon from "../../assets/facebook-2.svg";
 import instagramIcon from "../../assets/instagram.svg";
 import twitterIcon from "../../assets/x.svg";
 import linkedinIcon from "../../assets/linkedin-2.svg";
-import pinterestIcon from "../../assets/pinterest.svg";
 import tiktokIcon from "../../assets/ticktok.svg";
 import youtubeIcon from "../../assets/youtube.svg";
 
@@ -51,15 +50,15 @@ const Dashboard = () => {
       {
         label: 'Android',
         data: [320, 280, 350, 290, 380, 400, 320],
-        backgroundColor: '#3B82F6',
-        borderColor: '#3B82F6',
+        backgroundColor: '#2e6fb0',
+        borderColor: '#2e6fb0',
         borderWidth: 1,
       },
       {
         label: 'IOS',
         data: [180, 220, 190, 250, 210, 280, 240],
-        backgroundColor: '#F97316',
-        borderColor: '#F97316',
+        backgroundColor: '#d12e8e',
+        borderColor: '#d12e8e',
         borderWidth: 1,
       },
     ],
@@ -117,6 +116,83 @@ const Dashboard = () => {
           },
         },
       },
+    },
+  };
+
+  // --- #17 dashboard sections ---
+  const [activityTimeframe, setActivityTimeframe] = useState("24h");
+  const [activitySort, setActivitySort] = useState("date");
+
+  const socialPlatforms = [
+    { name: "Facebook", icon: facebookIcon, followers: "120k" },
+    { name: "Instagram", icon: instagramIcon, followers: "340k" },
+    { name: "Twitter", icon: twitterIcon, followers: "95k" },
+    { name: "YouTube", icon: youtubeIcon, followers: "210k" },
+    { name: "LinkedIn", icon: linkedinIcon, followers: "60k" },
+    { name: "TikTok", icon: tiktokIcon, followers: "180k" },
+  ];
+
+  // (1) Revenue generated vs paid out
+  const revenueChartData = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    datasets: [
+      {
+        label: "Revenue Generated",
+        data: [4200, 5100, 4800, 6300, 7200, 6800],
+        backgroundColor: "#1aaec4",
+        borderWidth: 1,
+      },
+      {
+        label: "Paid Out",
+        data: [2100, 2600, 2400, 3200, 3600, 3400],
+        backgroundColor: "#d12e8e",
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  // (2) Followers from each social platform
+  const followersChartData = {
+    labels: socialPlatforms.map((p) => p.name),
+    datasets: [
+      {
+        label: "Followers",
+        data: [120000, 340000, 95000, 210000, 60000, 180000],
+        backgroundColor: "#2e6fb0",
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const collabNotifications = [
+    { id: 1, direction: "incoming", name: "Sarah Johnson", platform: "Instagram", detail: "wants to collaborate on a reel campaign", amount: "$1,200", time: "2h ago" },
+    { id: 2, direction: "outgoing", name: "David Chen", platform: "YouTube", detail: "you sent a collaboration offer", amount: "$880", time: "5h ago" },
+    { id: 3, direction: "incoming", name: "Michael Thompson", platform: "LinkedIn", detail: "wants to co-author a thought-leadership post", amount: "$1,500", time: "1d ago" },
+    { id: 4, direction: "outgoing", name: "Kavya Nair", platform: "TikTok", detail: "you sent a collaboration offer", amount: "$1,800", time: "2d ago" },
+  ];
+
+  const recentActivities = [
+    { id: 1, label: "Received payment from Sarah Johnson", amount: "+$1,200", date: "27-06-2026", window: "24h" },
+    { id: 2, label: "Sent collaboration offer to David Chen", amount: "-$880", date: "26-06-2026", window: "1w" },
+    { id: 3, label: "Profile verified on Instagram", amount: "", date: "22-06-2026", window: "1w" },
+    { id: 4, label: "Withdrawal to bank account", amount: "-$3,000", date: "01-06-2026", window: "1m" },
+    { id: 5, label: "Earned from YouTube campaign", amount: "+$6,800", date: "12-12-2025", window: "1y" },
+    { id: 6, label: "Account created", amount: "", date: "10-03-2021", window: "5y" },
+  ];
+
+  const activityWindowOrder = ["24h", "1w", "1m", "1y", "5y", "10y"];
+  const filteredActivities = recentActivities.filter(
+    (a) => activityWindowOrder.indexOf(a.window) <= activityWindowOrder.indexOf(activityTimeframe)
+  );
+
+  // Chart options for the two stat charts (#17)
+  const statChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { position: "top", align: "end", labels: { usePointStyle: true, font: { size: 11 } } } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+      y: { beginAtZero: true, grid: { color: "rgba(0,0,0,0.05)" }, ticks: { font: { size: 11 } } },
     },
   };
 
@@ -259,8 +335,8 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      {/* Metrics Cards */}
-      <div className="row">
+      {/* Profile (left) + Metrics & chart (right) — #16 */}
+      <div className="row flex-row-reverse">
         <div className="col-md-7">
           <div className="dashboard-metrics">
             <div className="metric-card followers-card">
@@ -333,8 +409,8 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="col-md-5 ps-0">
-          <div className="user-card">
+        <div className="col-md-5 pe-0 d-flex">
+          <div className="user-card w-100">
             <div className="card-header"></div>
             <div className="user-profile-photo">
               <img
@@ -345,7 +421,7 @@ const Dashboard = () => {
             <div className="user-details">
               <div className="top-details d-flex align-items-center justify-content-between mb-1">
                 <h4 className="username d-flex align-items-center gap-2">
-                  Sonam Kumari{" "}
+                  John Doe{" "}
                   <span>
                     <img src={verfiedIcon} alt="" />
                   </span>
@@ -353,7 +429,7 @@ const Dashboard = () => {
                 <a
                   href="#"
                   className="edit-profile-btn"
-                  style={{ color: "#0088FF !important" }}
+                  style={{ color: "#2e6fb0 !important" }}
                 >
                   <i className="bi bi-pencil-square me-1"></i>Edit
                 </a>
@@ -363,7 +439,7 @@ const Dashboard = () => {
                   CA00786YTIGTW
                 </p>
                 <a href="#" className="linktree-btn">
-                  <i className="bi bi-link-45deg"></i>sonam_kumari
+                  <i className="bi bi-link-45deg"></i>john_doe
                 </a>
               </div>
               <div className="contact-details mb-2">
@@ -378,10 +454,10 @@ const Dashboard = () => {
                       </p>
                     </div>
                     <a
-                      href="mailto:sonam@gmail.com"
+                      href="mailto:johndoe@gmail.com"
                       className="text-dark fw-semibold"
                     >
-                      sonam@gmail.com
+                      johndoe@gmail.com
                     </a>
                   </div>
                   <div className="contact-items">
@@ -396,34 +472,120 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
-              <div className="social-media-links mb-2">
-                <h6 className="social-media-title text-dark mb-2">
-                  Social Media Links
-                </h6>
-                <div className="social-media-items-container d-flex align-items-center gap-2">
-                  <a href="#" className="social-media-item">
-                    <img src={facebookIcon} alt="Facebook" />
-                  </a>
-                  <a href="#" className="social-media-item">
-                    <img src={instagramIcon} alt="Instagram" />
-                  </a>
-                  <a href="#" className="social-media-item">
-                    <img src={twitterIcon} alt="Twitter" />
-                  </a>
-                  <a href="#" className="social-media-item">
-                    <img src={youtubeIcon} alt="YouTube" />
-                  </a>
-                  <a href="#" className="social-media-item">
-                    <img src={linkedinIcon} alt="LinkedIn" />
-                  </a>
-                  <a href="#" className="social-media-item">
-                    <img src={tiktokIcon} alt="TikTok" />
-                  </a>
-                  <a href="#" className="social-media-item">
-                    <img src={pinterestIcon} alt="Pinterest" />
-                  </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Social media cards — #17 */}
+      <div className="dashboard-social-cards">
+        {socialPlatforms.map((p) => (
+          <div key={p.name} className="dashboard-social-card">
+            <img src={p.icon} alt={p.name} className="dashboard-social-card-icon" />
+            <div className="dashboard-social-card-meta">
+              <span className="dashboard-social-card-platform">{p.name}</span>
+              <span className="dashboard-social-card-handle">john_doe</span>
+            </div>
+            <span className="dashboard-social-card-followers">{p.followers}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Two statistics graphs — #17 */}
+      <div className="row dashboard-stats-row">
+        <div className="col-md-6">
+          <div className="dashboard-stat-card">
+            <h2 className="chart-title">Revenue Generated vs Paid Out</h2>
+            <div className="chart-container">
+              <Bar data={revenueChartData} options={statChartOptions} />
+            </div>
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="dashboard-stat-card">
+            <h2 className="chart-title">Followers by Platform</h2>
+            <div className="chart-container">
+              <Bar data={followersChartData} options={statChartOptions} />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Collaboration offers + Recent Activity — #17 */}
+      <div className="row dashboard-activity-row">
+        <div className="col-md-6">
+          <div className="dashboard-panel">
+            <div className="dashboard-panel-header">
+              <h2 className="table-title mb-0">Collaboration Offers</h2>
+            </div>
+            <div className="collab-notifications">
+              {collabNotifications.map((n) => (
+                <div key={n.id} className={`collab-notification collab-notification-${n.direction}`}>
+                  <span className={`collab-notification-badge ${n.direction}`}>
+                    {n.direction === "incoming" ? "Incoming" : "Outgoing"}
+                  </span>
+                  <div className="collab-notification-body">
+                    <p className="collab-notification-text">
+                      <strong>{n.name}</strong> ({n.platform}) {n.detail}
+                    </p>
+                    <span className="collab-notification-time">{n.time}</span>
+                  </div>
+                  <span className="collab-notification-amount">{n.amount}</span>
                 </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="dashboard-panel">
+            <div className="dashboard-panel-header d-flex align-items-center justify-content-between flex-wrap gap-2">
+              <h2 className="table-title mb-0">Recent Activity</h2>
+              <div className="d-flex align-items-center gap-2">
+                <select
+                  className="activity-filter-select"
+                  value={activityTimeframe}
+                  onChange={(e) => setActivityTimeframe(e.target.value)}
+                >
+                  <option value="24h">Past 24 Hours</option>
+                  <option value="1w">Past Week</option>
+                  <option value="1m">Past Month</option>
+                  <option value="1y">Past Year</option>
+                  <option value="5y">Past 5 Years</option>
+                  <option value="10y">Past 10 Years</option>
+                </select>
+                <select
+                  className="activity-filter-select"
+                  value={activitySort}
+                  onChange={(e) => setActivitySort(e.target.value)}
+                >
+                  <option value="date">Sort: Date</option>
+                  <option value="amount">Sort: Amount</option>
+                  <option value="time">Sort: Time</option>
+                </select>
               </div>
+            </div>
+            <div className="recent-activity-list">
+              {filteredActivities.length === 0 ? (
+                <p className="text-muted m-0">No activity in this period.</p>
+              ) : (
+                filteredActivities.map((a) => (
+                  <div key={a.id} className="recent-activity-item">
+                    <div className="recent-activity-main">
+                      <span className="recent-activity-label">{a.label}</span>
+                      <span className="recent-activity-date">{a.date}</span>
+                    </div>
+                    {a.amount && (
+                      <span
+                        className={`recent-activity-amount ${
+                          a.amount.startsWith("+") ? "positive" : "negative"
+                        }`}
+                      >
+                        {a.amount}
+                      </span>
+                    )}
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </div>

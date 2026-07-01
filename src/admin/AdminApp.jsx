@@ -21,7 +21,7 @@ import './design-system/variables.css';
 import './design-system/base.css';
 import './design-system/components.css';
 import './styles/pages.css';
-import logo from '../assets/logo.svg';
+import logo from '../assets/icollaborate-logo.png';
 import ConsultancyCategoryShortlisted from './pages/ConsultancyCategoryShortlisted';
 import ConsultancyProfessionalPage from './pages/ConsultancyProfessionalPage';
 
@@ -75,17 +75,17 @@ const defaultNavigationItems = [
         navigateWithChildren: true,
         children: [
           {
-            id: 'collaboration-shortlisted',
-            label: 'Shortlisted',
+            id: 'consultancy-legal-inbox',
+            label: 'Inbox',
             path: '/dashboard/professional-consultancy/legal/shortlisted',
             children: [
               {
-                id: 'shortlisted-incoming',
+                id: 'consultancy-legal-inbox-incoming',
                 label: 'Incoming',
                 path: '/dashboard/professional-consultancy/legal/shortlisted?tab=incoming',
               },
               {
-                id: 'shortlisted-outgoing',
+                id: 'consultancy-legal-inbox-outgoing',
                 label: 'Outgoing',
                 path: '/dashboard/professional-consultancy/legal/shortlisted?tab=outgoing',
           },
@@ -100,17 +100,17 @@ const defaultNavigationItems = [
         navigateWithChildren: true,
         children: [
           {
-            id: 'collaboration-shortlisted',
-            label: 'Shortlisted',
+            id: 'consultancy-accounting-inbox',
+            label: 'Inbox',
             path: '/dashboard/professional-consultancy/accounting/shortlisted',
             children: [
               {
-                id: 'shortlisted-incoming',
+                id: 'consultancy-accounting-inbox-incoming',
                 label: 'Incoming',
                 path: '/dashboard/professional-consultancy/accounting/shortlisted?tab=incoming',
               },
               {
-                id: 'shortlisted-outgoing',
+                id: 'consultancy-accounting-inbox-outgoing',
                 label: 'Outgoing',
                 path: '/dashboard/professional-consultancy/accounting/shortlisted?tab=outgoing',
           },
@@ -125,17 +125,17 @@ const defaultNavigationItems = [
         navigateWithChildren: true,
         children: [
           {
-            id: 'collaboration-shortlisted',
-            label: 'Shortlisted',
+            id: 'consultancy-tax-inbox',
+            label: 'Inbox',
             path: '/dashboard/professional-consultancy/tax/shortlisted',
             children: [
               {
-                id: 'shortlisted-incoming',
+                id: 'consultancy-tax-inbox-incoming',
                 label: 'Incoming',
                 path: '/dashboard/professional-consultancy/tax/shortlisted?tab=incoming',
               },
               {
-                id: 'shortlisted-outgoing',
+                id: 'consultancy-tax-inbox-outgoing',
                 label: 'Outgoing',
                 path: '/dashboard/professional-consultancy/tax/shortlisted?tab=outgoing',
           },
@@ -150,17 +150,17 @@ const defaultNavigationItems = [
         navigateWithChildren: true,
         children: [
           {
-            id: 'collaboration-shortlisted',
-            label: 'Shortlisted',
+            id: 'consultancy-multimedia-inbox',
+            label: 'Inbox',
             path: '/dashboard/professional-consultancy/multimedia/shortlisted',
             children: [
               {
-                id: 'shortlisted-incoming',
+                id: 'consultancy-multimedia-inbox-incoming',
                 label: 'Incoming',
                 path: '/dashboard/professional-consultancy/multimedia/shortlisted?tab=incoming',
               },
               {
-                id: 'shortlisted-outgoing',
+                id: 'consultancy-multimedia-inbox-outgoing',
                 label: 'Outgoing',
                 path: '/dashboard/professional-consultancy/multimedia/shortlisted?tab=outgoing',
           },
@@ -175,17 +175,17 @@ const defaultNavigationItems = [
         navigateWithChildren: true,
         children: [
           {
-            id: 'collaboration-shortlisted',
-            label: 'Shortlisted',
+            id: 'consultancy-insurance-inbox',
+            label: 'Inbox',
             path: '/dashboard/professional-consultancy/insurance/shortlisted',
             children: [
               {
-                id: 'shortlisted-incoming',
+                id: 'consultancy-insurance-inbox-incoming',
                 label: 'Incoming',
                 path: '/dashboard/professional-consultancy/insurance/shortlisted?tab=incoming',
               },
               {
-                id: 'shortlisted-outgoing',
+                id: 'consultancy-insurance-inbox-outgoing',
                 label: 'Outgoing',
                 path: '/dashboard/professional-consultancy/insurance/shortlisted?tab=outgoing',
           },
@@ -375,9 +375,9 @@ navigateWithChildren: true,
 const AdminApp = ({ 
   navigationItems = defaultNavigationItems,
   logo: logoProp = logo,
-  companyName = "INFLUERE",
+  companyName = "iCollaborate",
   tagline = "Collaborate With Professionals",
-  userName = "Sonam",
+  userName = "John",
   userAvatar = null
 }) => {
   return (

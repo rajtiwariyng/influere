@@ -1,29 +1,120 @@
+import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import usePageTitle from "../hooks/usePageTitle";
+import useScrollReveal from "../hooks/useScrollReveal";
 import trust from "../assets/people-img.svg";
 import about from "../assets/about.png";
 import professional from "../assets/professional.png";
 import background from "../assets/section-img.jpg";
 import infograph from "../assets/infographic.svg";
 import servicesIcon1 from "../assets/service-icon-1.svg";
-import hexagonCenter from "../assets/hexagon-center.svg";
 import serviceIcon from "../assets/icon.svg";
 import Icon2 from "../assets/icon-2.svg";
 import Icon3 from "../assets/icon-3.svg";
 import Icon4 from "../assets/icon-4.svg";
-import Icon5 from "../assets/icon-5.svg";
-import Icon6 from "../assets/icon-6.svg";
 import Icon7 from "../assets/icon-7.svg";
 import Icon8 from "../assets/icon-8.svg";
 import Icon9 from "../assets/icon-9.svg";
 import Icon10 from "../assets/icon-10.svg";
-import Icon11 from "../assets/icon-11.svg";
+
+// 8 services that surround the bold central hexagon (3 flat-top columns)
+const hexCols = [
+  [
+    { icon: serviceIcon, title: "Verified Profile Badge", desc: "Get a unique 'Verified Profile' badge for all your social platforms — a label showing you're an authentic and trustworthy user." },
+    { icon: Icon8, title: "Legal Counsel", desc: "Access experienced legal teams in your country for contracts, collaborative agreements, strategic advice and representation." },
+    { icon: Icon7, title: "Multimedia Creation & Editing", desc: "Experts in video and image creation and editing, available round the clock at nominal rates." },
+  ],
+  [
+    { icon: Icon3, title: "Profile Buy/Sell", desc: "A repository of buyers and sellers to buy or sell your profile as an asset." },
+    { center: true },
+    { icon: Icon9, title: "Tax Counsel", desc: "Access tax accountants in your country for tax filing, investment and strategic financial advice." },
+  ],
+  [
+    { icon: Icon4, title: "Collaborate", desc: "Connect with like-minded creators and use your credits to request networking opportunities and cross-promotion." },
+    { icon: Icon2, title: "Profile Registration Number", desc: "A registration number traceable to a portal listing all verified, registered members." },
+    { icon: Icon10, title: "Professional Liability Insurance", desc: "Safeguard yourself or your company from legal lawsuits and financial claims with our insurance packages." },
+  ],
+];
+
+const renderHex = (item, key) => {
+  if (item.center) {
+    return (
+      <div key={key} className="hc-cell hc-center">
+        <div className="hc-center-inner">
+          <span className="hc-brand">iCollaborate.ai</span>
+          <span className="hc-provides">Provides</span>
+          <p>
+            Comprehensive support to drive your growth. Our mission is to
+            ensure you're equipped with all the tools necessary.
+          </p>
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div key={key} className="hc-cell hc-surround">
+      <div className="hc-inner">
+        <div className="hc-face hc-front">
+          <img src={item.icon} className="hc-icon" alt="" />
+          <h3>{item.title}</h3>
+        </div>
+        <div className="hc-face hc-back">
+          <img src={item.icon} className="hc-icon" alt="" />
+          <h3>{item.title}</h3>
+          <p>{item.desc}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Home = () => {
   usePageTitle("Home");
+  useScrollReveal();
+
+  // Scroll-scrubbed honeycomb: progress (0..1) drives both the un-packing
+  // (--spread) and a staggered rotateY flip on each surrounding hexagon.
+  const honeycombRef = useRef(null);
+  useEffect(() => {
+    const el = honeycombRef.current;
+    if (!el) return;
+    const cells = Array.from(el.querySelectorAll(".hc-surround .hc-inner"));
+    const STAGGER = 0.035;
+    const SPAN = 0.32;
+    let raf = 0;
+
+    const apply = () => {
+      raf = 0;
+      const absTop = el.getBoundingClientRect().top + window.scrollY;
+      const begin = Math.max(0, absTop - window.innerHeight * 0.45 - 20);
+      const dist = Math.max(el.offsetHeight * 0.5, 280);
+      let p = (window.scrollY - begin) / dist;
+      p = Math.min(1, Math.max(0, p));
+      el.style.setProperty("--spread", p.toFixed(3));
+      cells.forEach((c, i) => {
+        let cp = (p - i * STAGGER) / SPAN;
+        cp = Math.min(1, Math.max(0, cp));
+        c.style.transform = `rotateY(${(cp * 180).toFixed(1)}deg)`;
+      });
+    };
+
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(apply);
+    };
+
+    apply();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
     <>
-      <div className="container hero-section">
+      <div className="container hero-section" data-animate data-reveal-once>
         <h4 className="fw-light">Connect with us and</h4>
         <h1 className="fw-bold">
           Let's build your <br />
@@ -42,163 +133,22 @@ const Home = () => {
       </div>
 
       <div id="services" className="container wrapper">
-        <div className="services-section text-center hexagon-section">
-          <img src={hexagonCenter} className="hexagon-center" alt="" />
-
-          <div
-            className="hex md"
-            role="img"
-            aria-label="Verified Profile Badge"
-          >
-            <div className="hex-content">
-              <img src={serviceIcon} className="icon" alt="" />
-              <h3>Verified Profile Badge</h3>
-              <div className="subtitle">
-                Get a unique 'Verified Profile' Badge to add to your online
-                profile in all social media platforms. A one-time label showing
-                that you are an authentic and trustworthy user.
+        <div className="honeycomb" ref={honeycombRef}>
+          <div className="honeycomb-grid">
+            {hexCols.map((col, ci) => (
+              <div key={ci} className="hc-col">
+                {col.map((item, ri) => renderHex(item, `${ci}-${ri}`))}
               </div>
-            </div>
-          </div>
-
-          <div className="hex md" role="img" aria-label="Analytics">
-            <div className="hex-content">
-              <img src={Icon2} className="icon" alt="" />
-              <h3>Profile Registration Number</h3>
-              <div className="subtitle">
-                Along with your 'Verified Profile' badge, get a registration
-                number assigned that can be traced back to a portal listing of
-                all verified registered members.
-              </div>
-            </div>
-          </div>
-
-          <div className="hex md" role="img" aria-label="Analytics">
-            <div className="hex-content">
-              <img src={Icon3} className="icon" alt="" />
-              <h3>Profile Buy/Sell</h3>
-              <div className="subtitle">
-                Repository of buyers and sellers to sell or buy your profile as
-                an asset.
-              </div>
-            </div>
-          </div>
-
-          <div className="hex md" role="img" aria-label="Analytics">
-            <div className="hex-content">
-              <img src={Icon10} className="icon" alt="" />
-              <h3>Professional Liability Insurance</h3>
-              <div className="subtitle">
-              Safeguard yourself or your company from Legal lawsuits and and
-                protect yourself from financial claims from our varied insurance
-                policy packages to suite your needs.
-              </div>
-            </div>
-          </div>
-
-          <div className="hex md" role="img" aria-label="Analytics">
-            <div className="hex-content">
-              <img src={Icon11} className="icon" alt="" />
-              <h3>Action against Fake/Duplicate profiles</h3>
-              <div className="subtitle">
-                We use our extensive network of profiles to flag illegal, fake
-                and ransom fraudsters. Get advice on how to guard your profile
-                and your followers.
-              </div>
-            </div>
-          </div>
-
-          <div className="hex md" role="img" aria-label="Analytics">
-            <div className="hex-content">
-              <img src={Icon8} className="icon" alt="" />
-              <h3>Legal Counsel</h3>
-              <div className="subtitle">
-                Get access to experienced and proficient legal team located in
-                your country of origin help drafting contractual obligations and
-                collaborative agreements preparation with legal and strategic
-                advice and representation.
-              </div>
-            </div>
-          </div>
-
-          <div className="hex md" role="img" aria-label="Analytics">
-            <div className="hex-content">
-              <img src={Icon9} className="icon" alt="" />
-              <h3>Tax Counsel</h3>
-              <div className="subtitle">
-                Get access to our Tax accountant team located in your country of
-                origin for local tax and investment advice. They can also file
-                your taxes and offer you investment and strategic financial
-                advice.
-              </div>
-            </div>
-          </div>
-
-          <div className="hex md" role="img" aria-label="Analytics">
-            <div className="hex-content">
-              <img src={Icon7} className="icon" alt="" />
-              <h3>Multimedia Creation and Editing</h3>
-              <div className="subtitle">
-                A team of experts in video and image creation and editing are
-                available round the clock at nominal rates.
-              </div>
-            </div>
-          </div>
-
-          <div className="hex md" role="img" aria-label="Analytics">
-            <div className="hex-content">
-              <img src={Icon6} className="icon" alt="" />
-              <h3>Avail Discounts</h3>
-              <div className="subtitle">
-                From all participating apps and tools available for content
-                creation. Avail discounts at conferences, meetings, and get
-                updated on the latest trends in the field.
-              </div>
-            </div>
-          </div>
-
-          <div className="hex md" role="img" aria-label="Analytics">
-            <div className="hex-content">
-              <img src={Icon5} className="icon" alt="" />
-              <h3>INFLUERE Linktree</h3>
-              <div className="subtitle">
-                Send your contacts ONE single link that leads them to a portal
-                from INFLUERE showing all your social media presence on one
-                page.
-              </div>
-            </div>
-          </div>
-
-          <div className="hex md d-none" role="img" aria-label="Analytics">
-            <div className="hex-content">
-              <img src={Icon10} className="icon" alt="" />
-              <h3>Professional Liability Insurance</h3>
-              <div className="subtitle">
-                Safeguard yourself or your company from Legal lawsuits and and
-                protect yourself from financial claims from our varied insurance
-                policy packages to suite your needs.
-              </div>
-            </div>
-          </div>
-
-          <div className="hex md" role="img" aria-label="Analytics">
-            <div className="hex-content">
-              <img src={Icon4} className="icon" alt="" />
-              <h3>Collaborate</h3>
-              <div className="subtitle">
-              Our most valued service for your growth. Use our repository to
-                connect with like minded creators. Use your credits to request
-                networking opportunities and cross promotion.
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
 
-      <div id="why-join" className="about-section wrapper pb-0">
+      <div id="why-join" className="about-section wrapper pb-0" data-animate>
         <div className="container">
           <div className="row">
             <div className="col-md-6">
+              <h2 className="fw-bold text-white mb-2">What is iCollaborate.ai</h2>
               <div className="line mb-3"></div>
               <h5 className="mb-3 text-white">
                 Build your influencer brand on our platform which will give you
@@ -225,7 +175,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="professional-section wrapper">
+      <div className="professional-section wrapper" data-animate>
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-5 p-0">
@@ -254,28 +204,28 @@ const Home = () => {
       <div className="container-fluid p-0 wrapper">
         <img src={background} className="img-fluid" alt="background" />
       </div>
-      <div id="about-us" className="info-section wrapper">
+      <div id="about-us" className="info-section wrapper" data-animate>
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              <h2 className="fw-bold">About Us </h2>
+              <h2 className="fw-bold">About Us</h2>
               <div className="line mb-3"></div>
             </div>
             <div className="col-md-8">
               <p>
-                Influere is a latin verb that means “to flow in” or “to affect”.
-                It is the root of the english word “influence” and is what best
-                describes our platform which has the power or capacity to affect
-                someones future. The potential and talent by bringing the tools
-                of computer software, the skills of professionals and the
-                networking gains of collaboration to every influencer joining
-                our us.
-              </p>
-              <p>
-                We are multicultural, multinational and a global group of
-                professionals, all bundle into this platform to provide you
-                every opportunity to monitorize your skills and takes to the
-                global audience.
+                iCollaborate.ai uses advanced AI to analyze audience
+                demographics, engagement quality, and content style,
+                automatically pairing influencers with compatible peers for
+                high-impact collaborations. Beyond matchmaking, this
+                one-stop-shop approach functions as a comprehensive, centralized
+                ecosystem for the professional influencer, streamlining the
+                entire partnership lifecycle from AI-driven discovery and
+                automated outreach to legal contracting, content approvals, and
+                secure, instant payments. The platform integrates directly with
+                e-commerce systems, provides a single dashboard to track ROI
+                through analytics and manage all professional requirements,
+                including content creation tools and campaign reporting,
+                eliminating the need for fragmented, manual workflows.
               </p>
             </div>
           </div>

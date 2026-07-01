@@ -469,6 +469,32 @@
 }
 
 
+/* Support contact icon next to professional name (#6) */
+.consultancy-support-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--admin-primary-300, #c7cfdd);
+  border-radius: 50%;
+  background: var(--admin-primary-50, #f1f3fb);
+  color: var(--admin-primary-600, #5b21b6);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.consultancy-support-icon:hover {
+  background: var(--admin-primary-100, #e6e8f8);
+  color: var(--admin-primary-700, #4c1d95);
+}
+.consultancy-support-icon i {
+  font-size: 16px;
+}
+
+.consultancy-book-appointment-btn {
+  margin-top: 16px;
+}
+
 .modal-content{
   border: none !important;
   box-shadow: none !important;

@@ -46,7 +46,7 @@
   outline: none;
   -webkit-appearance: none;
   appearance: none;
-  accent-color: #066daf;
+  accent-color: #2e6fb0;
 }
 
 .collaboration-slider::-webkit-slider-thumb {
@@ -55,7 +55,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #066daf;
+  background: #2e6fb0;
   cursor: pointer;
   border: 2px solid var(--admin-white-500);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -65,7 +65,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #066daf;
+  background: #2e6fb0;
   cursor: pointer;
   border: 2px solid var(--admin-white-500);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -75,7 +75,7 @@
   position: absolute;
   top: 0;
   transform: translateX(-50%);
-  background: #066daf;
+  background: #2e6fb0;
   color: #fff;
   font-size: 12px;
   font-weight: 600;
@@ -103,7 +103,7 @@
   outline: none;
   -webkit-appearance: none;
   appearance: none;
-  accent-color: #066daf;
+  accent-color: #2e6fb0;
   pointer-events: none;
 }
 
@@ -113,7 +113,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #066daf;
+  background: #2e6fb0;
   cursor: pointer;
   border: 2px solid var(--admin-white-500);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -124,7 +124,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #066daf;
+  background: #2e6fb0;
   cursor: pointer;
   border: 2px solid var(--admin-white-500);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -147,7 +147,7 @@
   position: absolute;
   top: -16px;
   transform: translateX(-50%);
-  background: #066daf;
+  background: #2e6fb0;
   color: #fff;
   font-size: 12px;
   font-weight: 600;

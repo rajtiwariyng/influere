@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.svg';
+import logo from '../assets/icollaborate-logo.png';
 import Navbar from '../components/Navbar';
 import graphic from '../assets/left-img.svg';
 import Footer from '../components/Footer';

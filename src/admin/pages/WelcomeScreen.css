@@ -69,7 +69,7 @@
 }
 
 .setup-card-button {
-  background-color: #FF562F !important;
+  background-color: var(--warning-500) !important;
   color: #fff !important;
   border: none;
   padding: 10px 16px !important;

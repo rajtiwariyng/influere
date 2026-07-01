@@ -1,14 +1,15 @@
 import React, { useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import usePageTitle from "../../hooks/usePageTitle";
-import { collaborationProfiles } from "../data/collaborationProfilesData";
-import SliderDropdown from "../components/SliderDropdown";
+import RangeSliderDropdown from "../components/RangeSliderDropdown";
 import "../components/ConsultancyModals.css";
 import "./ConsultancyCategoryPage.css";
 import "./CollaborationPage.css";
 import "./Wallet.css";
 import consultancyData from "../data/consultancyData";
 import SelectDropdown from "../components/SelectDropdown";
+
+const DEFAULT_CATEGORY = "legal";
 
 const ConsultancyCategoryPage = () => {
   const { categoryId } = useParams();
@@ -20,20 +21,17 @@ const ConsultancyCategoryPage = () => {
   }, [categoryId]);
 
   const category = consultancyData[categoryKey];
-  const selectFilterOptions = consultancyData[categoryKey]?.filters[5]?.options;
+  const serviceTypeOptions = category?.serviceTypes;
+  const distanceFilterOptions = category?.distanceOptions;
 
   usePageTitle(category?.title);
   const navigate = useNavigate();
   const [selectedProfiles, setSelectedProfiles] = useState([]);
-  const [workOrderName, setWorkOrderName] = useState("");
-  const [workOrderDescription, setWorkOrderDescription] = useState("");
-  const [workOrderFile, setWorkOrderFile] = useState(null);
   const [filters, setFilters] = useState({
-    services:null,
-    rate: 0,
-    distance: 0,
-    experience: 0,
-    availibility: 0,
+    services: null,
+    rate: { min: 10, max: 100000 },
+    distance: null,
+    experience: { min: 0, max: 50 },
   });
 
   const handleProfileSelect = (profileId) => {
@@ -42,13 +40,6 @@ const ConsultancyCategoryPage = () => {
         ? prev.filter((id) => id !== profileId)
         : [...prev, profileId]
     );
-  };
-
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setWorkOrderFile(file);
-    }
   };
 
   const handleFilterChange = (filterName, value) => {
@@ -65,16 +56,6 @@ const ConsultancyCategoryPage = () => {
     }
   };
 
-  const handleWorkOrderSubmit = (e) => {
-    e.preventDefault();
-    // Handle work order submission
-    console.log("Work Order:", {
-      name: workOrderName,
-      description: workOrderDescription,
-      file: workOrderFile,
-    });
-  };
-
   const ViewMoreHandler = (professionalId) => {
 
     navigate(`/dashboard/professional-consultancy/${categoryId}/${professionalId}`)
@@ -89,75 +70,18 @@ const ConsultancyCategoryPage = () => {
           <h1 className="admin-page-title d-flex align-items-center gap-2 w-100">
             {category?.title}
             <span className="ai-powered-badge">
-              AI Powered | Create a work order and let AI find you the right
-              person to work with.
+              AI Powered | Let AI find you the right person to work with.
             </span>
           </h1>
         </div>
       </div>
-      {/* Work Order Form */}
-      <div className="work-order-section">
-        <p className="work-order-description">
-          Create a work order that can be sent to consultant. Write a brief
-          description of the work to get started.
+
+      {/* Category description */}
+      {category?.description && (
+        <p className="consultancy-category-description">
+          {category.description}
         </p>
-        <form onSubmit={handleWorkOrderSubmit} className="work-order-form">
-          <div className="add-funds-section mb-0">
-            <label className="form-label">Work Order Name/Number</label>
-            <div className="form-input-group">
-              <input
-                type="text"
-                placeholder="Enter"
-                value={workOrderName}
-                onChange={(e) => setWorkOrderName(e.target.value)}
-              />
-            </div>
-          </div>
-
-          <div className="add-funds-section mb-0">
-            <label className="form-label">Brief description of the work</label>
-            <div
-              className="form-input-group"
-              style={{ alignItems: "flex-start", minHeight: "100px" }}
-            >
-              <textarea
-                placeholder="Enter"
-                value={workOrderDescription}
-                onChange={(e) => setWorkOrderDescription(e.target.value)}
-                rows="4"
-                style={{
-                  flex: 1,
-                  border: "none",
-                  outline: "none",
-                  resize: "vertical",
-                  fontFamily: "inherit",
-                  fontSize: "14px",
-                  padding: "0",
-                  background: "transparent",
-                  minHeight: "80px",
-                }}
-              />
-            </div>
-          </div>
-
-          <div className="add-funds-section mb-0">
-            <label className="form-label">Attachments</label>
-            <div className="file-upload">
-              <input
-                type="file"
-                id="workOrderFile"
-                className="file-input"
-                onChange={handleFileChange}
-                multiple
-              />
-              <label htmlFor="workOrderFile" className="file-upload-label">
-                <i className="bi bi-cloud-arrow-up"></i>
-                <span>Upload</span>
-              </label>
-            </div>
-          </div>
-        </form>
-      </div>
+      )}
 
       {/* Section Title */}
       <div className="collaboration-section-title m-0 mt-2 mb-1">
@@ -167,52 +91,43 @@ const ConsultancyCategoryPage = () => {
       {/* Filter Bar */}
       <div className="consultancy-filters">
         <SelectDropdown
-          label="Type Of Services"
+          label="Type of Service"
           placeholder="Select an option"
-          options={selectFilterOptions}
-          onChange={(val) => setFilters({...filters, services:val})}
+          options={serviceTypeOptions}
+          onChange={(val) => handleFilterChange("services", val)}
           value={filters?.services}
         />
 
-        <SliderDropdown
+        <RangeSliderDropdown
           label="Rate"
-          placeholder="Select Value"
-          min={0}
-          max={1000000}
-          step={1000}
-          value={filters?.rate}
-          onChange={(value) =>
-            handleFilterChange("rate", value)
-          }
+          placeholder="Select range"
+          min={10}
+          max={100000}
+          step={10}
+          prefix="$"
+          minValue={filters?.rate?.min}
+          maxValue={filters?.rate?.max}
+          onChange={(value) => handleFilterChange("rate", value)}
         />
 
-        <SliderDropdown
+        <SelectDropdown
           label="Distance"
-          placeholder="Select Value"
-          min={0}
-          max={1000000}
-          step={1000}
+          placeholder="Select an option"
+          options={distanceFilterOptions}
+          onChange={(val) => handleFilterChange("distance", val)}
           value={filters?.distance}
-          onChange={(value) => handleFilterChange("distance", value)}
         />
 
-        <SliderDropdown
+        <RangeSliderDropdown
           label="Experience"
-          placeholder="Select Value"
+          placeholder="Select range"
           min={0}
-          max={1000000}
-          step={1000}
-          value={filters?.experience}
+          max={50}
+          step={1}
+          suffix=" yrs"
+          minValue={filters?.experience?.min}
+          maxValue={filters?.experience?.max}
           onChange={(value) => handleFilterChange("experience", value)}
-        />
-        <SliderDropdown
-          label="Availibility"
-          placeholder="Select Value"
-          min={0}
-          max={1000000}
-          step={1000}
-          value={filters?.availibility}
-          onChange={(value) => handleFilterChange("availibility", value)}
         />
       </div>
 

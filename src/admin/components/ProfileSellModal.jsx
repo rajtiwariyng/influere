@@ -12,9 +12,15 @@ const PLATFORM_OPTIONS = [
 const SLIDER_MIN = 100;
 const SLIDER_MAX = 1000;
 
-const ProfileSellModal = ({ show, onClose }) => {
+const ProfileSellModal = ({ show, onClose, mode = "sell" }) => {
+  const isVerify = mode === "verify";
+  const isEdit = mode === "edit";
+  const title = isVerify ? "Verify Profile" : isEdit ? "Edit Profile" : "Sell Profile";
+  const submitLabel = isVerify ? "Verify" : "Submit";
+
   const [platform, setPlatform] = useState("");
   const [profileUrl, setProfileUrl] = useState("");
+  const [verificationCode, setVerificationCode] = useState("");
   const [minSliderValue, setMinSliderValue] = useState(300);
   const [maxSliderValue, setMaxSliderValue] = useState(700);
   const [minAmount, setMinAmount] = useState("$300");
@@ -85,7 +91,7 @@ const ProfileSellModal = ({ show, onClose }) => {
           <i className="bi bi-x"></i>
         </button>
 
-        <h2 className="modal-title">Sell Profile</h2>
+        <h2 className="modal-title">{title}</h2>
 
         <div className="add-funds-section">
           <label className="form-label">Select Platform</label>
@@ -112,12 +118,30 @@ const ProfileSellModal = ({ show, onClose }) => {
           </div>
         </div>
 
+        {isVerify && (
+          <div className="add-funds-section">
+            <label className="form-label">Verification Code</label>
+            <div className="form-input-group">
+              <input
+                type="text"
+                value={verificationCode}
+                onChange={(event) => setVerificationCode(event.target.value)}
+                placeholder="Enter the verification code"
+              />
+            </div>
+          </div>
+        )}
+
+        {!isVerify && (
         <p className="withdraw-label" style={{ marginTop: "-8px" }}>
           Sell:- You may enter a fixed price or select a range
         </p>
+        )}
 
+        {!isVerify && (
+        <>
         <div className="add-funds-section">
-          <label className="form-label">Amount</label>
+          <label className="form-label">Asking Price</label>
           <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
             <div className="form-input-group" style={{ flex: 1 }}>
               <input
@@ -168,10 +192,12 @@ const ProfileSellModal = ({ show, onClose }) => {
             </div>
           </div>
         </div>
+        </>
+        )}
 
         <div className="modal-footer">
-          <button type="button" className="btn-dark">
-            Submit
+          <button type="button" className="btn-dark" onClick={onClose}>
+            {submitLabel}
           </button>
           <button type="button" className="btn-light" onClick={onClose}>
             Cancel

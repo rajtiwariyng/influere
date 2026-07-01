@@ -138,7 +138,7 @@ const ProfileFake = () => {
         </div>
         <div style={{ marginBottom: "16px", padding: "12px", background: "#E3F2FD", borderRadius: "6px", border: "1px solid #BBDEFB" }}>
           <p style={{ fontSize: "14px", color: "var(--admin-gray-700)", margin: 0 }}>
-            Can only be an account owned by you or Your Company. Basic - 3 per month and Advance - 100 per month.
+            Can only be an account owned by you or Your Company. Basic - 3 per month and Advance - 10 per month.
           </p>
         </div>
         <div>

@@ -4,30 +4,36 @@
 :root {
   /* Color Palette */
 
-  --gradient-primary: linear-gradient(90deg, rgba(84, 41, 128, 1) 100%, rgba(35, 0, 70, 1) 0%);
-  /* violet - Violet */
-  --violet-50: #eeeaf2;
-  --violet-100: #cabdd8;
-  --violet-200: #b09dc5;
-  --violet-300: #8c70aa;
-  --violet-400: #765499;
-  --violet-500: #542980;
-  --violet-600: #4c2574;
-  --violet-700: #3c1d5b;
-  --violet-800: #2e1746;
-  --violet-900: #231136;
+  /* Brand gradient matched to the logo: teal -> blue -> purple -> magenta */
+  --gradient-primary: linear-gradient(90deg, #1aaec4 0%, #2e6fb0 33%, #7a3f94 66%, #d12e8e 100%);
+  --logo-teal: #1aaec4;
+  --logo-blue: #2e6fb0;
+  --logo-purple: #7a3f94;
+  --logo-magenta: #d12e8e;
 
-  /* blue - Blue */
-  --blue-50: #e6f0f7;
-  --blue-100: #b2d2e6;
-  --blue-200: #8cbcda;
-  --blue-300: #589dc9;
-  --blue-400: #388abf;
-  --blue-500: #066daf;
-  --blue-600: #05639f;
-  --blue-700: #044d7c;
-  --blue-800: #033c60;
-  --blue-900: #032e4a;
+  /* violet - Purple (logo brand primary) */
+  --violet-50: #f2edf6;
+  --violet-100: #d9c8e6;
+  --violet-200: #c5acd8;
+  --violet-300: #a880c0;
+  --violet-400: #915fad;
+  --violet-500: #7a3f94;
+  --violet-600: #6a3681;
+  --violet-700: #532a65;
+  --violet-800: #3e1f4c;
+  --violet-900: #2e1738;
+
+  /* blue - Blue (logo blue/teal) */
+  --blue-50: #e7f1f8;
+  --blue-100: #bcd9ec;
+  --blue-200: #9bc8e4;
+  --blue-300: #5fa6d3;
+  --blue-400: #398cc4;
+  --blue-500: #1f7cbb;
+  --blue-600: #1a6ca5;
+  --blue-700: #145281;
+  --blue-800: #0f3f63;
+  --blue-900: #0b2f4a;
 
   /* white - white */
   --white-50: #FEFDFF;
@@ -65,17 +71,17 @@
   --success-800: #166534;
   --success-900: #14532d;
 
-  /* Warning - Orange */
-  --warning-50: #ffeeea;
-  --warning-100: #ffcbbf;
-  --warning-200: #ffb19f;
-  --warning-300: #ff8e74;
-  --warning-400: #ff7859;
-  --warning-500: #ff562f;
-  --warning-600: #e84e2b;
-  --warning-700: #b53d21;
-  --warning-800: #8c2f1a;
-  --warning-900: #6b2414;
+  /* Accent - Magenta (logo accent, replaces the old orange) */
+  --warning-50: #fce9f3;
+  --warning-100: #f6c4de;
+  --warning-200: #f1a6cd;
+  --warning-300: #e873b1;
+  --warning-400: #de51a0;
+  --warning-500: #d12e8e;
+  --warning-600: #bd2980;
+  --warning-700: #951f64;
+  --warning-800: #6f184b;
+  --warning-900: #54123a;
 
   /* Error - Red (keeping existing red as it works well) */
   --error-50: #fef2f2;
@@ -237,7 +243,7 @@ li {
 }
 
 .orange-btn:hover{
-  background-color: var(--orange-600) !important;
+  background-color: var(--warning-600) !important;
 }
 
 

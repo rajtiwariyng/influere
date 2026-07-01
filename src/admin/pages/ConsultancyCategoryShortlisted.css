@@ -3,7 +3,27 @@
     flex-direction: column;
     gap: 12px;
   }
-  
+
+  /* Incoming inbox meta: response time + hourly rate (#19) */
+  .consultancy-inbox-meta {
+    margin: 4px 0 8px 0;
+    flex-wrap: wrap;
+  }
+  .consultancy-inbox-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #555;
+  }
+  .consultancy-inbox-meta-item strong {
+    color: #222;
+    font-weight: 600;
+  }
+  .consultancy-service-tag {
+    text-transform: capitalize;
+  }
+
   /* Tabs - Styles are inherited from Wallet.css, matching Profile Sell Page */
   
   /* Shortlisted Content */

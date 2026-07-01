@@ -408,7 +408,7 @@
 }
 
 /* .amount-value.process {
-  color: #F97316;
+  color: #d12e8e;
   font-weight: 700;
 } */
 
@@ -479,7 +479,7 @@
 /* Process Status Note */
 .process-note {
   background: #FFF7ED;
-  border-left: 3px solid #F97316;
+  border-left: 3px solid #d12e8e;
   padding: 12px 16px;
   margin: 12px 0;
   border-radius: 4px;
@@ -490,7 +490,7 @@
 }
 
 .process-note i {
-  color: #F97316;
+  color: #d12e8e;
   font-size: 16px;
 }
 
@@ -636,7 +636,7 @@
 
 .transaction-id-value {
   font-size: 14px;
-  color: #3B82F6;
+  color: #2e6fb0;
   font-weight: 600;
 }
 

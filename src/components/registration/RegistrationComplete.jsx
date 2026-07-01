@@ -12,7 +12,7 @@ const RegistrationComplete = ({ formData }) => {
         </div>
         <h2 className="step-title">Registration Complete!</h2>
         <p className="step-description">
-          Welcome to INFLUERE! Your account has been successfully created. 
+          Welcome to iCollaborate! Your account has been successfully created.
           {formData.membershipType === 'basic' 
             ? ' You can now start using our basic features.' 
             : ' You now have access to all our premium features.'

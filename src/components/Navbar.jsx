@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.svg";
+import logo from "../assets/icollaborate-logo.png";
 import { useModal } from "../context/ModalContext";
 
 const Navbar = () => {
@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-custom">
       <div className="container">
         <Link className="navbar-brand" to="/">
-          <img src={logo} alt="Influere" />
+          <img src={logo} alt="iCollaborate" />
         </Link>
         <button
           className="navbar-toggler"

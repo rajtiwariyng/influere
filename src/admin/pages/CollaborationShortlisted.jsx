@@ -37,7 +37,7 @@ const CollaborationShortlisted = ({category}) => {
     {
       id: 1,
       sender: "you",
-      text: "Work Order Name/Number: #1233\nBrief description of work: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      text: "Campaign #1233\nBrief description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
       time: "12:44 PM",
     },
     {
@@ -178,7 +178,7 @@ const CollaborationShortlisted = ({category}) => {
                   >
                     {/* Work Order Title */}
                     <h2 className="work-order-title">
-                      Shortlisted for Work Order #{workOrder.orderNumber}
+                      Shortlisted for Campaign #{workOrder.orderNumber}
                     </h2>
 
                     {/* Card */}
@@ -414,7 +414,7 @@ const CollaborationShortlisted = ({category}) => {
                                             left: "30%",
                                             width: "40%",
                                             height: "6px",
-                                            background: "#066daf",
+                                            background: "#2e6fb0",
                                             borderRadius: "3px",
                                             zIndex: 1,
                                           }}
@@ -557,7 +557,7 @@ const CollaborationShortlisted = ({category}) => {
               {/* Work Order Selector */}
               <div className="outgoing-work-order-selector">
                 <label className="work-order-select-label">
-                  Shortlisted for Work Order:
+                  Shortlisted for Campaign:
                 </label>
                 <select
                   className="work-order-select"
@@ -898,7 +898,7 @@ const CollaborationShortlisted = ({category}) => {
                                           left: "30%",
                                           width: "40%",
                                           height: "6px",
-                                          background: "#066daf",
+                                          background: "#2e6fb0",
                                           borderRadius: "3px",
                                           zIndex: 1,
                                         }}

@@ -3,11 +3,9 @@ import "./ConsultancyModals.css";
 
 const ConsultancyBookingModal = ({ show, professional, onClose }) => {
   const [formData, setFormData] = useState({
-    requirement: "",
-    time: "",
-    subject: "",
-    comments: "",
-    reference: "",
+    description: "",
+    callType: "",
+    callTime: "",
   });
   const [documentInputs, setDocumentInputs] = useState([{ id: 1, file: null }]);
 
@@ -75,84 +73,24 @@ const ConsultancyBookingModal = ({ show, professional, onClose }) => {
                 className="consultancy-booking-form"
                 onSubmit={handleSubmit}
               >
-                {/* Requirement Field */}
+                {/* Description Field */}
                 <label className="consultancy-booking-field">
-                  <span>Requirement</span>
-                  <select
-                    className="consultancy-select"
-                    value={formData.requirement}
-                    onChange={(e) =>
-                      handleInputChange("requirement", e.target.value)
-                    }
-                    required
-                  >
-                    <option value="" disabled>
-                      Select
-                    </option>
-                    <option value="consultation">Consultation</option>
-                    <option value="filling-litigation-advice">
-                      Filling/Litigation/Advice
-                    </option>
-                    <option value="others">Others</option>
-                  </select>
-                  <span className="consultancy-select-caret">
-                  </span>
-                </label>
-
-                {/* Time Field */}
-                <label className="consultancy-booking-field">
-                  <span>Time</span>
-                    <select className="consultancy-select"
-                      value={formData.time}
-                      onChange={(e) =>
-                        handleInputChange("time", e.target.value)
-                      }
-                      required
-                    >
-                      <option value="" disabled>
-                        Select Value
-                      </option>
-                      <option value="15">15 min</option>
-                      <option value="30">30 min</option>
-                      <option value="60">60 min</option>
-                    </select>
-                    <span className="consultancy-select-caret">
-                    </span>
-                </label>
-
-                {/* Subject Field - Text Input */}
-                <label className="consultancy-booking-field">
-                  <span>Subject</span>
-                  <input
-                    type="text"
-                    className="consultancy-text-input"
-                    value={formData.subject}
-                    onChange={(e) =>
-                      handleInputChange("subject", e.target.value)
-                    }
-                    placeholder="Enter subject"
-                    required
-                  />
-                </label>
-
-                {/* Comments Field - Text Input */}
-                <label className="consultancy-booking-field">
-                  <span>Comments</span>
+                  <span>Description</span>
                   <textarea
                     className="consultancy-textarea"
-                    value={formData.comments}
+                    value={formData.description}
                     onChange={(e) =>
-                      handleInputChange("comments", e.target.value)
+                      handleInputChange("description", e.target.value)
                     }
-                    placeholder="Enter comments"
+                    placeholder="Describe what you need help with"
                     rows="4"
                     required
                   />
                 </label>
 
-                {/* Documents Field - Multiple File Uploads */}
+                {/* Attachments Field - Multiple File Uploads */}
                 <div className="consultancy-booking-field">
-                  <span>Documents</span>
+                  <span>Attachments</span>
                   <div className="consultancy-documents-container">
                     {documentInputs.map((input, index) => (
                       <div
@@ -201,29 +139,34 @@ const ConsultancyBookingModal = ({ show, professional, onClose }) => {
                   </div>
                 </div>
 
-                {/* Reference For Communication Field */}
+                {/* Schedule a voice/video call (optional) */}
                 <label className="consultancy-booking-field">
-                  <span>Reference For Communication</span>
+                  <span>Schedule a voice/video call (optional)</span>
                   <div className="consultancy-select">
                     <select
-                      value={formData.reference}
+                      value={formData.callType}
                       onChange={(e) =>
-                        handleInputChange("reference", e.target.value)
+                        handleInputChange("callType", e.target.value)
                       }
-                      required
                     >
-                      <option value="" disabled>
-                        Select Value
-                      </option>
-                      <option value="chat">Chat</option>
+                      <option value="">No call needed</option>
+                      <option value="voice-call">Voice Call</option>
                       <option value="video-call">Video Call</option>
-                      <option value="normal-call">Normal Call</option>
-                      <option value="email">Email</option>
                     </select>
                     <span className="consultancy-select-caret">
                       <i className="bi bi-chevron-down"></i>
                     </span>
                   </div>
+                  {formData.callType && (
+                    <input
+                      type="datetime-local"
+                      className="consultancy-text-input mt-2"
+                      value={formData.callTime}
+                      onChange={(e) =>
+                        handleInputChange("callTime", e.target.value)
+                      }
+                    />
+                  )}
                 </label>
               </form>
             </div>

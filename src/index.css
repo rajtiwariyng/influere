@@ -7,6 +7,158 @@
 @import './styles/components/registration.css';
 @import './styles/components/login-modal.css';
 
+/* ===== On-scroll / onload reveal animations (#3) ===== */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+[data-animate].is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-animate] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ===== Honeycomb beehive (#2) — scroll-scrubbed flip ===== */
+.honeycomb {
+  --spread: 0;
+  padding: 24px 0 56px;
+  perspective: 1500px;
+}
+.honeycomb-grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.hc-col {
+  display: flex;
+  flex-direction: column;
+}
+/* columns un-pack from overlapping (-50px) to a gapped grid (+18px) as you scroll */
+.hc-col + .hc-col {
+  margin-left: calc(-50px + 68px * var(--spread));
+}
+.hc-col:nth-child(1),
+.hc-col:nth-child(3) {
+  margin-top: calc(86px * (1 - var(--spread)));
+}
+.hc-cell {
+  width: 200px;
+  height: 173px;
+  position: relative;
+}
+.hc-cell + .hc-cell {
+  margin-top: calc(2px + 16px * var(--spread));
+}
+.hc-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.hc-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 30px;
+  text-align: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.hc-front {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  background: #f5f5fb;
+}
+.hc-back {
+  border-radius: 12px;
+  background: #fff;
+  border: 2px solid var(--logo-magenta);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+  transform: rotateY(180deg);
+}
+.hc-icon { width: 38px; height: 38px; }
+.hc-cell h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--violet-500);
+  line-height: 1.2;
+}
+.hc-back p {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.45;
+  color: #555;
+}
+.hc-center { z-index: 5; }
+.hc-center-inner {
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 0 30px;
+  text-align: center;
+  box-shadow: 0 0 0 3px var(--logo-purple) inset;
+}
+.hc-center .hc-brand {
+  font-size: 17px;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.3px;
+}
+.hc-center .hc-provides {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 2px;
+}
+.hc-center p {
+  margin: 0;
+  font-size: 10.5px;
+  line-height: 1.4;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .honeycomb-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  .hc-col {
+    flex-direction: column;
+    margin: 0 !important;
+    gap: 14px;
+  }
+  .hc-cell + .hc-cell {
+    margin-top: 14px;
+  }
+  /* skip scrubbing on small screens: always show the rectangular cards */
+  .hc-surround .hc-inner {
+    transform: rotateY(180deg) !important;
+  }
+}
+
 
 .hero-section{
     background-image: url('../src/assets/hero-bg.svg');
@@ -160,7 +312,7 @@
     clip-path: none;
     /* becomes rectangle */
     border-radius: 8px;
-    border: 2px solid #FF562F;
+    border: 2px solid #d12e8e;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     padding: 8px;
     width: 280px;

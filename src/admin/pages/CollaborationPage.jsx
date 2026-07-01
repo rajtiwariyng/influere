@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import usePageTitle from "../../hooks/usePageTitle";
 import { collaborationProfiles } from "../data/collaborationProfilesData";
 import SliderDropdown from "../components/SliderDropdown";
@@ -8,9 +8,75 @@ import "./ConsultancyCategoryPage.css";
 import "./CollaborationPage.css";
 import "./Wallet.css";
 
+// Per-platform labels, copy and metric naming (#18).
+const PLATFORM_CONFIG = {
+  facebook: {
+    label: "Facebook",
+    countLabels: { posts: "Posts", followers: "Followers", following: "Following" },
+    repostLabel: "Shares",
+    rateUnit: "/ post",
+    description:
+      "Facebook creators with engaged communities, ideal for page collaborations, sponsored posts and shared campaigns.",
+  },
+  twitter: {
+    label: "Twitter",
+    countLabels: { posts: "Tweets", followers: "Followers", following: "Following" },
+    repostLabel: "Retweets",
+    rateUnit: "/ tweet",
+    description:
+      "Twitter voices with strong reach and conversation, great for real-time promotion, threads and retweet campaigns.",
+  },
+  youtube: {
+    label: "YouTube",
+    countLabels: { posts: "Videos", followers: "Subscribers", following: "Subscriptions" },
+    repostLabel: "Shares",
+    rateUnit: "/ video",
+    description:
+      "YouTube creators with loyal subscribers, perfect for product reviews, integrations and long-form sponsorships.",
+  },
+  linkedin: {
+    label: "LinkedIn",
+    countLabels: { posts: "Posts", followers: "Followers", following: "Connections" },
+    repostLabel: "Reposts",
+    rateUnit: "/ post",
+    description:
+      "LinkedIn professionals with industry influence, ideal for B2B thought-leadership and brand-credibility campaigns.",
+  },
+  tiktok: {
+    label: "TikTok",
+    countLabels: { posts: "Videos", followers: "Followers", following: "Following" },
+    repostLabel: "Reposts",
+    rateUnit: "/ video",
+    description:
+      "TikTok creators with viral potential, ideal for short-form trends, challenges and product-led storytelling.",
+  },
+  instagram: {
+    label: "Instagram",
+    countLabels: { posts: "Posts", followers: "Followers", following: "Following" },
+    repostLabel: "Reshares",
+    rateUnit: "/ post",
+    description:
+      "Instagram creators with visual-first audiences, perfect for reels, stories and feed collaborations.",
+  },
+};
+
+const DEFAULT_PLATFORM = {
+  label: "Collaboration",
+  countLabels: { posts: "Posts", followers: "Followers", following: "Following" },
+  repostLabel: "Reposts",
+  rateUnit: "/ post",
+  description:
+    "Active content creators with a highly engaged audience across their social platform.",
+};
+
 const CollaborationPage = () => {
-  usePageTitle("Collaboration");
   const navigate = useNavigate();
+  const location = useLocation();
+  const platformKey = location.pathname.split("/")[3]?.toLowerCase();
+  const platform =
+    Object.keys(PLATFORM_CONFIG).find((k) => k === platformKey) || null;
+  const platformConfig = platform ? PLATFORM_CONFIG[platform] : DEFAULT_PLATFORM;
+  usePageTitle(`${platformConfig.label} Collaboration`);
   const [selectedProfiles, setSelectedProfiles] = useState([]);
   const [workOrderName, setWorkOrderName] = useState("");
   const [workOrderDescription, setWorkOrderDescription] = useState("");
@@ -69,20 +135,19 @@ const CollaborationPage = () => {
           <h1 className="admin-page-title d-flex align-items-center gap-2 w-100">
             Collaborate{" "}
             <span className="ai-powered-badge">
-              AI Powered | Create a work order and let AI find you the right
-              person to work with.
+              AI Powered | Let AI find you the right person to work with.
             </span>
           </h1>
         </div>
       </div>
-      {/* Work Order Form */}
+      {/* Campaign Brief Form */}
       <div className="work-order-section">
         <p className="work-order-description">
-          Create a work order that can be sent to consultant. Write a brief description of the work to get started.
+          Create a brief that can be sent to collaborators. Write a short description of the campaign to get started.
         </p>
         <form onSubmit={handleWorkOrderSubmit} className="work-order-form">
           <div className="add-funds-section mb-0">
-            <label className="form-label">Work Order Name/Number</label>
+            <label className="form-label">Campaign Name/Number</label>
             <div className="form-input-group">
               <input
                 type="text"
@@ -224,66 +289,68 @@ const CollaborationPage = () => {
                 </div>
               </div>
 
-              {/* Tags */}
+              {/* Country + platform stats (#18) */}
               <div className="consultancy-card-tags">
-                {profile.partner && (
-                  <span className="consultancy-tag">
-                    <i className="bi bi-briefcase"></i>
-                    {profile.partner}
-                  </span>
-                )}
-                {profile.designation && (
-                  <span className="consultancy-tag">
-                    <i className="bi bi-award"></i>
-                    {profile.designation}
-                  </span>
-                )}
-                {profile.experience && (
-                  <span className="consultancy-tag">
-                    <i className="bi bi-buildings"></i>
-                    {profile.experience}
-                  </span>
-                )}
-                {profile.location && (
+                {profile.country && (
                   <span className="consultancy-tag">
                     <i className="bi bi-geo-alt"></i>
-                    {profile.location}
+                    {profile.country}
                   </span>
                 )}
+                <span className="consultancy-tag">
+                  <i className="bi bi-grid-3x3-gap"></i>
+                  {profile.posts} {platformConfig.countLabels.posts}
+                </span>
+                <span className="consultancy-tag">
+                  <i className="bi bi-people"></i>
+                  {profile.followers} {platformConfig.countLabels.followers}
+                </span>
+                <span className="consultancy-tag">
+                  <i className="bi bi-person-plus"></i>
+                  {profile.following} {platformConfig.countLabels.following}
+                </span>
               </div>
 
-              <p className="consultancy-card-summary">{profile.summary}</p>
+              <p className="consultancy-card-summary">{platformConfig.description}</p>
 
-              {/* Asking Rates */}
-              {profile.askingRates && (
+              {/* Activity: avg of last 10 posts (#18) */}
+              {profile.activity && (
+                <div className="collaboration-activity">
+                  <span className="collaboration-activity-title">
+                    Activity <small>(avg. last 10 posts)</small>
+                  </span>
+                  <div className="collaboration-activity-stats">
+                    <div className="collaboration-activity-item">
+                      <i className="bi bi-hand-thumbs-up"></i>
+                      <span>{profile.activity.likes}</span>
+                      <small>Likes</small>
+                    </div>
+                    <div className="collaboration-activity-item">
+                      <i className="bi bi-eye"></i>
+                      <span>{profile.activity.views}</span>
+                      <small>Views</small>
+                    </div>
+                    <div className="collaboration-activity-item">
+                      <i className="bi bi-chat"></i>
+                      <span>{profile.activity.comments}</span>
+                      <small>Comments</small>
+                    </div>
+                    <div className="collaboration-activity-item">
+                      <i className="bi bi-arrow-repeat"></i>
+                      <span>{profile.activity.reposts}</span>
+                      <small>{platformConfig.repostLabel}</small>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Asking Rate (platform-dependent) (#18) */}
+              {profile.askingRate && (
                 <div className="collaboration-asking-rates d-flex align-items-center gap-2">
                   <span className="asking-rates-title">Asking Rate:</span>
-                  <div className="asking-rates-list d-flex align-items-center gap-2 flex-wrap">
-                    {profile.askingRates.post && (
-                      <div className="asking-rate-item">
-                        <span className="asking-rate-label">Post:</span>
-                        <span className="asking-rate-value">
-                          {profile.askingRates.post}
-                        </span>
-                      </div>
-                    )}
-                    {profile.askingRates.repost && (
-                      <div className="asking-rate-item">
-                        <span className="asking-rate-label">Repost:</span>
-                        <span className="asking-rate-value">
-                          {profile.askingRates.repost}
-                        </span>
-                      </div>
-                    )}
-                    {profile.askingRates.retweet && (
-                      <div className="asking-rate-item">
-                        <span className="asking-rate-label">Retweet:</span>
-                        <span className="asking-rate-value">
-                          {profile.askingRates.retweet}
-                        </span>
-                      </div>
-                    )}
-                  </div>
+                  <span className="asking-rate-value">
+                    {profile.askingRate} {platformConfig.rateUnit}
+                  </span>
                 </div>
               )}
             </div>

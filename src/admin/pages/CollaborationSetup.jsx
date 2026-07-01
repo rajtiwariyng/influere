@@ -313,7 +313,7 @@ const CollaborationSetup = () => {
                           left: `${minSliderProgress}%`,
                           width: `${maxSliderProgress - minSliderProgress}%`,
                           height: "6px",
-                          background: "#066daf",
+                          background: "#2e6fb0",
                           borderRadius: "3px",
                           zIndex: 1
                         }}></div>

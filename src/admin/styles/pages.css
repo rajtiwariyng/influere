@@ -119,8 +119,8 @@
 
 .admin-form-label {
   display: block;
-  font-size: var(--admin-font-size-sm);
-  font-weight: var(--admin-font-weight-medium);
+  font-size: 15px;
+  font-weight: 500;
   color: var(--admin-text-primary);
   margin-bottom: var(--admin-space-2);
 }

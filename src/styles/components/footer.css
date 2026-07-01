@@ -6,6 +6,11 @@
   padding-bottom: 24px;
   border-top: 1px solid var(--violet-50);
 }
+.footer .col-md-4 > img{
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+}
 .footer .social-media-icons{
   display: flex;
   gap:6px;
